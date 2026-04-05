@@ -6,31 +6,246 @@
 <title>Modularer Elektrobaukasten | Achraf Abdi</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
-body { background: #f8fafc; color: #1e293b; line-height: 1.6; }
-a { text-decoration: none; color: #2563eb; }
-a:hover { text-decoration: underline; }
-header { text-align: center; padding: 60px 20px 40px; background: linear-gradient(to bottom, #ffffff, #eef4ff); border-bottom: 1px solid #e2e8f0; }
-header h1 { font-size: 2.5rem; margin-bottom: 12px; color: #0f172a; }
-header p { max-width: 900px; margin: 0 auto; color: #475569; font-size: 1.08rem; }
-.back-link { display: inline-block; margin-top: 18px; background: #2563eb; color: white; padding: 10px 18px; border-radius: 10px; font-weight: bold; }
-main { max-width: 1250px; margin: 0 auto; padding: 50px 20px 70px; }
-.summary-box { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 32px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06); margin-bottom: 30px; }
-.summary-box h2 { font-size: 1.9rem; margin-bottom: 16px; color: #0f172a; }
-.summary-box p { color: #475569; margin-bottom: 14px; font-size: 1.03rem; }
-.summary-box ul { padding-left: 22px; color: #475569; margin-top: 10px; }
-.summary-box li { margin-bottom: 8px; }
-.main-image-box { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06); margin-bottom: 34px; }
-.main-image-box img { width: 100%; max-height: 720px; object-fit: contain; display: block; border-radius: 14px; background: #f8fafc; }
-.gallery-title { font-size: 1.9rem; text-align: center; margin-bottom: 22px; color: #0f172a; }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
-.gallery-item { background: white; border: 1px solid #e2e8f0; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06); }
-.gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; background: #f1f5f9; }
-.gallery-caption { padding: 14px 16px; color: #475569; font-size: 0.98rem; }
-footer { text-align: center; padding: 30px 20px; color: #64748b; }
+
+body {
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #2563eb;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(to bottom, #ffffff, #eef4ff);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+header p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #475569;
+  font-size: 1.08rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 18px;
+  background: #2563eb;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 50px 20px 70px;
+}
+
+.summary-box {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  margin-bottom: 30px;
+}
+
+.summary-box h2 {
+  font-size: 1.9rem;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.summary-box p {
+  color: #475569;
+  margin-bottom: 14px;
+  font-size: 1.03rem;
+}
+
+.summary-box ul {
+  padding-left: 22px;
+  color: #475569;
+  margin-top: 10px;
+}
+
+.summary-box li {
+  margin-bottom: 8px;
+}
+
+.gallery-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.gallery-sidebar {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  position: sticky;
+  top: 20px;
+}
+
+.gallery-sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #0f172a;
+  text-align: center;
+}
+
+.thumb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.thumb-button {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s ease;
+}
+
+.thumb-button:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+}
+
+.thumb-button.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+}
+
+.thumb-button img {
+  width: 92px;
+  height: 68px;
+  object-fit: contain;
+  background: #f8fafc;
+  border-radius: 10px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.thumb-text {
+  color: #334155;
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.preview-panel {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.preview-panel h2 {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-bottom: 18px;
+  color: #0f172a;
+}
+
+.featured-image-box {
+  width: 100%;
+  min-height: 620px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.featured-image-box img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 14px;
+  background: white;
+}
+
+.featured-caption {
+  margin-top: 16px;
+  text-align: center;
+  color: #475569;
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: #64748b;
+}
+
+@media (max-width: 1000px) {
+  .gallery-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-sidebar {
+    position: static;
+  }
+
+  .featured-image-box {
+    min-height: 420px;
+  }
+}
+
 @media (max-width: 700px) {
-  header h1 { font-size: 2rem; }
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item img { height: 230px; }
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .thumb-button {
+    padding: 8px;
+  }
+
+  .thumb-button img {
+    width: 82px;
+    height: 62px;
+  }
+
+  .featured-image-box {
+    min-height: 320px;
+    padding: 12px;
+  }
+
+  .preview-panel h2,
+  .summary-box h2 {
+    font-size: 1.5rem;
+  }
 }
 </style>
 </head>
@@ -60,46 +275,144 @@ footer { text-align: center; padding: 30px 20px; color: #64748b; }
     </ul>
   </div>
 
-  <div class="main-image-box">
-    <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result of the modular electrical kit">
-  </div>
+  <div class="gallery-layout">
+    <aside class="gallery-sidebar">
+      <h2>Project Pictures</h2>
 
-  <h2 class="gallery-title">Project Pictures</h2>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG" alt="System design">
-      <div class="gallery-caption">System design of the modular electrical kit</div>
-    </div>
+      <div class="thumb-list">
+        <button class="thumb-button active" type="button"
+          data-src="images/elektrobaukasten/Endergebnis.jpeg"
+          data-alt="Final result of the modular electrical kit"
+          data-caption="Final result of the modular electrical kit">
+          <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result thumbnail">
+          <div class="thumb-text">Final result</div>
+        </button>
 
-    <div class="gallery-item">
-      <img src="images/elektrobaukasten/Schaltungsaufbau.PNG" alt="Circuit setup">
-      <div class="gallery-caption">Circuit setup</div>
-    </div>
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/endergebnis2.jpeg"
+          data-alt="Final result second view"
+          data-caption="Final result, second view">
+          <img src="images/elektrobaukasten/endergebnis2.jpeg" alt="Final result second view thumbnail">
+          <div class="thumb-text">Final result, second view</div>
+        </button>
 
-    <div class="gallery-item">
-      <img src="images/elektrobaukasten/2Arduino Megas.jpeg" alt="Two Arduino Mega boards">
-      <div class="gallery-caption">Two Arduino Mega boards in the setup</div>
-    </div>
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG"
+          data-alt="System design of the modular electrical kit"
+          data-caption="System design of the modular electrical kit">
+          <img src="images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG" alt="System design thumbnail">
+          <div class="thumb-text">System design</div>
+        </button>
 
-    <div class="gallery-item">
-      <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result">
-      <div class="gallery-caption">Final result</div>
-    </div>
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Schaltungsaufbau.PNG"
+          data-alt="Circuit setup"
+          data-caption="Circuit setup">
+          <img src="images/elektrobaukasten/Schaltungsaufbau.PNG" alt="Circuit setup thumbnail">
+          <div class="thumb-text">Circuit setup</div>
+        </button>
 
-    <div class="gallery-item">
-      <img src="images/elektrobaukasten/endergebnis2.jpeg" alt="Final result second view">
-      <div class="gallery-caption">Final result, second view</div>
-    </div>
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/2Arduino Megas.jpeg"
+          data-alt="Two Arduino Mega boards in the setup"
+          data-caption="Two Arduino Mega boards in the setup">
+          <img src="images/elektrobaukasten/2Arduino Megas.jpeg" alt="Two Arduino Mega boards thumbnail">
+          <div class="thumb-text">Two Arduino Mega boards</div>
+        </button>
 
-    <div class="gallery-item">
-      <img src="images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG" alt="I2C connection">
-      <div class="gallery-caption">I²C connection between Raspberry Pi and Arduino Mega boards</div>
-    </div>
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Raspberry pi.jpeg"
+          data-alt="Raspberry Pi overview"
+          data-caption="Raspberry Pi overview">
+          <img src="images/elektrobaukasten/Raspberry pi.jpeg" alt="Raspberry Pi thumbnail">
+          <div class="thumb-text">Raspberry Pi overview</div>
+        </button>
+
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/raspberry-pi-i2c.jpeg"
+          data-alt="Raspberry Pi I2C interface"
+          data-caption="Raspberry Pi I2C interface">
+          <img src="images/elektrobaukasten/raspberry-pi-i2c.jpeg" alt="Raspberry Pi I2C thumbnail">
+          <div class="thumb-text">Raspberry Pi I2C</div>
+        </button>
+
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG"
+          data-alt="I2C connection between Raspberry Pi and Arduino Mega boards"
+          data-caption="I²C connection between Raspberry Pi and Arduino Mega boards">
+          <img src="images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG" alt="I2C connection thumbnail">
+          <div class="thumb-text">I²C connection</div>
+        </button>
+
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Led Potentiometer schalter buzzer.jpeg"
+          data-alt="LED, potentiometer, switch, and buzzer module"
+          data-caption="LED, potentiometer, switch, and buzzer module">
+          <img src="images/elektrobaukasten/Led Potentiometer schalter buzzer.jpeg" alt="LED potentiometer switch buzzer thumbnail">
+          <div class="thumb-text">LED / potentiometer / switch / buzzer</div>
+        </button>
+
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Screenshot Code Test und debugging Arduino mega.jpeg"
+          data-alt="Arduino Mega code testing and debugging"
+          data-caption="Arduino Mega code testing and debugging">
+          <img src="images/elektrobaukasten/Screenshot Code Test und debugging Arduino mega.jpeg" alt="Arduino Mega debug thumbnail">
+          <div class="thumb-text">Arduino Mega debugging</div>
+        </button>
+
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Screenshot test und debugging Raspberry pi.jpeg"
+          data-alt="Raspberry Pi testing and debugging"
+          data-caption="Raspberry Pi testing and debugging">
+          <img src="images/elektrobaukasten/Screenshot test und debugging Raspberry pi.jpeg" alt="Raspberry Pi debug thumbnail">
+          <div class="thumb-text">Raspberry Pi debugging</div>
+        </button>
+
+        <button class="thumb-button" type="button"
+          data-src="images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG"
+          data-alt="Local website display"
+          data-caption="Local website display">
+          <img src="images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG" alt="Local website display thumbnail">
+          <div class="thumb-text">Local website display</div>
+        </button>
+      </div>
+    </aside>
+
+    <section class="preview-panel">
+      <h2>Technical Documentation & Gallery</h2>
+      <div class="featured-image-box">
+        <img id="featuredImage" src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result of the modular electrical kit">
+      </div>
+      <p class="featured-caption" id="featuredCaption">Final result of the modular electrical kit</p>
+    </section>
   </div>
 </main>
 
 <footer>
   <p>© 2026 Achraf Abdi. All rights reserved.</p>
 </footer>
+
+<script>
+const buttons = document.querySelectorAll('.thumb-button');
+const featuredImage = document.getElementById('featuredImage');
+const featuredCaption = document.getElementById('featuredCaption');
+
+function setFeatured(button) {
+  const src = button.getAttribute('data-src');
+  const alt = button.getAttribute('data-alt');
+  const caption = button.getAttribute('data-caption');
+
+  featuredImage.src = src;
+  featuredImage.alt = alt;
+  featuredCaption.textContent = caption;
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+}
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => setFeatured(button));
+});
+</script>
 </body>
 </html>
