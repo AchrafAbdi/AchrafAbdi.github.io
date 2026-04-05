@@ -53,7 +53,7 @@ header p {
 }
 
 main {
-  max-width: 1400px;
+  max-width: 1450px;
   margin: 0 auto;
   padding: 50px 20px 70px;
 }
@@ -91,7 +91,7 @@ main {
 
 .gallery-layout {
   display: grid;
-  grid-template-columns: 290px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 28px;
   align-items: start;
 }
@@ -145,13 +145,14 @@ main {
 }
 
 .thumb-button img {
-  width: 92px;
-  height: 68px;
+  width: 94px;
+  height: 70px;
   object-fit: contain;
   background: #f8fafc;
   border-radius: 10px;
   display: block;
   flex-shrink: 0;
+  border: 1px solid #e2e8f0;
 }
 
 .thumb-text {
@@ -177,7 +178,7 @@ main {
 
 .featured-image-box {
   width: 100%;
-  min-height: 620px;
+  min-height: 650px;
   border: 1px solid #e2e8f0;
   border-radius: 18px;
   background: #f8fafc;
@@ -185,6 +186,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 18px;
+  cursor: zoom-in;
 }
 
 .featured-image-box img {
@@ -203,13 +205,118 @@ main {
   font-size: 1rem;
 }
 
+.helper-text {
+  margin-top: 8px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.92rem;
+}
+
+.pdf-box {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.pdf-box h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  text-align: center;
+  color: #0f172a;
+}
+
+.pdf-status {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.92rem;
+  margin-bottom: 12px;
+}
+
+.pdf-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pdf-button {
+  display: inline-block;
+  text-align: center;
+  background: #2563eb;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 1px solid #2563eb;
+}
+
+.pdf-button.secondary {
+  background: white;
+  color: #2563eb;
+}
+
+.pdf-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 2000;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 95vw;
+  max-height: 92vh;
+  text-align: center;
+}
+
+.lightbox-content img {
+  max-width: 95vw;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 16px;
+  background: white;
+  display: block;
+  margin: 0 auto;
+}
+
+.lightbox-caption {
+  color: white;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: white;
+  color: #0f172a;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
 footer {
   text-align: center;
   padding: 30px 20px;
   color: #64748b;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .gallery-layout {
     grid-template-columns: 1fr;
   }
@@ -228,8 +335,9 @@ footer {
     font-size: 2rem;
   }
 
-  .thumb-button {
-    padding: 8px;
+  .preview-panel h2,
+  .summary-box h2 {
+    font-size: 1.5rem;
   }
 
   .thumb-button img {
@@ -240,11 +348,6 @@ footer {
   .featured-image-box {
     min-height: 320px;
     padding: 12px;
-  }
-
-  .preview-panel h2,
-  .summary-box h2 {
-    font-size: 1.5rem;
   }
 }
 </style>
@@ -278,141 +381,282 @@ footer {
   <div class="gallery-layout">
     <aside class="gallery-sidebar">
       <h2>Project Pictures</h2>
+      <div class="thumb-list" id="thumbList"></div>
 
-      <div class="thumb-list">
-        <button class="thumb-button active" type="button"
-          data-src="images/elektrobaukasten/Endergebnis.jpeg"
-          data-alt="Final result of the modular electrical kit"
-          data-caption="Final result of the modular electrical kit">
-          <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result thumbnail">
-          <div class="thumb-text">Final result</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/endergebnis2.jpeg"
-          data-alt="Final result second view"
-          data-caption="Final result, second view">
-          <img src="images/elektrobaukasten/endergebnis2.jpeg" alt="Final result second view thumbnail">
-          <div class="thumb-text">Final result, second view</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG"
-          data-alt="System design of the modular electrical kit"
-          data-caption="System design of the modular electrical kit">
-          <img src="images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG" alt="System design thumbnail">
-          <div class="thumb-text">System design</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Schaltungsaufbau.PNG"
-          data-alt="Circuit setup"
-          data-caption="Circuit setup">
-          <img src="images/elektrobaukasten/Schaltungsaufbau.PNG" alt="Circuit setup thumbnail">
-          <div class="thumb-text">Circuit setup</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/2Arduino Megas.jpeg"
-          data-alt="Two Arduino Mega boards in the setup"
-          data-caption="Two Arduino Mega boards in the setup">
-          <img src="images/elektrobaukasten/2Arduino Megas.jpeg" alt="Two Arduino Mega boards thumbnail">
-          <div class="thumb-text">Two Arduino Mega boards</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Raspberry pi.jpeg"
-          data-alt="Raspberry Pi overview"
-          data-caption="Raspberry Pi overview">
-          <img src="images/elektrobaukasten/Raspberry pi.jpeg" alt="Raspberry Pi thumbnail">
-          <div class="thumb-text">Raspberry Pi overview</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/raspberry-pi-i2c.jpeg"
-          data-alt="Raspberry Pi I2C interface"
-          data-caption="Raspberry Pi I2C interface">
-          <img src="images/elektrobaukasten/raspberry-pi-i2c.jpeg" alt="Raspberry Pi I2C thumbnail">
-          <div class="thumb-text">Raspberry Pi I2C</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG"
-          data-alt="I2C connection between Raspberry Pi and Arduino Mega boards"
-          data-caption="I²C connection between Raspberry Pi and Arduino Mega boards">
-          <img src="images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG" alt="I2C connection thumbnail">
-          <div class="thumb-text">I²C connection</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Led Potentiometer schalter buzzer.jpeg"
-          data-alt="LED, potentiometer, switch, and buzzer module"
-          data-caption="LED, potentiometer, switch, and buzzer module">
-          <img src="images/elektrobaukasten/Led Potentiometer schalter buzzer.jpeg" alt="LED potentiometer switch buzzer thumbnail">
-          <div class="thumb-text">LED / potentiometer / switch / buzzer</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Screenshot Code Test und debugging Arduino mega.jpeg"
-          data-alt="Arduino Mega code testing and debugging"
-          data-caption="Arduino Mega code testing and debugging">
-          <img src="images/elektrobaukasten/Screenshot Code Test und debugging Arduino mega.jpeg" alt="Arduino Mega debug thumbnail">
-          <div class="thumb-text">Arduino Mega debugging</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Screenshot test und debugging Raspberry pi.jpeg"
-          data-alt="Raspberry Pi testing and debugging"
-          data-caption="Raspberry Pi testing and debugging">
-          <img src="images/elektrobaukasten/Screenshot test und debugging Raspberry pi.jpeg" alt="Raspberry Pi debug thumbnail">
-          <div class="thumb-text">Raspberry Pi debugging</div>
-        </button>
-
-        <button class="thumb-button" type="button"
-          data-src="images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG"
-          data-alt="Local website display"
-          data-caption="Local website display">
-          <img src="images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG" alt="Local website display thumbnail">
-          <div class="thumb-text">Local website display</div>
-        </button>
+      <div class="pdf-box">
+        <h3>Project PDF</h3>
+        <p class="pdf-status" id="pdfStatus">Searching for PDF file...</p>
+        <div class="pdf-actions">
+          <a id="openPdfBtn" class="pdf-button disabled" href="#" target="_blank" rel="noopener noreferrer">Open PDF</a>
+          <a id="downloadPdfBtn" class="pdf-button secondary disabled" href="#" download>Download PDF</a>
+        </div>
       </div>
     </aside>
 
     <section class="preview-panel">
       <h2>Technical Documentation & Gallery</h2>
-      <div class="featured-image-box">
-        <img id="featuredImage" src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result of the modular electrical kit">
+      <div class="featured-image-box" id="featuredBox">
+        <img id="featuredImage" alt="Project image">
       </div>
-      <p class="featured-caption" id="featuredCaption">Final result of the modular electrical kit</p>
+      <p class="featured-caption" id="featuredCaption"></p>
+      <p class="helper-text">Click the big image to open it larger in the center.</p>
     </section>
   </div>
 </main>
+
+<div class="lightbox" id="lightbox">
+  <button class="close-lightbox" id="closeLightbox" aria-label="Close image viewer">&times;</button>
+  <div class="lightbox-content">
+    <img id="lightboxImage" alt="Large project image">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
 
 <footer>
   <p>© 2026 Achraf Abdi. All rights reserved.</p>
 </footer>
 
 <script>
-const buttons = document.querySelectorAll('.thumb-button');
-const featuredImage = document.getElementById('featuredImage');
-const featuredCaption = document.getElementById('featuredCaption');
+const galleryItems = [
+  {
+    title: "Final result",
+    caption: "Final result of the modular electrical kit",
+    sources: ["images/elektrobaukasten/Endergebnis.jpeg"]
+  },
+  {
+    title: "Final result, second view",
+    caption: "Final result, second view",
+    sources: ["images/elektrobaukasten/endergebnis2.jpeg"]
+  },
+  {
+    title: "System design",
+    caption: "System design of the modular electrical kit",
+    sources: [
+      "images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG",
+      "images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.PNG",
+      "images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.png",
+      "images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.png"
+    ]
+  },
+  {
+    title: "Circuit setup",
+    caption: "Circuit setup",
+    sources: ["images/elektrobaukasten/Schaltungsaufbau.PNG"]
+  },
+  {
+    title: "Two Arduino Mega boards",
+    caption: "Two Arduino Mega boards in the setup",
+    sources: ["images/elektrobaukasten/2Arduino Megas.jpeg"]
+  },
+  {
+    title: "Raspberry Pi overview",
+    caption: "Raspberry Pi overview",
+    sources: ["images/elektrobaukasten/Raspberry pi.jpeg"]
+  },
+  {
+    title: "Raspberry Pi I2C",
+    caption: "Raspberry Pi I2C interface",
+    sources: ["images/elektrobaukasten/raspberry-pi-i2c.jpeg"]
+  },
+  {
+    title: "I²C connection",
+    caption: "I²C connection between Raspberry Pi and Arduino Mega boards",
+    sources: [
+      "images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG",
+      "images/elektrobaukasten/Aufbau der I2C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG",
+      "images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.png",
+      "images/elektrobaukasten/Aufbau der I2C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.png"
+    ]
+  },
+  {
+    title: "LED / potentiometer / switch / buzzer",
+    caption: "LED, potentiometer, switch, and buzzer module",
+    sources: ["images/elektrobaukasten/Led Potentiometer schalter buzzer.jpeg"]
+  },
+  {
+    title: "Arduino Mega debugging",
+    caption: "Arduino Mega code testing and debugging",
+    sources: ["images/elektrobaukasten/Screenshot Code Test und debugging Arduino mega.jpeg"]
+  },
+  {
+    title: "Raspberry Pi debugging",
+    caption: "Raspberry Pi testing and debugging",
+    sources: ["images/elektrobaukasten/Screenshot test und debugging Raspberry pi.jpeg"]
+  },
+  {
+    title: "Local website display",
+    caption: "Local website display",
+    sources: ["images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG"]
+  }
+];
 
-function setFeatured(button) {
-  const src = button.getAttribute('data-src');
-  const alt = button.getAttribute('data-alt');
-  const caption = button.getAttribute('data-caption');
+const pdfCandidates = [
+  "images/elektrobaukasten/Elektrobaukasten.pdf",
+  "images/elektrobaukasten/Modularer Elektrobaukasten.pdf",
+  "images/elektrobaukasten/Modularer_Elektrobaukasten.pdf",
+  "images/elektrobaukasten/Dokumentation.pdf",
+  "images/elektrobaukasten/Documentation.pdf",
+  "images/elektrobaukasten/Projektdokumentation.pdf",
+  "images/elektrobaukasten/Project Documentation.pdf",
+  "images/elektrobaukasten/whole work.pdf"
+];
 
-  featuredImage.src = src;
-  featuredImage.alt = alt;
-  featuredCaption.textContent = caption;
+const thumbList = document.getElementById("thumbList");
+const featuredImage = document.getElementById("featuredImage");
+const featuredCaption = document.getElementById("featuredCaption");
+const featuredBox = document.getElementById("featuredBox");
 
-  buttons.forEach(btn => btn.classList.remove('active'));
-  button.classList.add('active');
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const closeLightbox = document.getElementById("closeLightbox");
+
+const openPdfBtn = document.getElementById("openPdfBtn");
+const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+const pdfStatus = document.getElementById("pdfStatus");
+
+let currentItemIndex = 0;
+
+function placeholderData(text) {
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+      <rect width="100%" height="100%" fill="#f8fafc"/>
+      <rect x="20" y="20" width="1160" height="760" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#475569">${text}</text>
+      <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#94a3b8">Image file could not be loaded</text>
+    </svg>
+  `;
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
 }
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => setFeatured(button));
+function setImageWithFallback(imgEl, sources, fallbackText) {
+  const list = Array.isArray(sources) ? sources.slice() : [sources];
+  let index = 0;
+
+  function tryNext() {
+    if (index >= list.length) {
+      imgEl.onerror = null;
+      imgEl.src = placeholderData(fallbackText);
+      return;
+    }
+    const path = list[index++];
+    imgEl.onerror = tryNext;
+    imgEl.src = encodeURI(path);
+  }
+
+  tryNext();
+}
+
+function createThumbButton(item, index) {
+  const button = document.createElement("button");
+  button.className = "thumb-button";
+  button.type = "button";
+
+  const img = document.createElement("img");
+  img.alt = item.title;
+  setImageWithFallback(img, item.sources, item.title);
+
+  const text = document.createElement("div");
+  text.className = "thumb-text";
+  text.textContent = item.title;
+
+  button.appendChild(img);
+  button.appendChild(text);
+
+  button.addEventListener("click", () => {
+    showItem(index);
+  });
+
+  return button;
+}
+
+function renderThumbs() {
+  thumbList.innerHTML = "";
+  galleryItems.forEach((item, index) => {
+    thumbList.appendChild(createThumbButton(item, index));
+  });
+}
+
+function updateActiveThumb() {
+  const buttons = thumbList.querySelectorAll(".thumb-button");
+  buttons.forEach((button, index) => {
+    button.classList.toggle("active", index === currentItemIndex);
+  });
+}
+
+function showItem(index) {
+  currentItemIndex = index;
+  const item = galleryItems[index];
+  setImageWithFallback(featuredImage, item.sources, item.title);
+  featuredImage.alt = item.caption;
+  featuredCaption.textContent = item.caption;
+  updateActiveThumb();
+}
+
+function openLightboxView() {
+  const item = galleryItems[currentItemIndex];
+  setImageWithFallback(lightboxImage, item.sources, item.title);
+  lightboxImage.alt = item.caption;
+  lightboxCaption.textContent = item.caption;
+  lightbox.classList.add("open");
+}
+
+function closeLightboxView() {
+  lightbox.classList.remove("open");
+}
+
+featuredBox.addEventListener("click", openLightboxView);
+closeLightbox.addEventListener("click", closeLightboxView);
+
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    closeLightboxView();
+  }
 });
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeLightboxView();
+  }
+});
+
+async function fileExists(path) {
+  const encodedPath = encodeURI(path);
+
+  try {
+    const headResponse = await fetch(encodedPath, { method: "HEAD" });
+    if (headResponse.ok) return true;
+    if (headResponse.status !== 405) return false;
+  } catch (error) {}
+
+  try {
+    const getResponse = await fetch(encodedPath, { method: "GET" });
+    return getResponse.ok;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function setupPdfLinks() {
+  for (const pdfPath of pdfCandidates) {
+    const exists = await fileExists(pdfPath);
+    if (exists) {
+      const encoded = encodeURI(pdfPath);
+      openPdfBtn.href = encoded;
+      downloadPdfBtn.href = encoded;
+      openPdfBtn.classList.remove("disabled");
+      downloadPdfBtn.classList.remove("disabled");
+      pdfStatus.textContent = "PDF found. You can open or download it.";
+      return;
+    }
+  }
+
+  pdfStatus.textContent = "PDF not found automatically. Add its exact filename in the pdfCandidates list in this file.";
+}
+
+renderThumbs();
+showItem(0);
+setupPdfLinks();
 </script>
 </body>
 </html>
