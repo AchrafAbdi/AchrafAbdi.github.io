@@ -1,91 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modularer Elektrobaukasten | Project Details</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-    body { background: #f8fafc; color: #1e293b; line-height: 1.6; }
-    
-    header { padding: 60px 20px; background: white; border-bottom: 1px solid #e2e8f0; text-align: center; }
-    .back-btn { display: inline-block; margin-bottom: 20px; color: #2563eb; font-weight: bold; }
-
-    main { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-    
-    .content-box { background: white; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 30px; }
-    h1 { font-size: 2.5rem; color: #0f172a; margin-bottom: 10px; }
-    h2 { color: #0f172a; margin-bottom: 15px; }
-
-    /* Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
-    .gallery-item { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
-    .gallery-item img { width: 100%; height: 250px; object-fit: cover; transition: 0.3s; }
-    .gallery-item img:hover { transform: scale(1.05); }
-    .caption { padding: 15px; font-size: 0.9rem; color: #64748b; text-align: center; }
-
-    /* Featured Image */
-    .featured-img { width: 100%; border-radius: 16px; margin: 20px 0; border: 1px solid #e2e8f0; }
-
-    footer { text-align: center; padding: 40px; color: #64748b; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Modularer Elektrobaukasten | Achraf Abdi</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+body { background: #f8fafc; color: #1e293b; line-height: 1.6; }
+a { text-decoration: none; color: #2563eb; }
+a:hover { text-decoration: underline; }
+header { text-align: center; padding: 60px 20px 40px; background: linear-gradient(to bottom, #ffffff, #eef4ff); border-bottom: 1px solid #e2e8f0; }
+header h1 { font-size: 2.5rem; margin-bottom: 12px; color: #0f172a; }
+header p { max-width: 900px; margin: 0 auto; color: #475569; font-size: 1.08rem; }
+.back-link { display: inline-block; margin-top: 18px; background: #2563eb; color: white; padding: 10px 18px; border-radius: 10px; font-weight: bold; }
+main { max-width: 1250px; margin: 0 auto; padding: 50px 20px 70px; }
+.summary-box { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 32px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06); margin-bottom: 30px; }
+.summary-box h2 { font-size: 1.9rem; margin-bottom: 16px; color: #0f172a; }
+.summary-box p { color: #475569; margin-bottom: 14px; font-size: 1.03rem; }
+.summary-box ul { padding-left: 22px; color: #475569; margin-top: 10px; }
+.summary-box li { margin-bottom: 8px; }
+.main-image-box { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06); margin-bottom: 34px; }
+.main-image-box img { width: 100%; max-height: 720px; object-fit: contain; display: block; border-radius: 14px; background: #f8fafc; }
+.gallery-title { font-size: 1.9rem; text-align: center; margin-bottom: 22px; color: #0f172a; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+.gallery-item { background: white; border: 1px solid #e2e8f0; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06); }
+.gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; background: #f1f5f9; }
+.gallery-caption { padding: 14px 16px; color: #475569; font-size: 0.98rem; }
+footer { text-align: center; padding: 30px 20px; color: #64748b; }
+@media (max-width: 700px) {
+  header h1 { font-size: 2rem; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item img { height: 230px; }
+}
+</style>
 </head>
 <body>
+<header>
+  <h1>Modularer Elektrobaukasten</h1>
+  <p>
+    A modular control system for electric vehicle functions with sensors, switches, display integration, and different output components.
+  </p>
+  <a class="back-link" href="index.html">Back to Portfolio</a>
+</header>
 
-  <header>
-    <a href="index.html" class="back-btn">← Back to Portfolio</a>
-    <h1>Modularer Elektrobaukasten</h1>
-    <p>A Multi-Controller Embedded System for Vehicle Functions</p>
-  </header>
+<main>
+  <div class="summary-box">
+    <h2>Project Summary</h2>
+    <p>
+      This project was developed as a modular electrical kit for vehicle related functions. The goal was to create a compact and flexible system that can connect different inputs and outputs in one practical structure.
+    </p>
+    <p>
+      The setup combines Raspberry Pi, Arduino Mega boards, switches, sensors, and output elements such as lighting, horn, heating, ventilation, and wipers. The project connects software logic, electronics, and communication between multiple components.
+    </p>
+    <ul>
+      <li>Modular design for easier extension and testing</li>
+      <li>Communication between Raspberry Pi and Arduino boards</li>
+      <li>Integration of sensors, switches, and output functions</li>
+      <li>Practical application in electromobility and embedded systems</li>
+    </ul>
+  </div>
 
-  <main>
-    <div class="content-box">
-      <h2>Project Overview</h2>
-      <p>This project serves as a modular electrical testing kit for electromobility applications. It simulates essential vehicle functions like lighting, ventilation, and sensor monitoring within a unified control structure.</p>
-      <br>
-      <p><strong>Key Technical Highlights:</strong></p>
-      <ul style="margin-left: 20px;">
-        <li>Master-Slave architecture using <strong>I2C communication</strong>.</li>
-        <li><strong>Raspberry Pi</strong> acting as the main processor for high-level logic.</li>
-        <li>Dual <strong>Arduino Mega</strong> boards handling real-time I/O (switches, sensors, actuators).</li>
-        <li>Integration of heating, ventilation, and lighting controls.</li>
-      </ul>
+  <div class="main-image-box">
+    <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result of the modular electrical kit">
+  </div>
+
+  <h2 class="gallery-title">Project Pictures</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG" alt="System design">
+      <div class="gallery-caption">System design of the modular electrical kit</div>
     </div>
 
-    <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final Assembly" class="featured-img">
-
-    <h2>Technical Documentation & Gallery</h2>
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="images/elektrobaukasten/Systemdesign.PNG" alt="System Design">
-        <div class="caption">High-level System Architecture</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/elektrobaukasten/Schaltungsaufbau.PNG" alt="Circuit Setup">
-        <div class="caption">Detailed Circuit Wiring</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/elektrobaukasten/Raspberry_pi_i2c.jpeg" alt="Raspberry Pi I2C">
-        <div class="caption">Raspberry Pi I2C Interface</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/elektrobaukasten/2Arduino_Megas.jpeg" alt="Arduino Megas">
-        <div class="caption">Dual Arduino Mega Control Units</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/elektrobaukasten/I2C_Connection.PNG" alt="I2C Connection">
-        <div class="caption">Bus Communication Topology</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/elektrobaukasten/endergebnis2.jpeg" alt="Final View">
-        <div class="caption">Alternative View of Completed Kit</div>
-      </div>
+    <div class="gallery-item">
+      <img src="images/elektrobaukasten/Schaltungsaufbau.PNG" alt="Circuit setup">
+      <div class="gallery-caption">Circuit setup</div>
     </div>
-  </main>
 
-  <footer>
-    <p>© 2026 Achraf Abdi</p>
-  </footer>
+    <div class="gallery-item">
+      <img src="images/elektrobaukasten/2Arduino Megas.jpeg" alt="Two Arduino Mega boards">
+      <div class="gallery-caption">Two Arduino Mega boards in the setup</div>
+    </div>
 
+    <div class="gallery-item">
+      <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result">
+      <div class="gallery-caption">Final result</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/elektrobaukasten/endergebnis2.jpeg" alt="Final result second view">
+      <div class="gallery-caption">Final result, second view</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG" alt="I2C connection">
+      <div class="gallery-caption">I²C connection between Raspberry Pi and Arduino Mega boards</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Achraf Abdi. All rights reserved.</p>
+</footer>
 </body>
 </html>
