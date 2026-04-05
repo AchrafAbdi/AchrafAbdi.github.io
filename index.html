@@ -12,6 +12,10 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: #f8fafc;
       color: #1e293b;
@@ -64,7 +68,7 @@
     header p {
       font-size: 1.1rem;
       color: #475569;
-      max-width: 700px;
+      max-width: 760px;
       margin: 0 auto 24px;
     }
 
@@ -92,7 +96,7 @@
 
     h2 {
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       color: #0f172a;
       text-align: center;
     }
@@ -102,4 +106,271 @@
       border: 1px solid #e2e8f0;
       border-radius: 18px;
       padding: 30px;
-      box-shadow: 0 8px 24px rgba(15, 23,
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .about-text {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+      color: #475569;
+      font-size: 1.05rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      transition: transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .project-image {
+      height: 190px;
+      overflow: hidden;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1d4ed8;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 10px;
+      color: #0f172a;
+      font-size: 1.2rem;
+    }
+
+    .project-content p {
+      color: #475569;
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .skill {
+      background: white;
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #334155;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-box p {
+      margin: 10px 0;
+      color: #475569;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #e2e8f0;
+      color: #64748b;
+      background: white;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .project-image {
+        height: 170px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Achraf Abdi</h1>
+    <p>
+      Mechatronics student with a focus on electromobility. I enjoy building practical
+      projects in robotics, embedded systems, electronics, and web development.
+    </p>
+    <a class="button" href="#projects">See My Projects</a>
+    <a class="button secondary" href="https://github.com/AchrafAbdi" target="_blank">My GitHub</a>
+  </header>
+
+  <section id="about">
+    <div class="card">
+      <h2>About Me</h2>
+      <p class="about-text">
+        Hello, I am <strong>Achraf Abdi</strong>. I study mechatronics and I focus on
+        electromobility. I like working on technical and creative projects that combine
+        software, hardware, and engineering. My interests include embedded systems,
+        robotics, Arduino, ESP32, Raspberry Pi, and practical development for real applications.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.PNG" alt="Modularer Elektrobaukasten">
+        </div>
+        <div class="project-content">
+          <h3>Modularer Elektrobaukasten</h3>
+          <p>
+            A modular control system for electric vehicle functions with sensors, switches,
+            display integration, lighting, horn, heating, ventilation, and wipers.
+          </p>
+          <div class="tags">
+            <span class="tag">Electromobility</span>
+            <span class="tag">Embedded Systems</span>
+            <span class="tag">Vehicle Control</span>
+          </div>
+          <a href="elektrobaukasten.html">Open Project</a> |
+          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder">GameCube Project</div>
+        </div>
+        <div class="project-content">
+          <h3>GameCube Portable Controller Project</h3>
+          <p>
+            A custom GameCube controller project with hardware modifications and a creative portable design.
+          </p>
+          <div class="tags">
+            <span class="tag">Hardware</span>
+            <span class="tag">Design</span>
+            <span class="tag">Electronics</span>
+          </div>
+          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="placeholder">NAO Tic Tac Toe Project</div>
+        </div>
+        <div class="project-content">
+          <h3>NAO Tic Tac Toe Project</h3>
+          <p>
+            A robotics project where a NAO robot plays tic tac toe with a human player using scanning and game logic.
+          </p>
+          <div class="tags">
+            <span class="tag">Robotics</span>
+            <span class="tag">Python</span>
+            <span class="tag">NAO</span>
+          </div>
+          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span class="skill">Python</span>
+        <span class="skill">C++</span>
+        <span class="skill">Arduino</span>
+        <span class="skill">ESP32</span>
+        <span class="skill">Raspberry Pi</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">Embedded Systems</span>
+        <span class="skill">Robotics</span>
+        <span class="skill">Electromobility</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="card contact-box">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:achrefabdi907@gmail.com">achrefabdi907@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/AchrafAbdi" target="_blank">github.com/AchrafAbdi</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Achraf Abdi. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
