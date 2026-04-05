@@ -1,662 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Modularer Elektrobaukasten | Achraf Abdi</title>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modularer Elektrobaukasten | Achraf Abdi</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-body {
-  background: #f8fafc;
-  color: #1e293b;
-  line-height: 1.6;
-}
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
 
-a {
-  text-decoration: none;
-  color: #2563eb;
-}
+    a {
+      text-decoration: none;
+      color: #2563eb;
+    }
 
-a:hover {
-  text-decoration: underline;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-header {
-  text-align: center;
-  padding: 60px 20px 40px;
-  background: linear-gradient(to bottom, #ffffff, #eef4ff);
-  border-bottom: 1px solid #e2e8f0;
-}
+    header {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 70px 20px 50px;
+      background: linear-gradient(to bottom, #ffffff, #eef4ff);
+      border-bottom: 1px solid #e2e8f0;
+    }
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
-  color: #0f172a;
-}
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("images/elektrobaukasten/Cargopedlec.PNG");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.14;
+      filter: saturate(0.9);
+    }
 
-header p {
-  max-width: 900px;
-  margin: 0 auto;
-  color: #475569;
-  font-size: 1.08rem;
-}
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
 
-.back-link {
-  display: inline-block;
-  margin-top: 18px;
-  background: #2563eb;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-weight: bold;
-}
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
 
-main {
-  max-width: 1450px;
-  margin: 0 auto;
-  padding: 50px 20px 70px;
-}
+    header p {
+      max-width: 950px;
+      margin: 0 auto;
+      color: #334155;
+      font-size: 1.08rem;
+    }
 
-.summary-box {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  margin-bottom: 30px;
-}
+    .back-link {
+      display: inline-block;
+      margin-top: 18px;
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
 
-.summary-box h2 {
-  font-size: 1.9rem;
-  margin-bottom: 16px;
-  color: #0f172a;
-}
+    main {
+      max-width: 1450px;
+      margin: 0 auto;
+      padding: 50px 20px 70px;
+    }
 
-.summary-box p {
-  color: #475569;
-  margin-bottom: 14px;
-  font-size: 1.03rem;
-}
+    .summary-box {
+      position: relative;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
 
-.summary-box ul {
-  padding-left: 22px;
-  color: #475569;
-  margin-top: 10px;
-}
+    .summary-box::before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      width: 280px;
+      height: 280px;
+      background-image: url("images/elektrobaukasten/Cargopedlec.PNG");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.08;
+      pointer-events: none;
+    }
 
-.summary-box li {
-  margin-bottom: 8px;
-}
+    .summary-box > * {
+      position: relative;
+      z-index: 1;
+    }
 
-.gallery-layout {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 28px;
-  align-items: start;
-}
+    .summary-box h2 {
+      font-size: 1.9rem;
+      margin-bottom: 16px;
+      color: #0f172a;
+    }
 
-.gallery-sidebar {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 18px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  position: sticky;
-  top: 20px;
-}
+    .summary-box p {
+      color: #475569;
+      margin-bottom: 14px;
+      font-size: 1.03rem;
+    }
 
-.gallery-sidebar h2 {
-  font-size: 1.5rem;
-  margin-bottom: 16px;
-  color: #0f172a;
-  text-align: center;
-}
+    .summary-highlight {
+      background: #f8fbff;
+      border: 1px solid #dbeafe;
+      border-left: 4px solid #2563eb;
+      border-radius: 14px;
+      padding: 16px 18px;
+      color: #334155;
+    }
 
-.thumb-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+    .summary-box ul {
+      padding-left: 22px;
+      color: #475569;
+      margin-top: 10px;
+    }
 
-.thumb-button {
-  width: 100%;
-  border: 1px solid #e2e8f0;
-  background: white;
-  border-radius: 14px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  text-align: left;
-  transition: 0.2s ease;
-}
+    .summary-box li {
+      margin-bottom: 8px;
+    }
 
-.thumb-button:hover {
-  border-color: #93c5fd;
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
-}
+    .gallery-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
 
-.thumb-button.active {
-  border-color: #2563eb;
-  background: #eff6ff;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
-}
+    .gallery-sidebar {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      position: sticky;
+      top: 20px;
+    }
 
-.thumb-button img {
-  width: 94px;
-  height: 70px;
-  object-fit: contain;
-  background: #f8fafc;
-  border-radius: 10px;
-  display: block;
-  flex-shrink: 0;
-  border: 1px solid #e2e8f0;
-}
+    .gallery-sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #0f172a;
+      text-align: center;
+    }
 
-.thumb-text {
-  color: #334155;
-  font-size: 0.94rem;
-  line-height: 1.35;
-}
+    .thumb-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-.preview-panel {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 22px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-}
+    .thumb-button {
+      width: 100%;
+      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.2s ease;
+    }
 
-.preview-panel h2 {
-  font-size: 1.9rem;
-  text-align: center;
-  margin-bottom: 18px;
-  color: #0f172a;
-}
+    .thumb-button:hover {
+      border-color: #93c5fd;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+    }
 
-.featured-image-box {
-  width: 100%;
-  min-height: 650px;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  background: #f8fafc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  cursor: zoom-in;
-}
+    .thumb-button.active {
+      border-color: #2563eb;
+      background: #eff6ff;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+    }
 
-.featured-image-box img {
-  max-width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  display: block;
-  border-radius: 14px;
-  background: white;
-}
+    .thumb-button img {
+      width: 94px;
+      height: 70px;
+      object-fit: contain;
+      background: #f8fafc;
+      border-radius: 10px;
+      display: block;
+      flex-shrink: 0;
+      border: 1px solid #e2e8f0;
+    }
 
-.featured-caption {
-  margin-top: 16px;
-  text-align: center;
-  color: #475569;
-  font-size: 1rem;
-}
+    .thumb-text {
+      color: #334155;
+      font-size: 0.94rem;
+      line-height: 1.35;
+    }
 
-.helper-text {
-  margin-top: 8px;
-  text-align: center;
-  color: #64748b;
-  font-size: 0.92rem;
-}
+    .preview-panel {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
 
-.pdf-box {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid #e2e8f0;
-}
+    .preview-panel h2 {
+      font-size: 1.9rem;
+      text-align: center;
+      margin-bottom: 18px;
+      color: #0f172a;
+    }
 
-.pdf-box h3 {
-  font-size: 1.05rem;
-  margin-bottom: 8px;
-  text-align: center;
-  color: #0f172a;
-}
+    .featured-image-box {
+      width: 100%;
+      min-height: 650px;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      cursor: zoom-in;
+    }
 
-.pdf-status {
-  text-align: center;
-  color: #64748b;
-  font-size: 0.92rem;
-  margin-bottom: 12px;
-}
+    .featured-image-box img {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 14px;
+      background: white;
+    }
 
-.pdf-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+    .featured-caption {
+      margin-top: 16px;
+      text-align: center;
+      color: #475569;
+      font-size: 1rem;
+    }
 
-.pdf-button {
-  display: inline-block;
-  text-align: center;
-  background: #2563eb;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: bold;
-  border: 1px solid #2563eb;
-}
+    .helper-text {
+      margin-top: 8px;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.92rem;
+    }
 
-.pdf-button.secondary {
-  background: white;
-  color: #2563eb;
-}
+    .pdf-box {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #e2e8f0;
+    }
 
-.pdf-button.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+    .pdf-box h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      text-align: center;
+      color: #0f172a;
+    }
 
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.85);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  z-index: 2000;
-}
+    .pdf-status {
+      text-align: center;
+      color: #64748b;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
 
-.lightbox.open {
-  display: flex;
-}
+    .pdf-language {
+      text-align: center;
+      color: #475569;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
 
-.lightbox-content {
-  max-width: 95vw;
-  max-height: 92vh;
-  text-align: center;
-}
+    .pdf-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.lightbox-content img {
-  max-width: 95vw;
-  max-height: 82vh;
-  object-fit: contain;
-  border-radius: 16px;
-  background: white;
-  display: block;
-  margin: 0 auto;
-}
+    .pdf-button {
+      display: inline-block;
+      text-align: center;
+      background: #2563eb;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 1px solid #2563eb;
+    }
 
-.lightbox-caption {
-  color: white;
-  margin-top: 12px;
-  font-size: 1rem;
-}
+    .pdf-button.secondary {
+      background: white;
+      color: #2563eb;
+    }
 
-.close-lightbox {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  background: white;
-  color: #0f172a;
-  border: none;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
+    .pdf-button.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
 
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  color: #64748b;
-}
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 2000;
+    }
 
-@media (max-width: 1050px) {
-  .gallery-layout {
-    grid-template-columns: 1fr;
-  }
+    .lightbox.open {
+      display: flex;
+    }
 
-  .gallery-sidebar {
-    position: static;
-  }
+    .lightbox-content {
+      max-width: 95vw;
+      max-height: 92vh;
+      text-align: center;
+    }
 
-  .featured-image-box {
-    min-height: 420px;
-  }
-}
+    .lightbox-content img {
+      max-width: 95vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 16px;
+      background: white;
+      display: block;
+      margin: 0 auto;
+    }
 
-@media (max-width: 700px) {
-  header h1 {
-    font-size: 2rem;
-  }
+    .lightbox-caption {
+      color: white;
+      margin-top: 12px;
+      font-size: 1rem;
+    }
 
-  .preview-panel h2,
-  .summary-box h2 {
-    font-size: 1.5rem;
-  }
+    .close-lightbox {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: white;
+      color: #0f172a;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
 
-  .thumb-button img {
-    width: 82px;
-    height: 62px;
-  }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #64748b;
+    }
 
-  .featured-image-box {
-    min-height: 320px;
-    padding: 12px;
-  }
-}
-</style>
+    @media (max-width: 1050px) {
+      .gallery-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-sidebar {
+        position: static;
+      }
+
+      .featured-image-box {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .preview-panel h2,
+      .summary-box h2 {
+        font-size: 1.5rem;
+      }
+
+      .thumb-button img {
+        width: 82px;
+        height: 62px;
+      }
+
+      .featured-image-box {
+        min-height: 320px;
+        padding: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>Modularer Elektrobaukasten</h1>
-  <p>
-    A modular control system for electric vehicle functions with sensors, switches, display integration, and different output components.
-  </p>
-  <a class="back-link" href="index.html">Back to Portfolio</a>
-</header>
-
-<main>
-  <div class="summary-box">
-    <h2>Project Summary</h2>
+  <header>
+    <h1>Modularer Elektrobaukasten</h1>
     <p>
-      This project was developed as a modular electrical kit for vehicle related functions. The goal was to create a compact and flexible system that can connect different inputs and outputs in one practical structure.
+      A compact modular system for controlling electrical vehicle components, developed primarily for the Cargo-Pedelec of Hochschule Bochum and also suitable for other vehicle models.
     </p>
-    <p>
-      The setup combines Raspberry Pi, Arduino Mega boards, switches, sensors, and output elements such as lighting, horn, heating, ventilation, and wipers. The project connects software logic, electronics, and communication between multiple components.
-    </p>
-    <ul>
-      <li>Modular design for easier extension and testing</li>
-      <li>Communication between Raspberry Pi and Arduino boards</li>
-      <li>Integration of sensors, switches, and output functions</li>
-      <li>Practical application in electromobility and embedded systems</li>
-    </ul>
-  </div>
+    <a class="back-link" href="index.html">Back to Portfolio</a>
+  </header>
 
-  <div class="gallery-layout">
-    <aside class="gallery-sidebar">
-      <h2>Project Pictures</h2>
-      <div class="thumb-list" id="thumbList"></div>
+  <main>
+    <div class="summary-box">
+      <h2>Project Summary</h2>
+      <p class="summary-highlight">
+        Im Rahmen des Projekts „Modularer Elektrobaukasten“ wurde ein kompaktes, modulares System zur Steuerung elektrischer Komponenten entwickelt. Es soll primär im Cargo-Pedelec der Hochschule Bochum eingesetzt werden, ist jedoch auch für weitere Fahrzeugmodelle geeignet.
+      </p>
+      <p>
+        The setup combines Raspberry Pi, Arduino Mega boards, switches, sensors, and output elements such as lighting, horn, heating, ventilation, and wipers. The project connects software logic, electronics, and communication between multiple components in one practical structure.
+      </p>
+      <ul>
+        <li>Compact modular design for easier extension and testing</li>
+        <li>Primary use case: Cargo-Pedelec of Hochschule Bochum</li>
+        <li>Communication between Raspberry Pi and Arduino boards</li>
+        <li>Integration of sensors, switches, and output functions</li>
+        <li>Adaptable for additional vehicle models</li>
+      </ul>
+    </div>
 
-      <div class="pdf-box">
-        <h3>Project PDF</h3>
-        <p class="pdf-status" id="pdfStatus">Searching for PDF file...</p>
-        <div class="pdf-actions">
-          <a id="openPdfBtn" class="pdf-button disabled" href="#" target="_blank" rel="noopener noreferrer">Open PDF</a>
-          <a id="downloadPdfBtn" class="pdf-button secondary disabled" href="#" download>Download PDF</a>
+    <div class="gallery-layout">
+      <aside class="gallery-sidebar">
+        <h2>Project Pictures</h2>
+        <div class="thumb-list" id="thumbList"></div>
+
+        <div class="pdf-box">
+          <h3>Project PDF</h3>
+          <p class="pdf-status" id="pdfStatus">Searching for PDF file...</p>
+          <p class="pdf-language">PDF language: German</p>
+          <div class="pdf-actions">
+            <a id="openPdfBtn" class="pdf-button disabled" href="#" target="_blank" rel="noopener noreferrer">Open PDF</a>
+            <a id="downloadPdfBtn" class="pdf-button secondary disabled" href="#" download>Download PDF</a>
+          </div>
         </div>
-      </div>
-    </aside>
+      </aside>
 
-    <section class="preview-panel">
-      <h2>Technical Documentation & Gallery</h2>
-      <div class="featured-image-box" id="featuredBox">
-        <img id="featuredImage" alt="Project image">
-      </div>
-      <p class="featured-caption" id="featuredCaption"></p>
-      <p class="helper-text">Click the big image to open it larger in the center.</p>
-    </section>
+      <section class="preview-panel">
+        <h2>Technical Documentation & Gallery</h2>
+        <div class="featured-image-box" id="featuredBox">
+          <img id="featuredImage" alt="Project image" />
+        </div>
+        <p class="featured-caption" id="featuredCaption"></p>
+        <p class="helper-text">Click the big image to open it larger in the center.</p>
+      </section>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="close-lightbox" id="closeLightbox" aria-label="Close image viewer">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImage" alt="Large project image" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
   </div>
-</main>
 
-<div class="lightbox" id="lightbox">
-  <button class="close-lightbox" id="closeLightbox" aria-label="Close image viewer">&times;</button>
-  <div class="lightbox-content">
-    <img id="lightboxImage" alt="Large project image">
-    <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
-</div>
+  <footer>
+    <p>© 2026 Achraf Abdi. All rights reserved.</p>
+  </footer>
 
-<footer>
-  <p>© 2026 Achraf Abdi. All rights reserved.</p>
-</footer>
+  <script>
+    const galleryItems = [
+      {
+        title: "Final result",
+        caption: "Final result of the modular electrical kit",
+        sources: ["images/elektrobaukasten/Endergebnis.jpeg"]
+      },
+      {
+        title: "Final result, second view",
+        caption: "Final result, second view",
+        sources: ["images/elektrobaukasten/endergebnis2.jpeg"]
+      },
+      {
+        title: "System design",
+        caption: "System design of the modular electrical kit",
+        sources: [
+          "images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG",
+          "images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.PNG",
+          "images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.png",
+          "images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.png"
+        ]
+      },
+      {
+        title: "Circuit setup",
+        caption: "Circuit setup",
+        sources: ["images/elektrobaukasten/Schaltungsaufbau.PNG"]
+      },
+      {
+        title: "Two Arduino Mega boards",
+        caption: "Two Arduino Mega boards in the setup",
+        sources: ["images/elektrobaukasten/2Arduino Megas.jpeg"]
+      },
+      {
+        title: "Raspberry Pi overview",
+        caption: "Raspberry Pi overview",
+        sources: ["images/elektrobaukasten/Raspberry pi.jpeg"]
+      },
+      {
+        title: "Raspberry Pi I2C",
+        caption: "Raspberry Pi I2C interface",
+        sources: ["images/elektrobaukasten/raspberry-pi-i2c.jpeg"]
+      },
+      {
+        title: "I²C connection",
+        caption: "I²C connection between Raspberry Pi and Arduino Mega boards",
+        sources: [
+          "images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG",
+          "images/elektrobaukasten/Aufbau der I2C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG",
+          "images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.png",
+          "images/elektrobaukasten/Aufbau der I2C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.png"
+        ]
+      },
+      {
+        title: "LED / potentiometer / switch / buzzer",
+        caption: "LED, potentiometer, switch, and buzzer module",
+        sources: ["images/elektrobaukasten/Led Potentiometer schalter buzzer.jpeg"]
+      },
+      {
+        title: "Arduino Mega debugging",
+        caption: "Arduino Mega code testing and debugging",
+        sources: ["images/elektrobaukasten/Screenshot Code Test und debugging Arduino mega.jpeg"]
+      },
+      {
+        title: "Raspberry Pi debugging",
+        caption: "Raspberry Pi testing and debugging",
+        sources: ["images/elektrobaukasten/Screenshot test und debugging Raspberry pi.jpeg"]
+      },
+      {
+        title: "Local website display",
+        caption: "Local website display",
+        sources: ["images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG"]
+      },
+      {
+        title: "Cargo-Pedelec Hochschule Bochum",
+        caption: "Cargo-Pedelec of Hochschule Bochum",
+        sources: ["images/elektrobaukasten/Cargopedlec.PNG"]
+      }
+    ];
 
-<script>
-const galleryItems = [
-  {
-    title: "Final result",
-    caption: "Final result of the modular electrical kit",
-    sources: ["images/elektrobaukasten/Endergebnis.jpeg"]
-  },
-  {
-    title: "Final result, second view",
-    caption: "Final result, second view",
-    sources: ["images/elektrobaukasten/endergebnis2.jpeg"]
-  },
-  {
-    title: "System design",
-    caption: "System design of the modular electrical kit",
-    sources: [
-      "images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.PNG",
-      "images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.PNG",
-      "images/elektrobaukasten/Systemdesign des Modulararen Elektrobaukastens.png",
-      "images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.png"
-    ]
-  },
-  {
-    title: "Circuit setup",
-    caption: "Circuit setup",
-    sources: ["images/elektrobaukasten/Schaltungsaufbau.PNG"]
-  },
-  {
-    title: "Two Arduino Mega boards",
-    caption: "Two Arduino Mega boards in the setup",
-    sources: ["images/elektrobaukasten/2Arduino Megas.jpeg"]
-  },
-  {
-    title: "Raspberry Pi overview",
-    caption: "Raspberry Pi overview",
-    sources: ["images/elektrobaukasten/Raspberry pi.jpeg"]
-  },
-  {
-    title: "Raspberry Pi I2C",
-    caption: "Raspberry Pi I2C interface",
-    sources: ["images/elektrobaukasten/raspberry-pi-i2c.jpeg"]
-  },
-  {
-    title: "I²C connection",
-    caption: "I²C connection between Raspberry Pi and Arduino Mega boards",
-    sources: [
-      "images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG",
-      "images/elektrobaukasten/Aufbau der I2C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.PNG",
-      "images/elektrobaukasten/Aufbau der I²C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.png",
-      "images/elektrobaukasten/Aufbau der I2C-Verbindung zwischen Raspberry Pi und Arduino Mega Boards.png"
-    ]
-  },
-  {
-    title: "LED / potentiometer / switch / buzzer",
-    caption: "LED, potentiometer, switch, and buzzer module",
-    sources: ["images/elektrobaukasten/Led Potentiometer schalter buzzer.jpeg"]
-  },
-  {
-    title: "Arduino Mega debugging",
-    caption: "Arduino Mega code testing and debugging",
-    sources: ["images/elektrobaukasten/Screenshot Code Test und debugging Arduino mega.jpeg"]
-  },
-  {
-    title: "Raspberry Pi debugging",
-    caption: "Raspberry Pi testing and debugging",
-    sources: ["images/elektrobaukasten/Screenshot test und debugging Raspberry pi.jpeg"]
-  },
-  {
-    title: "Local website display",
-    caption: "Local website display",
-    sources: ["images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG"]
-  }
-];
+    const pdfCandidates = [
+      "images/elektrobaukasten/ModularenBaukasten.pdf"
+    ];
 
-const pdfCandidates = [
-  "images/elektrobaukasten/Elektrobaukasten.pdf",
-  "images/elektrobaukasten/Modularer Elektrobaukasten.pdf",
-  "images/elektrobaukasten/Modularer_Elektrobaukasten.pdf",
-  "images/elektrobaukasten/Dokumentation.pdf",
-  "images/elektrobaukasten/Documentation.pdf",
-  "images/elektrobaukasten/Projektdokumentation.pdf",
-  "images/elektrobaukasten/Project Documentation.pdf",
-  "images/elektrobaukasten/whole work.pdf"
-];
+    const thumbList = document.getElementById("thumbList");
+    const featuredImage = document.getElementById("featuredImage");
+    const featuredCaption = document.getElementById("featuredCaption");
+    const featuredBox = document.getElementById("featuredBox");
 
-const thumbList = document.getElementById("thumbList");
-const featuredImage = document.getElementById("featuredImage");
-const featuredCaption = document.getElementById("featuredCaption");
-const featuredBox = document.getElementById("featuredBox");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const closeLightbox = document.getElementById("closeLightbox");
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxCaption = document.getElementById("lightboxCaption");
-const closeLightbox = document.getElementById("closeLightbox");
+    const openPdfBtn = document.getElementById("openPdfBtn");
+    const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+    const pdfStatus = document.getElementById("pdfStatus");
 
-const openPdfBtn = document.getElementById("openPdfBtn");
-const downloadPdfBtn = document.getElementById("downloadPdfBtn");
-const pdfStatus = document.getElementById("pdfStatus");
+    let currentItemIndex = 0;
 
-let currentItemIndex = 0;
-
-function placeholderData(text) {
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
-      <rect width="100%" height="100%" fill="#f8fafc"/>
-      <rect x="20" y="20" width="1160" height="760" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
-      <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#475569">${text}</text>
-      <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#94a3b8">Image file could not be loaded</text>
-    </svg>
-  `;
-  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
-}
-
-function setImageWithFallback(imgEl, sources, fallbackText) {
-  const list = Array.isArray(sources) ? sources.slice() : [sources];
-  let index = 0;
-
-  function tryNext() {
-    if (index >= list.length) {
-      imgEl.onerror = null;
-      imgEl.src = placeholderData(fallbackText);
-      return;
+    function placeholderData(text) {
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+          <rect width="100%" height="100%" fill="#f8fafc"/>
+          <rect x="20" y="20" width="1160" height="760" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+          <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#475569">${text}</text>
+          <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#94a3b8">Image file could not be loaded</text>
+        </svg>
+      `;
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
     }
-    const path = list[index++];
-    imgEl.onerror = tryNext;
-    imgEl.src = encodeURI(path);
-  }
 
-  tryNext();
-}
+    function setImageWithFallback(imgEl, sources, fallbackText) {
+      const list = Array.isArray(sources) ? sources.slice() : [sources];
+      let index = 0;
 
-function createThumbButton(item, index) {
-  const button = document.createElement("button");
-  button.className = "thumb-button";
-  button.type = "button";
+      function tryNext() {
+        if (index >= list.length) {
+          imgEl.onerror = null;
+          imgEl.src = placeholderData(fallbackText);
+          return;
+        }
+        const path = list[index++];
+        imgEl.onerror = tryNext;
+        imgEl.src = encodeURI(path);
+      }
 
-  const img = document.createElement("img");
-  img.alt = item.title;
-  setImageWithFallback(img, item.sources, item.title);
-
-  const text = document.createElement("div");
-  text.className = "thumb-text";
-  text.textContent = item.title;
-
-  button.appendChild(img);
-  button.appendChild(text);
-
-  button.addEventListener("click", () => {
-    showItem(index);
-  });
-
-  return button;
-}
-
-function renderThumbs() {
-  thumbList.innerHTML = "";
-  galleryItems.forEach((item, index) => {
-    thumbList.appendChild(createThumbButton(item, index));
-  });
-}
-
-function updateActiveThumb() {
-  const buttons = thumbList.querySelectorAll(".thumb-button");
-  buttons.forEach((button, index) => {
-    button.classList.toggle("active", index === currentItemIndex);
-  });
-}
-
-function showItem(index) {
-  currentItemIndex = index;
-  const item = galleryItems[index];
-  setImageWithFallback(featuredImage, item.sources, item.title);
-  featuredImage.alt = item.caption;
-  featuredCaption.textContent = item.caption;
-  updateActiveThumb();
-}
-
-function openLightboxView() {
-  const item = galleryItems[currentItemIndex];
-  setImageWithFallback(lightboxImage, item.sources, item.title);
-  lightboxImage.alt = item.caption;
-  lightboxCaption.textContent = item.caption;
-  lightbox.classList.add("open");
-}
-
-function closeLightboxView() {
-  lightbox.classList.remove("open");
-}
-
-featuredBox.addEventListener("click", openLightboxView);
-closeLightbox.addEventListener("click", closeLightboxView);
-
-lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) {
-    closeLightboxView();
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeLightboxView();
-  }
-});
-
-async function fileExists(path) {
-  const encodedPath = encodeURI(path);
-
-  try {
-    const headResponse = await fetch(encodedPath, { method: "HEAD" });
-    if (headResponse.ok) return true;
-    if (headResponse.status !== 405) return false;
-  } catch (error) {}
-
-  try {
-    const getResponse = await fetch(encodedPath, { method: "GET" });
-    return getResponse.ok;
-  } catch (error) {
-    return false;
-  }
-}
-
-async function setupPdfLinks() {
-  for (const pdfPath of pdfCandidates) {
-    const exists = await fileExists(pdfPath);
-    if (exists) {
-      const encoded = encodeURI(pdfPath);
-      openPdfBtn.href = encoded;
-      downloadPdfBtn.href = encoded;
-      openPdfBtn.classList.remove("disabled");
-      downloadPdfBtn.classList.remove("disabled");
-      pdfStatus.textContent = "PDF found. You can open or download it.";
-      return;
+      tryNext();
     }
-  }
 
-  pdfStatus.textContent = "PDF not found automatically. Add its exact filename in the pdfCandidates list in this file.";
-}
+    function createThumbButton(item, index) {
+      const button = document.createElement("button");
+      button.className = "thumb-button";
+      button.type = "button";
 
-renderThumbs();
-showItem(0);
-setupPdfLinks();
-</script>
+      const img = document.createElement("img");
+      img.alt = item.title;
+      setImageWithFallback(img, item.sources, item.title);
+
+      const text = document.createElement("div");
+      text.className = "thumb-text";
+      text.textContent = item.title;
+
+      button.appendChild(img);
+      button.appendChild(text);
+
+      button.addEventListener("click", () => {
+        showItem(index);
+      });
+
+      return button;
+    }
+
+    function renderThumbs() {
+      thumbList.innerHTML = "";
+      galleryItems.forEach((item, index) => {
+        thumbList.appendChild(createThumbButton(item, index));
+      });
+    }
+
+    function updateActiveThumb() {
+      const buttons = thumbList.querySelectorAll(".thumb-button");
+      buttons.forEach((button, index) => {
+        button.classList.toggle("active", index === currentItemIndex);
+      });
+    }
+
+    function showItem(index) {
+      currentItemIndex = index;
+      const item = galleryItems[index];
+      setImageWithFallback(featuredImage, item.sources, item.title);
+      featuredImage.alt = item.caption;
+      featuredCaption.textContent = item.caption;
+      updateActiveThumb();
+    }
+
+    function openLightboxView() {
+      const item = galleryItems[currentItemIndex];
+      setImageWithFallback(lightboxImage, item.sources, item.title);
+      lightboxImage.alt = item.caption;
+      lightboxCaption.textContent = item.caption;
+      lightbox.classList.add("open");
+    }
+
+    function closeLightboxView() {
+      lightbox.classList.remove("open");
+    }
+
+    featuredBox.addEventListener("click", openLightboxView);
+    closeLightbox.addEventListener("click", closeLightboxView);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightboxView();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLightboxView();
+      }
+    });
+
+    async function fileExists(path) {
+      const encodedPath = encodeURI(path);
+
+      try {
+        const headResponse = await fetch(encodedPath, { method: "HEAD" });
+        if (headResponse.ok) return true;
+        if (headResponse.status !== 405) return false;
+      } catch (error) {}
+
+      try {
+        const getResponse = await fetch(encodedPath, { method: "GET" });
+        return getResponse.ok;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    async function setupPdfLinks() {
+      for (const pdfPath of pdfCandidates) {
+        const exists = await fileExists(pdfPath);
+        if (exists) {
+          const encoded = encodeURI(pdfPath);
+          openPdfBtn.href = encoded;
+          downloadPdfBtn.href = encoded;
+          openPdfBtn.classList.remove("disabled");
+          downloadPdfBtn.classList.remove("disabled");
+          pdfStatus.textContent = "PDF found. You can open or download it.";
+          return;
+        }
+      }
+
+      pdfStatus.textContent = "PDF not found. Check the exact filename and path.";
+    }
+
+    renderThumbs();
+    showItem(0);
+    setupPdfLinks();
+  </script>
 </body>
 </html>
