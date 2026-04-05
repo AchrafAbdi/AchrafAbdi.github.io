@@ -85,7 +85,7 @@
     }
 
     section {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 0 auto;
       padding: 60px 20px;
     }
@@ -115,7 +115,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
       margin-top: 30px;
     }
@@ -134,14 +134,16 @@
     }
 
     .project-image {
-      height: 160px;
-      background: linear-gradient(135deg, #dbeafe, #eff6ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1d4ed8;
-      font-weight: bold;
-      font-size: 1.1rem;
+      height: 190px;
+      overflow: hidden;
+      background: #f1f5f9;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .project-content {
@@ -171,6 +173,35 @@
       padding: 6px 10px;
       border-radius: 999px;
       font-size: 0.85rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .gallery-item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      background: #f1f5f9;
+    }
+
+    .gallery-caption {
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      color: #475569;
     }
 
     .skills-list {
@@ -216,6 +247,14 @@
       h2 {
         font-size: 1.6rem;
       }
+
+      .project-image {
+        height: 170px;
+      }
+
+      .gallery-item img {
+        height: 170px;
+      }
     }
   </style>
 </head>
@@ -225,6 +264,7 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -257,7 +297,29 @@
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-image">GameCube1</div>
+        <div class="project-image">
+          <img src="images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.PNG" alt="Modularer Elektrobaukasten system design">
+        </div>
+        <div class="project-content">
+          <h3>Modularer Elektrobaukasten</h3>
+          <p>
+            A modular control system for electric vehicle functions. The project combines sensors,
+            switches, display integration, lighting, horn, heating, ventilation, and wipers in one practical setup.
+          </p>
+          <div class="tags">
+            <span class="tag">Electromobility</span>
+            <span class="tag">Embedded Systems</span>
+            <span class="tag">Vehicle Control</span>
+          </div>
+          <a href="#gallery">View Pictures</a> |
+          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/elektrobaukasten/2Arduino Megas.jpeg" alt="GameCube project placeholder">
+        </div>
         <div class="project-content">
           <h3>GameCube Portable Controller Project</h3>
           <p>
@@ -269,29 +331,14 @@
             <span class="tag">Design</span>
             <span class="tag">Electronics</span>
           </div>
-          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub Profile</a>
+          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-image">Modularer Elektrobaukasten</div>
-        <div class="project-content">
-          <h3>Modularer Elektrobaukasten</h3>
-          <p>
-            A modular control system for electric vehicle functions. The project focuses on
-            compact design, flexible software structure, and practical integration of vehicle components.
-          </p>
-          <div class="tags">
-            <span class="tag">Electromobility</span>
-            <span class="tag">Embedded Systems</span>
-            <span class="tag">Control</span>
-          </div>
-          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub Profile</a>
+        <div class="project-image">
+          <img src="images/elektrobaukasten/Screenshot der lokalen Webseiten-Anzeige.PNG" alt="NAO Tic Tac Toe project placeholder">
         </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">XO_MASTER_FINAL</div>
         <div class="project-content">
           <h3>NAO Tic Tac Toe Project</h3>
           <p>
@@ -303,42 +350,43 @@
             <span class="tag">Python</span>
             <span class="tag">NAO</span>
           </div>
-          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub Profile</a>
+          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="project-card">
-        <div class="project-image">Researchs</div>
-        <div class="project-content">
-          <h3>Research Projects</h3>
-          <p>
-            A collection of technical research work related to engineering topics,
-            especially electromobility, fuel cells, and modern vehicle systems.
-          </p>
-          <div class="tags">
-            <span class="tag">Research</span>
-            <span class="tag">Fuel Cells</span>
-            <span class="tag">Engineering</span>
-          </div>
-          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub Profile</a>
-        </div>
+  <section id="gallery">
+    <h2>Modularer Elektrobaukasten Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/elektrobaukasten/Systemdesign des Modularen Elektrobaukastens.PNG" alt="System design of the modular electrical kit">
+        <div class="gallery-caption">System design of the modular electrical kit</div>
       </div>
 
-      <div class="project-card">
-        <div class="project-image">NFE Project</div>
-        <div class="project-content">
-          <h3>NFE Project</h3>
-          <p>
-            This is another technical project from my work. You can replace this text with
-            the real project description once you want to show more details.
-          </p>
-          <div class="tags">
-            <span class="tag">Student Project</span>
-            <span class="tag">Engineering</span>
-            <span class="tag">Development</span>
-          </div>
-          <a href="https://github.com/AchrafAbdi" target="_blank">GitHub Profile</a>
-        </div>
+      <div class="gallery-item">
+        <img src="images/elektrobaukasten/Schaltungsaufbau.PNG" alt="Circuit setup">
+        <div class="gallery-caption">Circuit setup</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/elektrobaukasten/Raspberry pi i2c.jpeg" alt="Raspberry Pi I2C connection">
+        <div class="gallery-caption">Raspberry Pi and I2C communication</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/elektrobaukasten/2Arduino Megas.jpeg" alt="Two Arduino Mega boards">
+        <div class="gallery-caption">Two Arduino Mega boards used in the setup</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/elektrobaukasten/Endergebnis.jpeg" alt="Final result">
+        <div class="gallery-caption">Final result</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/elektrobaukasten/endergebnis2.jpeg" alt="Final result second view">
+        <div class="gallery-caption">Final result, second view</div>
       </div>
     </div>
   </section>
