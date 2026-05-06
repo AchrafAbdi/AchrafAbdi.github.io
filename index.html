@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+
 <title>Achraf Abdi | Portfolio</title>
 
 <style>
@@ -132,7 +137,8 @@ h2 {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
 .project-card:hover {
@@ -163,10 +169,14 @@ h2 {
 .placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  background: linear-gradient(135deg,
+              #dbeafe,
+              #eff6ff);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #1d4ed8;
   font-size: 1.1rem;
   font-weight: bold;
@@ -256,18 +266,34 @@ footer {
 }
 
 </style>
+
 </head>
 
 <body>
 
+<!-- ====================================== -->
+<!-- ============== NAVBAR =============== -->
+<!-- ====================================== -->
+
 <nav>
+
   <ul>
+
     <li><a href="#about">About</a></li>
+
     <li><a href="#projects">Projects</a></li>
+
     <li><a href="#skills">Skills</a></li>
+
     <li><a href="#contact">Contact</a></li>
+
   </ul>
+
 </nav>
+
+<!-- ====================================== -->
+<!-- ============== HEADER =============== -->
+<!-- ====================================== -->
 
 <header>
 
@@ -279,17 +305,26 @@ footer {
     embedded systems, electronics, and web development.
   </p>
 
-  <a class="button" href="#projects">
-    See My Projects
+  <a class="button"
+     href="#projects">
+
+     See My Projects
+
   </a>
 
   <a class="button secondary"
      href="https://github.com/AchrafAbdi"
      target="_blank">
+
      My GitHub
+
   </a>
 
 </header>
+
+<!-- ====================================== -->
+<!-- ============== ABOUT ================= -->
+<!-- ====================================== -->
 
 <section id="about">
 
@@ -300,6 +335,7 @@ footer {
     <p class="about-text">
 
       Hello, I am <strong>Achraf Abdi</strong>.
+
       I study mechatronics and I focus on electromobility.
 
       I like working on technical and creative projects that combine
@@ -315,13 +351,19 @@ footer {
 
 </section>
 
+<!-- ====================================== -->
+<!-- ============= PROJECTS ============== -->
+<!-- ====================================== -->
+
 <section id="projects">
 
   <h2>My Projects</h2>
 
   <div class="projects-grid">
 
-    <!-- Elektrobaukasten -->
+    <!-- ========================================= -->
+    <!-- ========== ELEKTROBAUKASTEN ============= -->
+    <!-- ========================================= -->
 
     <div class="project-card clickable-card"
          onclick="window.location.href='elektrobaukasten.html'">
@@ -344,9 +386,11 @@ footer {
         </p>
 
         <div class="tags">
+
           <span class="tag">Electromobility</span>
           <span class="tag">Embedded Systems</span>
           <span class="tag">Vehicle Control</span>
+
         </div>
 
         <a href="elektrobaukasten.html">
@@ -367,14 +411,18 @@ footer {
 
     </div>
 
-    <!-- GameCube -->
+    <!-- ========================================= -->
+    <!-- ============ GAMECUBE PROJECT =========== -->
+    <!-- ========================================= -->
 
     <div class="project-card">
 
       <div class="project-image">
 
         <div class="placeholder">
+
           GameCube Project
+
         </div>
 
       </div>
@@ -389,9 +437,11 @@ footer {
         </p>
 
         <div class="tags">
+
           <span class="tag">Hardware</span>
           <span class="tag">Design</span>
           <span class="tag">Electronics</span>
+
         </div>
 
         <a href="https://github.com/AchrafAbdi"
@@ -405,14 +455,16 @@ footer {
 
     </div>
 
-    <!-- NAO PROJECT -->
+    <!-- ========================================= -->
+    <!-- ========== NAO TIC TAC TOE ============== -->
+    <!-- ========================================= -->
 
     <div class="project-card clickable-card"
-         onclick="window.location.href='xo-master/xo-master.html'">
+         onclick="window.location.href='xo-master-portfolio/xo-master.html'">
 
       <div class="project-image">
 
-        <img src="xo-master/images/NAO beim spielzug.PNG"
+        <img src="xo-master-portfolio/images/xomaster/NAO beim spielzug.PNG"
              alt="NAO Tic Tac Toe Project">
 
       </div>
@@ -427,13 +479,17 @@ footer {
         </p>
 
         <div class="tags">
+
           <span class="tag">Robotics</span>
           <span class="tag">Python</span>
           <span class="tag">NAO</span>
+
         </div>
 
-        <a href="xo-master/xo-master.html">
+        <a href="xo-master-portfolio/xo-master.html">
+
           Open Project
+
         </a>
 
         |
@@ -453,6 +509,10 @@ footer {
   </div>
 
 </section>
+
+<!-- ====================================== -->
+<!-- ============== SKILLS =============== -->
+<!-- ====================================== -->
 
 <section id="skills">
 
@@ -479,6 +539,10 @@ footer {
 
 </section>
 
+<!-- ====================================== -->
+<!-- ============== CONTACT ============== -->
+<!-- ====================================== -->
+
 <section id="contact">
 
   <div class="card contact-box">
@@ -486,30 +550,45 @@ footer {
     <h2>Contact</h2>
 
     <p>
+
       Email:
+
       <a href="mailto:achrefabdi907@gmail.com">
+
         achrefabdi907@gmail.com
+
       </a>
+
     </p>
 
     <p>
+
       GitHub:
+
       <a href="https://github.com/AchrafAbdi"
          target="_blank">
 
          github.com/AchrafAbdi
 
       </a>
+
     </p>
 
   </div>
 
 </section>
 
+<!-- ====================================== -->
+<!-- ============== FOOTER =============== -->
+<!-- ====================================== -->
+
 <footer>
 
   <p>
-    © 2026 Achraf Abdi. All rights reserved.
+
+    © 2026 Achraf Abdi.
+    All rights reserved.
+
   </p>
 
 </footer>
