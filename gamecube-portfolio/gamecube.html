@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>GameCube Portable Controller | Achraf Abdi</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    body { background: #f8fafc; color: #1e293b; line-height: 1.6; }
+    a { text-decoration: none; color: #2563eb; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 70px 20px 50px;
+      background: linear-gradient(to bottom, #ffffff, #eef4ff);
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("images/gamecube/GameCube Controlelr final.PNG");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.14;
+      filter: saturate(0.9);
+    }
+
+    header > * { position: relative; z-index: 1; }
+    header h1 { font-size: 2.5rem; margin-bottom: 12px; color: #0f172a; }
+    header p { max-width: 950px; margin: 0 auto; color: #334155; font-size: 1.08rem; }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 18px;
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    main { max-width: 1450px; margin: 0 auto; padding: 50px 20px 70px; }
+
+    .summary-box {
+      position: relative;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .summary-box::before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      width: 280px;
+      height: 280px;
+      background-image: url("images/gamecube/GameCube Controlelr final.PNG");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .summary-box > * { position: relative; z-index: 1; }
+    .summary-box h2 { font-size: 1.9rem; margin-bottom: 16px; color: #0f172a; }
+    .summary-box p { color: #475569; margin-bottom: 14px; font-size: 1.03rem; }
+
+    .summary-highlight {
+      background: #f8fbff;
+      border: 1px solid #dbeafe;
+      border-left: 4px solid #2563eb;
+      border-radius: 14px;
+      padding: 16px 18px;
+      color: #334155;
+    }
+
+    .summary-box ul { padding-left: 22px; color: #475569; margin-top: 10px; }
+    .summary-box li { margin-bottom: 8px; }
+
+    .gallery-layout { display: grid; grid-template-columns: 320px 1fr; gap: 28px; align-items: start; }
+
+    .gallery-sidebar {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      position: sticky;
+      top: 20px;
+    }
+
+    .gallery-sidebar h2 { font-size: 1.5rem; margin-bottom: 16px; color: #0f172a; text-align: center; }
+    .thumb-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .thumb-button {
+      width: 100%;
+      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.2s ease;
+    }
+
+    .thumb-button:hover { border-color: #93c5fd; box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08); }
+    .thumb-button.active { border-color: #2563eb; background: #eff6ff; box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12); }
+
+    .thumb-button img {
+      width: 94px;
+      height: 70px;
+      object-fit: contain;
+      background: #f8fafc;
+      border-radius: 10px;
+      display: block;
+      flex-shrink: 0;
+      border: 1px solid #e2e8f0;
+    }
+
+    .thumb-text { color: #334155; font-size: 0.94rem; line-height: 1.35; }
+
+    .preview-panel {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .preview-panel h2 { font-size: 1.9rem; text-align: center; margin-bottom: 18px; color: #0f172a; }
+
+    .featured-image-box {
+      width: 100%;
+      min-height: 650px;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      cursor: zoom-in;
+    }
+
+    .featured-image-box img {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 14px;
+      background: white;
+    }
+
+    .featured-caption { margin-top: 16px; text-align: center; color: #475569; font-size: 1rem; }
+    .helper-text { margin-top: 8px; text-align: center; color: #64748b; font-size: 0.92rem; }
+
+    .doc-box { margin-top: 18px; padding-top: 18px; border-top: 1px solid #e2e8f0; }
+    .doc-box h3 { font-size: 1.05rem; margin-bottom: 8px; text-align: center; color: #0f172a; }
+    .doc-status { text-align: center; color: #64748b; font-size: 0.92rem; margin-bottom: 12px; }
+
+    .doc-button {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: #2563eb;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 1px solid #2563eb;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 2000;
+    }
+
+    .lightbox.open { display: flex; }
+    .lightbox-content { max-width: 95vw; max-height: 92vh; text-align: center; }
+
+    .lightbox-content img {
+      max-width: 95vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 16px;
+      background: white;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .lightbox-caption { color: white; margin-top: 12px; font-size: 1rem; }
+
+    .close-lightbox {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: white;
+      color: #0f172a;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    footer { text-align: center; padding: 30px 20px; color: #64748b; }
+
+    @media (max-width: 1050px) {
+      .gallery-layout { grid-template-columns: 1fr; }
+      .gallery-sidebar { position: static; }
+      .featured-image-box { min-height: 420px; }
+    }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 2rem; }
+      .preview-panel h2, .summary-box h2 { font-size: 1.5rem; }
+      .thumb-button img { width: 82px; height: 62px; }
+      .featured-image-box { min-height: 320px; padding: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>GameCube Portable Controller Project</h1>
+    <p>
+      Development of a custom wireless GameCube controller with an integrated display, speakers and a 3D-printed ergonomic housing.
+    </p>
+    <a class="back-link" href="../index.html">Back to Portfolio</a>
+  </header>
+
+  <main>
+    <div class="summary-box">
+      <h2>Project Summary</h2>
+      <p class="summary-highlight">
+        This project focused on the development of a custom wireless GameCube controller with an integrated 7-inch display and speakers. The main technical focus was the design and construction of a custom 3D-printed housing that could hold all additional components while keeping the controller usable and ergonomic.
+      </p>
+      <p>
+        The housing was designed in Fusion 360 and divided into several individual parts for 3D printing. The electrical system combines a display, speakers, wireless HDMI transmission, a powerbank and a DC-DC step-down converter.
+      </p>
+      <ul>
+        <li>Custom 3D-printed controller housing made from PLA filament</li>
+        <li>Integrated 7-inch HDMI-compatible display</li>
+        <li>Integrated speakers for direct audio output</li>
+        <li>Wireless HDMI transmission for video and audio</li>
+        <li>Powerbank-based mobile power supply</li>
+        <li>Mechanical design split into multiple printable housing parts</li>
+      </ul>
+    </div>
+
+    <div class="gallery-layout">
+      <aside class="gallery-sidebar">
+        <h2>Project Pictures</h2>
+        <div class="thumb-list" id="thumbList"></div>
+
+        <div class="doc-box">
+          <h3>Project Report</h3>
+          <p class="doc-status">Word report language: German</p>
+          <a class="doc-button" href="GameCube1.docx" download>Download Word Report</a>
+        </div>
+      </aside>
+
+      <section class="preview-panel">
+        <h2>Technical Documentation & Gallery</h2>
+        <div class="featured-image-box" id="featuredBox">
+          <img id="featuredImage" alt="Project image" />
+        </div>
+        <p class="featured-caption" id="featuredCaption"></p>
+        <p class="helper-text">Click the big image to open it larger in the center.</p>
+      </section>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="close-lightbox" id="closeLightbox" aria-label="Close image viewer">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImage" alt="Large project image" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Achraf Abdi. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const galleryItems = [
+      {
+            "title": "Final prototype, front view",
+            "caption": "The finished custom GameCube controller with integrated display, button layout and 3D-printed housing.",
+            "sources": [
+                  "images/gamecube/GameCube Controlelr final.PNG"
+            ]
+      },
+      {
+            "title": "Final prototype, top view",
+            "caption": "Top view of the finished controller. The housing connects the left and right control areas around the central display.",
+            "sources": [
+                  "images/gamecube/GameCube Controlelr final oberseite.PNG"
+            ]
+      },
+      {
+            "title": "Final prototype, rear view",
+            "caption": "Rear view of the final GameCube controller housing. The back cover protects the internal components.",
+            "sources": [
+                  "images/gamecube/GamecubeController final ruekseite.PNG"
+            ]
+      },
+      {
+            "title": "Internal electronics integration",
+            "caption": "View of the controller during integration of electronics. The display, controller board, cables and internal components were arranged inside the custom housing.",
+            "sources": [
+                  "images/gamecube/GameCube Controller.PNG"
+            ]
+      },
+      {
+            "title": "Complete housing visualization",
+            "caption": "Fusion 360 visualization of the full housing assembly. The design was split into several printable parts because the 3D printer could not produce the complete housing as one large piece.",
+            "sources": [
+                  "images/gamecube/Visualisierung der Teile.PNG"
+            ]
+      },
+      {
+            "title": "PLA filament",
+            "caption": "PLA filament was selected for the 3D-printed housing because it is easy to print, stable and suitable for ergonomic parts.",
+            "sources": [
+                  "images/gamecube/filament.PNG"
+            ]
+      },
+      {
+            "title": "Kapton tape",
+            "caption": "Kapton tape was used for electrical and thermal protection inside the housing.",
+            "sources": [
+                  "images/gamecube/Kapton-Band.PNG"
+            ]
+      },
+      {
+            "title": "7-inch display",
+            "caption": "The 7-inch capacitive display with HDMI compatibility was integrated as the main screen.",
+            "sources": [
+                  "images/gamecube/7-Zoll kapazitives Touch-Display mit HDMI-Kompatibilität.PNG"
+            ]
+      },
+      {
+            "title": "Speaker module",
+            "caption": "Compact speaker modules were integrated into the housing for direct audio output.",
+            "sources": [
+                  "images/gamecube/Lautsprecher.PNG"
+            ]
+      },
+      {
+            "title": "Wireless HDMI transmitter and receiver",
+            "caption": "The wireless HDMI transmitter and receiver were used to send the GameCube video signal wirelessly to the display.",
+            "sources": [
+                  "images/gamecube/HDMI-Wireless-Sender und -Empfänger.PNG"
+            ]
+      },
+      {
+            "title": "Powerbank",
+            "caption": "A portable powerbank was used as the energy source for the display, wireless receiver and additional electronics.",
+            "sources": [
+                  "images/gamecube/Powerbank.PNG"
+            ]
+      },
+      {
+            "title": "DC-DC step-down converter",
+            "caption": "The DC-DC step-down converter reduces the input voltage from the powerbank to the required voltage level.",
+            "sources": [
+                  "images/gamecube/DC-DC Step-Down Converter.PNG"
+            ]
+      },
+      {
+            "title": "M1 screws",
+            "caption": "Small M1 screws were used to mount and secure the 3D-printed housing parts and internal components.",
+            "sources": [
+                  "images/gamecube/M1-Schrauben.PNG"
+            ]
+      },
+      {
+            "title": "Left side, upper part 1",
+            "caption": "Fusion 360 design of the first upper part of the left housing side.",
+            "sources": [
+                  "images/gamecube/Linke Seite, Oberteil 1.PNG"
+            ]
+      },
+      {
+            "title": "Left side, upper part 2",
+            "caption": "Second view of the left upper housing part with dimensions.",
+            "sources": [
+                  "images/gamecube/Linke Seite, Oberteil 2.PNG"
+            ]
+      },
+      {
+            "title": "Left holder",
+            "caption": "Left-side holder used to fix electronics, wiring or mechanical parts inside the housing.",
+            "sources": [
+                  "images/gamecube/Linke Halterung.PNG"
+            ]
+      },
+      {
+            "title": "Left lower part, front side",
+            "caption": "Front view of the left lower housing section with openings and support points.",
+            "sources": [
+                  "images/gamecube/Linke Seite, Unterteil voderseite.PNG"
+            ]
+      },
+      {
+            "title": "Left lower part, rear side",
+            "caption": "Rear view of the left lower housing section showing internal structure.",
+            "sources": [
+                  "images/gamecube/7.Linke Seite, Unterteil ruekseite.PNG"
+            ]
+      },
+      {
+            "title": "Right side, upper part 1",
+            "caption": "Fusion 360 design of the first right upper housing section.",
+            "sources": [
+                  "images/gamecube/Rechte Seite, Oberteil 1.PNG"
+            ]
+      },
+      {
+            "title": "Right side, upper part 2 front",
+            "caption": "Front view of the second right upper housing part.",
+            "sources": [
+                  "images/gamecube/Rechte Seite, Oberteil 2 vorderseite.PNG"
+            ]
+      },
+      {
+            "title": "Right side, upper part 2 rear",
+            "caption": "Rear view of the second right upper housing part.",
+            "sources": [
+                  "images/gamecube/Rechte Seite, Oberteil 2 rueckseite.PNG"
+            ]
+      },
+      {
+            "title": "Right holder",
+            "caption": "Right-side holder used to support internal components and cable routing.",
+            "sources": [
+                  "images/gamecube/Rechte Halterung.PNG"
+            ]
+      },
+      {
+            "title": "Right lower part, front side",
+            "caption": "Front view of the right lower housing section with cutouts and rounded edges.",
+            "sources": [
+                  "images/gamecube/Rechte Seite, Unterteil vorderseite.PNG"
+            ]
+      },
+      {
+            "title": "Right lower part, rear side",
+            "caption": "Rear view of the right lower housing section showing the inner support structure.",
+            "sources": [
+                  "images/gamecube/Rechte Seite, Unterteil  ruekseite.PNG"
+            ]
+      },
+      {
+            "title": "Middle lower cover",
+            "caption": "Middle lower cover that connects both sides of the housing and forms the lower base section.",
+            "sources": [
+                  "images/gamecube/Mittlere untere Abdeckung.PNG"
+            ]
+      }
+];
+
+    const thumbList = document.getElementById("thumbList");
+    const featuredImage = document.getElementById("featuredImage");
+    const featuredCaption = document.getElementById("featuredCaption");
+    const featuredBox = document.getElementById("featuredBox");
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    let currentItemIndex = 0;
+
+    function placeholderData(text) {
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+          <rect width="100%" height="100%" fill="#f8fafc"/>
+          <rect x="20" y="20" width="1160" height="760" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+          <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#475569">${text}</text>
+          <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#94a3b8">Image file could not be loaded</text>
+        </svg>
+      `;
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    }
+
+    function setImageWithFallback(imgEl, sources, fallbackText) {
+      const list = Array.isArray(sources) ? sources.slice() : [sources];
+      let index = 0;
+
+      function tryNext() {
+        if (index >= list.length) {
+          imgEl.onerror = null;
+          imgEl.src = placeholderData(fallbackText);
+          return;
+        }
+
+        const path = list[index++];
+        imgEl.onerror = tryNext;
+        imgEl.src = encodeURI(path);
+      }
+
+      tryNext();
+    }
+
+    function createThumbButton(item, index) {
+      const button = document.createElement("button");
+      button.className = "thumb-button";
+      button.type = "button";
+
+      const img = document.createElement("img");
+      img.alt = item.title;
+      setImageWithFallback(img, item.sources, item.title);
+
+      const text = document.createElement("div");
+      text.className = "thumb-text";
+      text.textContent = item.title;
+
+      button.appendChild(img);
+      button.appendChild(text);
+
+      button.addEventListener("click", () => {
+        showItem(index);
+      });
+
+      return button;
+    }
+
+    function renderThumbs() {
+      thumbList.innerHTML = "";
+
+      galleryItems.forEach((item, index) => {
+        thumbList.appendChild(createThumbButton(item, index));
+      });
+    }
+
+    function updateActiveThumb() {
+      const buttons = thumbList.querySelectorAll(".thumb-button");
+
+      buttons.forEach((button, index) => {
+        button.classList.toggle("active", index === currentItemIndex);
+      });
+    }
+
+    function showItem(index) {
+      currentItemIndex = index;
+      const item = galleryItems[index];
+
+      setImageWithFallback(featuredImage, item.sources, item.title);
+
+      featuredImage.alt = item.caption;
+      featuredCaption.textContent = item.caption;
+
+      updateActiveThumb();
+    }
+
+    function openLightboxView() {
+      const item = galleryItems[currentItemIndex];
+
+      setImageWithFallback(lightboxImage, item.sources, item.title);
+
+      lightboxImage.alt = item.caption;
+      lightboxCaption.textContent = item.caption;
+
+      lightbox.classList.add("open");
+    }
+
+    function closeLightboxView() {
+      lightbox.classList.remove("open");
+    }
+
+    featuredBox.addEventListener("click", openLightboxView);
+    closeLightbox.addEventListener("click", closeLightboxView);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightboxView();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLightboxView();
+      }
+    });
+
+    renderThumbs();
+    showItem(0);
+  </script>
+
+</body>
+</html>
