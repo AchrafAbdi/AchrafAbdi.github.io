@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,21 +52,11 @@ a {
 /* ================================= */
 
 header {
-
   position: relative;
-
   overflow: hidden;
-
-  background:
-    linear-gradient(135deg,
-    #020617,
-    #0f172a,
-    #1e3a8a);
-
+  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
   color: white;
-
   padding: 90px 20px;
-
   text-align: center;
 }
 
@@ -76,19 +65,12 @@ header {
 /* ================================= */
 
 header::before {
-
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   background-image: url("DIY.png");
-
   background-size: cover;
-
   background-position: center;
-
   opacity: 0.12;
 }
 
@@ -106,9 +88,7 @@ header > * {
 /* ================================= */
 
 header h1 {
-
   font-size: 4rem;
-
   margin-bottom: 18px;
 }
 
@@ -117,13 +97,9 @@ header h1 {
 /* ================================= */
 
 header p {
-
   max-width: 900px;
-
   margin: 0 auto;
-
   color: #dbeafe;
-
   font-size: 1.25rem;
 }
 
@@ -132,21 +108,13 @@ header p {
 /* ================================= */
 
 .back-button {
-
   display: inline-block;
-
   margin-top: 30px;
-
   background: #2563eb;
-
   color: white;
-
   padding: 15px 28px;
-
   border-radius: 14px;
-
   font-weight: bold;
-
   font-size: 1rem;
 }
 
@@ -155,11 +123,8 @@ header p {
 /* ================================= */
 
 main {
-
   max-width: 1800px;
-
   margin: 0 auto;
-
   padding: 80px 40px;
 }
 
@@ -168,15 +133,9 @@ main {
 /* ================================= */
 
 .project-grid {
-
   display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit,
-    minmax(420px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 36px;
-
   align-items: start;
 }
 
@@ -185,22 +144,12 @@ main {
 /* ================================= */
 
 .project-card {
-
   background: white;
-
   border-radius: 26px;
-
   overflow: hidden;
-
   border: 1px solid #dbeafe;
-
-  box-shadow:
-    0 12px 34px rgba(15, 23, 42, 0.08);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
 }
 
@@ -209,11 +158,8 @@ main {
 /* ================================= */
 
 .project-card:hover {
-
   transform: translateY(-8px);
-
-  box-shadow:
-    0 22px 50px rgba(37, 99, 235, 0.16);
+  box-shadow: 0 22px 50px rgba(37, 99, 235, 0.16);
 }
 
 /* ================================= */
@@ -221,13 +167,9 @@ main {
 /* ================================= */
 
 .project-image {
-
   position: relative;
-
   height: 320px;
-
   background: #f8fafc;
-
   overflow: hidden;
 }
 
@@ -236,15 +178,10 @@ main {
 /* ================================= */
 
 .project-image img {
-
   width: 100%;
-
   height: 100%;
-
   object-fit: contain;
-
   background: white;
-
   padding: 18px;
 }
 
@@ -253,27 +190,16 @@ main {
 /* ================================= */
 
 .featured-badge {
-
   position: absolute;
-
   top: 18px;
-
   right: 18px;
-
   background: #2563eb;
-
   color: white;
-
   padding: 10px 16px;
-
   border-radius: 999px;
-
   font-size: 0.8rem;
-
   font-weight: bold;
-
-  box-shadow:
-    0 8px 20px rgba(37,99,235,0.3);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
 }
 
 /* ================================= */
@@ -281,7 +207,6 @@ main {
 /* ================================= */
 
 .project-content {
-
   padding: 34px;
 }
 
@@ -290,11 +215,8 @@ main {
 /* ================================= */
 
 .project-content h2 {
-
   color: #0f172a;
-
   margin-bottom: 18px;
-
   font-size: 2rem;
 }
 
@@ -303,11 +225,8 @@ main {
 /* ================================= */
 
 .project-content p {
-
   color: #475569;
-
   margin-bottom: 18px;
-
   font-size: 1.08rem;
 }
 
@@ -316,13 +235,9 @@ main {
 /* ================================= */
 
 .tags {
-
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 10px;
-
   margin: 22px 0;
 }
 
@@ -331,17 +246,11 @@ main {
 /* ================================= */
 
 .tag {
-
   background: #eff6ff;
-
   color: #1d4ed8;
-
   padding: 8px 14px;
-
   border-radius: 999px;
-
   font-size: 0.9rem;
-
   font-weight: bold;
 }
 
@@ -350,21 +259,13 @@ main {
 /* ================================= */
 
 .status-box {
-
   margin-top: 24px;
-
   border: 1px solid #bfdbfe;
-
   border-radius: 18px;
-
   padding: 22px;
-
   color: #1e293b;
-
   font-weight: bold;
-
   background: #f8fbff;
-
   font-size: 1rem;
 }
 
@@ -373,18 +274,10 @@ main {
 /* ================================= */
 
 .placeholder-box {
-
   height: 320px;
-
-  background:
-    linear-gradient(135deg,
-    #f8fafc,
-    #eef4ff);
-
+  background: linear-gradient(135deg, #f8fafc, #eef4ff);
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 }
 
@@ -393,25 +286,15 @@ main {
 /* ================================= */
 
 .chip-icon {
-
   width: 140px;
-
   height: 140px;
-
   border: 4px solid #94a3b8;
-
   border-radius: 22px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   color: #64748b;
-
   font-size: 2rem;
-
   font-weight: bold;
 }
 
@@ -420,19 +303,12 @@ main {
 /* ================================= */
 
 .card-popup {
-
   display: none;
-
   position: fixed;
-
   inset: 0;
-
   z-index: 9999;
-
   background: rgba(15, 23, 42, 0.88);
-
   padding: 34px;
-
   overflow-y: auto;
 }
 
@@ -449,19 +325,12 @@ main {
 /* ================================= */
 
 .popup-content {
-
-  max-width: 1350px;
-
+  max-width: 1500px;
   margin: 0 auto;
-
   background: white;
-
   border-radius: 28px;
-
   overflow: hidden;
-
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.35);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
 }
 
 /* ================================= */
@@ -469,19 +338,10 @@ main {
 /* ================================= */
 
 .popup-header {
-
   position: relative;
-
-  background:
-    linear-gradient(135deg,
-    #020617,
-    #0f172a,
-    #1e3a8a);
-
+  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
   color: white;
-
   padding: 44px 34px;
-
   text-align: center;
 }
 
@@ -490,9 +350,7 @@ main {
 /* ================================= */
 
 .popup-header h2 {
-
   font-size: 3rem;
-
   margin-bottom: 14px;
 }
 
@@ -501,13 +359,9 @@ main {
 /* ================================= */
 
 .popup-header p {
-
   max-width: 900px;
-
   margin: 0 auto;
-
   color: #dbeafe;
-
   font-size: 1.15rem;
 }
 
@@ -516,29 +370,17 @@ main {
 /* ================================= */
 
 .close-popup {
-
   position: absolute;
-
   top: 22px;
-
   right: 24px;
-
   width: 48px;
-
   height: 48px;
-
   border: none;
-
   border-radius: 999px;
-
   background: white;
-
   color: #0f172a;
-
   font-size: 2rem;
-
   cursor: pointer;
-
   font-weight: bold;
 }
 
@@ -547,7 +389,6 @@ main {
 /* ================================= */
 
 .popup-body {
-
   padding: 38px;
 }
 
@@ -556,14 +397,11 @@ main {
 /* ================================= */
 
 .popup-grid {
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 28px;
-
   margin-bottom: 34px;
+  align-items: start;
 }
 
 /* ================================= */
@@ -571,15 +409,10 @@ main {
 /* ================================= */
 
 .popup-image-box {
-
   background: #f8fafc;
-
   border: 1px solid #e2e8f0;
-
   border-radius: 22px;
-
   overflow: hidden;
-
   padding: 16px;
 }
 
@@ -588,18 +421,14 @@ main {
 /* ================================= */
 
 .popup-image-box img {
-
   width: 100%;
-
-  height: 520px;
-
+  height: 700px;
   object-fit: contain;
-
   display: block;
-
   background: white;
-
   border-radius: 16px;
+  padding: 10px;
+  cursor: zoom-in;
 }
 
 /* ================================= */
@@ -607,11 +436,8 @@ main {
 /* ================================= */
 
 .popup-image-box h3 {
-
   margin-top: 16px;
-
   color: #0f172a;
-
   font-size: 1.25rem;
 }
 
@@ -620,9 +446,7 @@ main {
 /* ================================= */
 
 .popup-image-box p {
-
   margin-top: 6px;
-
   color: #475569;
 }
 
@@ -631,13 +455,9 @@ main {
 /* ================================= */
 
 .popup-text {
-
   background: #f8fbff;
-
   border: 1px solid #dbeafe;
-
   border-radius: 22px;
-
   padding: 28px;
 }
 
@@ -646,11 +466,8 @@ main {
 /* ================================= */
 
 .popup-text h3 {
-
   color: #0f172a;
-
   font-size: 1.7rem;
-
   margin-bottom: 16px;
 }
 
@@ -659,11 +476,8 @@ main {
 /* ================================= */
 
 .popup-text p {
-
   color: #475569;
-
   margin-bottom: 16px;
-
   font-size: 1.08rem;
 }
 
@@ -672,16 +486,12 @@ main {
 /* ================================= */
 
 .popup-text ul {
-
   padding-left: 22px;
-
   color: #475569;
-
   margin-top: 10px;
 }
 
 .popup-text li {
-
   margin-bottom: 10px;
 }
 
@@ -690,23 +500,14 @@ main {
 /* ================================= */
 
 .download-button {
-
   display: block;
-
   margin-top: 20px;
-
   text-align: center;
-
   background: #2563eb;
-
   color: white;
-
   padding: 16px;
-
   border-radius: 14px;
-
   font-weight: bold;
-
   font-size: 1rem;
 }
 
@@ -715,15 +516,10 @@ main {
 /* ================================= */
 
 footer {
-
   text-align: center;
-
   padding: 40px 20px;
-
   background: #020617;
-
   color: #cbd5e1;
-
   margin-top: 80px;
 }
 
@@ -736,7 +532,6 @@ footer a {
 /* ================================= */
 
 @media (max-width: 1100px) {
-
   .project-grid {
     grid-template-columns: 1fr;
   }
@@ -746,12 +541,11 @@ footer a {
   }
 
   .popup-image-box img {
-    height: 420px;
+    height: 580px;
   }
 }
 
 @media (max-width: 700px) {
-
   header h1 {
     font-size: 2.5rem;
   }
@@ -782,7 +576,7 @@ footer a {
   }
 
   .popup-image-box img {
-    height: 300px;
+    height: 420px;
   }
 }
 
@@ -803,7 +597,8 @@ footer a {
   </h1>
 
   <p>
-    A collection of personal DIY projects using Freenove_ESP32_WROVER_Board and MicroPython.
+    A collection of personal DIY electronics and embedded systems
+    projects using ESP32, ESP32-CAM and MicroPython.
   </p>
 
   <a class="back-button"
@@ -864,13 +659,9 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
-
           <span class="tag">PWM</span>
-
           <span class="tag">Motor Control</span>
-
           <span class="tag">Electronics</span>
-
           <span class="tag">MicroPython</span>
 
         </div>
@@ -907,9 +698,7 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
-
           <span class="tag">DIY</span>
-
           <span class="tag">Embedded Systems</span>
 
         </div>
@@ -952,9 +741,7 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
-
           <span class="tag">DIY</span>
-
           <span class="tag">Electronics</span>
 
         </div>
@@ -997,9 +784,7 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
-
           <span class="tag">DIY</span>
-
           <span class="tag">MicroPython</span>
 
         </div>
@@ -1150,25 +935,11 @@ footer a {
 
         <ul>
 
-          <li>
-            ESP32
-          </li>
-
-          <li>
-            NPN transistor 8050
-          </li>
-
-          <li>
-            DC motor
-          </li>
-
-          <li>
-            Flyback diode
-          </li>
-
-          <li>
-            PWM signal
-          </li>
+          <li>ESP32</li>
+          <li>NPN transistor 8050</li>
+          <li>DC motor</li>
+          <li>Flyback diode</li>
+          <li>PWM signal</li>
 
         </ul>
 
@@ -1200,25 +971,11 @@ footer a {
 
         <ul>
 
-          <li>
-            ESP32 programming
-          </li>
-
-          <li>
-            PWM motor control
-          </li>
-
-          <li>
-            Transistor switching
-          </li>
-
-          <li>
-            Circuit protection
-          </li>
-
-          <li>
-            MicroPython hardware control
-          </li>
+          <li>ESP32 programming</li>
+          <li>PWM motor control</li>
+          <li>Transistor switching</li>
+          <li>Circuit protection</li>
+          <li>MicroPython hardware control</li>
 
         </ul>
 
@@ -1229,13 +986,9 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
-
           <span class="tag">PWM</span>
-
           <span class="tag">NPN Transistor</span>
-
           <span class="tag">Motor Control</span>
-
           <span class="tag">MicroPython</span>
 
         </div>
@@ -1267,16 +1020,9 @@ footer a {
 <footer>
 
   <p>
-
     © 2026
-    <a href="../index.html">
-
-      Achraf Abdi
-
-    </a>
-
-    . All rights reserved.
-
+    <a href="../index.html">Achraf Abdi</a>.
+    All rights reserved.
   </p>
 
 </footer>
@@ -1348,4 +1094,3 @@ document.addEventListener("keydown", (event) => {
 
 </body>
 </html>
-```
