@@ -1,14 +1,31 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+<!-- ================================= -->
+<!-- ============ META INFO ========== -->
+<!-- ================================= -->
+
 <meta charset="UTF-8">
+
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>DIY Projects with ESP32 | Achraf Abdi</title>
+<title>
+  DIY Projects with ESP32 | Achraf Abdi
+</title>
+
+<!-- ================================= -->
+<!-- ============== CSS ============== -->
+<!-- ================================= -->
 
 <style>
+
+/* ================================= */
+/* ========= GLOBAL RESET ========== */
+/* ================================= */
 
 * {
   margin: 0;
@@ -16,6 +33,10 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ================================= */
+/* ============= BODY ============== */
+/* ================================= */
 
 body {
   background: #f8fafc;
@@ -27,359 +48,682 @@ a {
   text-decoration: none;
 }
 
+/* ================================= */
+/* ============ HEADER ============= */
+/* ================================= */
+
 header {
+
   position: relative;
+
   overflow: hidden;
-  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
+
+  background:
+    linear-gradient(135deg,
+    #020617,
+    #0f172a,
+    #1e3a8a);
+
   color: white;
+
   padding: 90px 20px;
+
   text-align: center;
 }
 
+/* ================================= */
+/* ===== HEADER BACKGROUND IMG ===== */
+/* ================================= */
+
 header::before {
+
   content: "";
+
   position: absolute;
+
   inset: 0;
+
   background-image: url("DIY.png");
+
   background-size: cover;
+
   background-position: center;
+
   opacity: 0.12;
 }
+
+/* ================================= */
+/* ===== HEADER CONTENT LAYER ====== */
+/* ================================= */
 
 header > * {
   position: relative;
   z-index: 1;
 }
 
+/* ================================= */
+/* ========== HEADER TITLE ========= */
+/* ================================= */
+
 header h1 {
+
   font-size: 4rem;
+
   margin-bottom: 18px;
 }
 
+/* ================================= */
+/* ===== HEADER DESCRIPTION ======== */
+/* ================================= */
+
 header p {
+
   max-width: 900px;
+
   margin: 0 auto;
+
   color: #dbeafe;
+
   font-size: 1.25rem;
 }
 
+/* ================================= */
+/* ========= BACK BUTTON =========== */
+/* ================================= */
+
 .back-button {
+
   display: inline-block;
+
   margin-top: 30px;
+
   background: #2563eb;
+
   color: white;
+
   padding: 15px 28px;
+
   border-radius: 14px;
+
   font-weight: bold;
+
   font-size: 1rem;
 }
 
+/* ================================= */
+/* ============ MAIN AREA ========== */
+/* ================================= */
+
 main {
+
   max-width: 1800px;
+
   margin: 0 auto;
+
   padding: 80px 40px;
 }
 
+/* ================================= */
+/* ========== PROJECT GRID ========= */
+/* ================================= */
+
 .project-grid {
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit,
+    minmax(420px, 1fr));
+
   gap: 36px;
+
   align-items: start;
 }
 
+/* ================================= */
+/* ========== PROJECT CARD ========= */
+/* ================================= */
+
 .project-card {
+
   background: white;
+
   border-radius: 26px;
+
   overflow: hidden;
+
   border: 1px solid #dbeafe;
-  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  box-shadow:
+    0 12px 34px rgba(15, 23, 42, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
   cursor: pointer;
 }
 
+/* ================================= */
+/* ===== PROJECT CARD HOVER ======= */
+/* ================================= */
+
 .project-card:hover {
+
   transform: translateY(-8px);
-  box-shadow: 0 22px 50px rgba(37, 99, 235, 0.16);
+
+  box-shadow:
+    0 22px 50px rgba(37, 99, 235, 0.16);
 }
 
+/* ================================= */
+/* ========= CARD IMAGE AREA ======= */
+/* ================================= */
+
 .project-image {
+
   position: relative;
+
   height: 320px;
+
   background: #f8fafc;
+
   overflow: hidden;
 }
 
+/* ================================= */
+/* =========== CARD IMAGE ========== */
+/* ================================= */
+
 .project-image img {
+
   width: 100%;
+
   height: 100%;
+
   object-fit: contain;
+
   background: white;
+
   padding: 18px;
 }
 
+/* ================================= */
+/* ========= FEATURED BADGE ======== */
+/* ================================= */
+
 .featured-badge {
+
   position: absolute;
+
   top: 18px;
+
   right: 18px;
+
   background: #2563eb;
+
   color: white;
+
   padding: 10px 16px;
+
   border-radius: 999px;
+
   font-size: 0.8rem;
+
   font-weight: bold;
-  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+
+  box-shadow:
+    0 8px 20px rgba(37,99,235,0.3);
 }
 
+/* ================================= */
+/* ======== CARD TEXT AREA ========= */
+/* ================================= */
+
 .project-content {
+
   padding: 34px;
 }
 
+/* ================================= */
+/* ========== CARD TITLE =========== */
+/* ================================= */
+
 .project-content h2 {
+
   color: #0f172a;
+
   margin-bottom: 18px;
+
   font-size: 2rem;
 }
 
+/* ================================= */
+/* ======== CARD PARAGRAPH ========= */
+/* ================================= */
+
 .project-content p {
+
   color: #475569;
+
   margin-bottom: 18px;
+
   font-size: 1.08rem;
 }
 
+/* ================================= */
+/* ============ TAG AREA =========== */
+/* ================================= */
+
 .tags {
+
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 10px;
+
   margin: 22px 0;
 }
 
+/* ================================= */
+/* ============== TAG ============== */
+/* ================================= */
+
 .tag {
+
   background: #eff6ff;
+
   color: #1d4ed8;
+
   padding: 8px 14px;
+
   border-radius: 999px;
+
   font-size: 0.9rem;
+
   font-weight: bold;
 }
 
-.code-image {
-  margin-top: 22px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid #1e293b;
-  background: #020617;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.2);
-}
-
-.code-image img {
-  width: 100%;
-  display: block;
-}
-
-.download-button {
-  display: block;
-  margin-top: 20px;
-  text-align: center;
-  background: #2563eb;
-  color: white;
-  padding: 16px;
-  border-radius: 14px;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.download-button:hover {
-  background: #1d4ed8;
-}
-
-.placeholder-box {
-  height: 320px;
-  background: linear-gradient(135deg, #f8fafc, #eef4ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chip-icon {
-  width: 140px;
-  height: 140px;
-  border: 4px solid #94a3b8;
-  border-radius: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #64748b;
-  font-size: 2rem;
-  font-weight: bold;
-}
+/* ================================= */
+/* ======== STATUS MESSAGE ========= */
+/* ================================= */
 
 .status-box {
+
   margin-top: 24px;
+
   border: 1px solid #bfdbfe;
+
   border-radius: 18px;
+
   padding: 22px;
+
   color: #1e293b;
+
   font-weight: bold;
+
   background: #f8fbff;
+
   font-size: 1rem;
 }
 
-/* =============================== */
-/* ========= CARD POPUP ========== */
-/* =============================== */
+/* ================================= */
+/* ===== PLACEHOLDER PROJECT ======= */
+/* ================================= */
+
+.placeholder-box {
+
+  height: 320px;
+
+  background:
+    linear-gradient(135deg,
+    #f8fafc,
+    #eef4ff);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+/* ================================= */
+/* ===== PLACEHOLDER ESP32 BOX ===== */
+/* ================================= */
+
+.chip-icon {
+
+  width: 140px;
+
+  height: 140px;
+
+  border: 4px solid #94a3b8;
+
+  border-radius: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #64748b;
+
+  font-size: 2rem;
+
+  font-weight: bold;
+}
+
+/* ================================= */
+/* ============ POPUP ============== */
+/* ================================= */
 
 .card-popup {
+
   display: none;
+
   position: fixed;
+
   inset: 0;
+
   z-index: 9999;
+
   background: rgba(15, 23, 42, 0.88);
+
   padding: 34px;
+
   overflow-y: auto;
 }
+
+/* ================================= */
+/* ========= OPEN POPUP ============ */
+/* ================================= */
 
 .card-popup.open {
   display: block;
 }
 
+/* ================================= */
+/* ======== POPUP CONTAINER ======== */
+/* ================================= */
+
 .popup-content {
+
   max-width: 1350px;
+
   margin: 0 auto;
+
   background: white;
+
   border-radius: 28px;
+
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-  animation: popupZoom 0.25s ease;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.35);
 }
 
-@keyframes popupZoom {
-  from {
-    transform: scale(0.92);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+/* ================================= */
+/* ========= POPUP HEADER ========== */
+/* ================================= */
 
 .popup-header {
+
   position: relative;
-  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
+
+  background:
+    linear-gradient(135deg,
+    #020617,
+    #0f172a,
+    #1e3a8a);
+
   color: white;
+
   padding: 44px 34px;
+
   text-align: center;
 }
 
+/* ================================= */
+/* ======== POPUP TITLE ============ */
+/* ================================= */
+
 .popup-header h2 {
+
   font-size: 3rem;
+
   margin-bottom: 14px;
 }
 
+/* ================================= */
+/* ===== POPUP DESCRIPTION ========= */
+/* ================================= */
+
 .popup-header p {
+
   max-width: 900px;
+
   margin: 0 auto;
+
   color: #dbeafe;
+
   font-size: 1.15rem;
 }
 
+/* ================================= */
+/* ========= CLOSE BUTTON ========== */
+/* ================================= */
+
 .close-popup {
+
   position: absolute;
+
   top: 22px;
+
   right: 24px;
+
   width: 48px;
+
   height: 48px;
+
   border: none;
+
   border-radius: 999px;
+
   background: white;
+
   color: #0f172a;
+
   font-size: 2rem;
+
   cursor: pointer;
+
   font-weight: bold;
 }
 
+/* ================================= */
+/* =========== POPUP BODY ========== */
+/* ================================= */
+
 .popup-body {
+
   padding: 38px;
 }
 
+/* ================================= */
+/* ======== POPUP IMAGE GRID ======= */
+/* ================================= */
+
 .popup-grid {
+
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 28px;
+
   margin-bottom: 34px;
 }
 
+/* ================================= */
+/* ========= IMAGE BOX ============= */
+/* ================================= */
+
 .popup-image-box {
+
   background: #f8fafc;
+
   border: 1px solid #e2e8f0;
+
   border-radius: 22px;
+
   overflow: hidden;
+
   padding: 16px;
 }
 
+/* ================================= */
+/* ======== POPUP IMAGES =========== */
+/* ================================= */
+
 .popup-image-box img {
+
   width: 100%;
+
   height: 520px;
+
   object-fit: contain;
+
   display: block;
+
   background: white;
+
   border-radius: 16px;
 }
 
+/* ================================= */
+/* ===== IMAGE SECTION TITLE ======= */
+/* ================================= */
+
 .popup-image-box h3 {
+
   margin-top: 16px;
+
   color: #0f172a;
+
   font-size: 1.25rem;
 }
 
+/* ================================= */
+/* ===== IMAGE DESCRIPTION ========= */
+/* ================================= */
+
 .popup-image-box p {
+
   margin-top: 6px;
+
   color: #475569;
 }
 
+/* ================================= */
+/* ======== PROJECT DETAILS ======== */
+/* ================================= */
+
 .popup-text {
+
   background: #f8fbff;
+
   border: 1px solid #dbeafe;
+
   border-radius: 22px;
+
   padding: 28px;
 }
 
+/* ================================= */
+/* ======== DETAIL TITLES ========== */
+/* ================================= */
+
 .popup-text h3 {
+
   color: #0f172a;
+
   font-size: 1.7rem;
+
   margin-bottom: 16px;
 }
 
+/* ================================= */
+/* ======== DETAIL TEXT ============ */
+/* ================================= */
+
 .popup-text p {
+
   color: #475569;
+
   margin-bottom: 16px;
+
   font-size: 1.08rem;
 }
 
+/* ================================= */
+/* ========= DETAIL LIST =========== */
+/* ================================= */
+
 .popup-text ul {
+
   padding-left: 22px;
+
   color: #475569;
+
   margin-top: 10px;
 }
 
 .popup-text li {
+
   margin-bottom: 10px;
 }
 
-.popup-footer {
-  margin-top: 28px;
+/* ================================= */
+/* ========= DOWNLOAD BTN ========== */
+/* ================================= */
+
+.download-button {
+
+  display: block;
+
+  margin-top: 20px;
+
+  text-align: center;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  font-weight: bold;
+
+  font-size: 1rem;
 }
 
-/* =============================== */
-/* ============ FOOTER =========== */
-/* =============================== */
+/* ================================= */
+/* ============= FOOTER ============ */
+/* ================================= */
 
 footer {
+
   text-align: center;
+
   padding: 40px 20px;
+
   background: #020617;
+
   color: #cbd5e1;
+
   margin-top: 80px;
 }
 
@@ -387,7 +731,12 @@ footer a {
   color: #60a5fa;
 }
 
+/* ================================= */
+/* ======== RESPONSIVE MODE ======== */
+/* ================================= */
+
 @media (max-width: 1100px) {
+
   .project-grid {
     grid-template-columns: 1fr;
   }
@@ -402,6 +751,7 @@ footer a {
 }
 
 @media (max-width: 700px) {
+
   header h1 {
     font-size: 2.5rem;
   }
@@ -423,10 +773,6 @@ footer a {
     font-size: 1.5rem;
   }
 
-  .card-popup {
-    padding: 14px;
-  }
-
   .popup-header h2 {
     font-size: 2rem;
   }
@@ -441,13 +787,20 @@ footer a {
 }
 
 </style>
+
 </head>
 
 <body>
 
+<!-- ================================= -->
+<!-- ============ HEADER ============ -->
+<!-- ================================= -->
+
 <header>
 
-  <h1>DIY Projects with ESP32</h1>
+  <h1>
+    DIY Projects with ESP32
+  </h1>
 
   <p>
     A collection of personal DIY electronics and embedded systems
@@ -463,9 +816,21 @@ footer a {
 
 </header>
 
+<!-- ================================= -->
+<!-- ============= MAIN ============= -->
+<!-- ================================= -->
+
 <main>
 
+  <!-- ============================= -->
+  <!-- ========= CARD GRID ========= -->
+  <!-- ============================= -->
+
   <div class="project-grid">
+
+    <!-- =========================== -->
+    <!-- ===== FEATURED PROJECT ==== -->
+    <!-- =========================== -->
 
     <div class="project-card"
          onclick="openMotorPopup()">
@@ -500,9 +865,13 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
+
           <span class="tag">PWM</span>
+
           <span class="tag">Motor Control</span>
+
           <span class="tag">Electronics</span>
+
           <span class="tag">MicroPython</span>
 
         </div>
@@ -510,6 +879,10 @@ footer a {
       </div>
 
     </div>
+
+    <!-- =========================== -->
+    <!-- ========= PROJECT 1 ======= -->
+    <!-- =========================== -->
 
     <div class="project-card">
 
@@ -535,7 +908,9 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
+
           <span class="tag">DIY</span>
+
           <span class="tag">Embedded Systems</span>
 
         </div>
@@ -549,6 +924,10 @@ footer a {
       </div>
 
     </div>
+
+    <!-- =========================== -->
+    <!-- ========= PROJECT 2 ======= -->
+    <!-- =========================== -->
 
     <div class="project-card">
 
@@ -574,7 +953,9 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
+
           <span class="tag">DIY</span>
+
           <span class="tag">Electronics</span>
 
         </div>
@@ -588,6 +969,10 @@ footer a {
       </div>
 
     </div>
+
+    <!-- =========================== -->
+    <!-- ========= PROJECT 3 ======= -->
+    <!-- =========================== -->
 
     <div class="project-card">
 
@@ -613,7 +998,9 @@ footer a {
         <div class="tags">
 
           <span class="tag">ESP32</span>
+
           <span class="tag">DIY</span>
+
           <span class="tag">MicroPython</span>
 
         </div>
@@ -632,14 +1019,18 @@ footer a {
 
 </main>
 
-<!-- =============================== -->
-<!-- ========= MOTOR POPUP ========= -->
-<!-- =============================== -->
+<!-- ================================= -->
+<!-- ========= MOTOR POPUP ========== -->
+<!-- ================================= -->
 
 <div class="card-popup"
      id="motorPopup">
 
   <div class="popup-content">
+
+    <!-- =========================== -->
+    <!-- ======== POPUP TOP ======== -->
+    <!-- =========================== -->
 
     <div class="popup-header">
 
@@ -655,14 +1046,27 @@ footer a {
       </h2>
 
       <p>
-        Full project view with circuit, code and project explanation.
+        Full project view with circuit,
+        code and project explanation.
       </p>
 
     </div>
 
+    <!-- =========================== -->
+    <!-- ======== POPUP BODY ======= -->
+    <!-- =========================== -->
+
     <div class="popup-body">
 
+      <!-- ========================= -->
+      <!-- ===== IMAGE SECTION ===== -->
+      <!-- ========================= -->
+
       <div class="popup-grid">
+
+        <!-- ======================= -->
+        <!-- ===== CIRCUIT IMG ===== -->
+        <!-- ======================= -->
 
         <div class="popup-image-box">
 
@@ -674,12 +1078,18 @@ footer a {
           </h3>
 
           <p>
-            The circuit uses an ESP32, an NPN transistor 8050,
-            a base resistor, a DC motor and a flyback diode
-            for inductive protection.
+            The circuit uses an ESP32,
+            an NPN transistor 8050,
+            a resistor,
+            a DC motor
+            and a flyback diode.
           </p>
 
         </div>
+
+        <!-- ======================= -->
+        <!-- ======= CODE IMG ====== -->
+        <!-- ======================= -->
 
         <div class="popup-image-box">
 
@@ -691,71 +1101,157 @@ footer a {
           </h3>
 
           <p>
-            The ESP32 sends a PWM signal to control the motor speed.
-            In this test the motor runs at 60 percent and then stops.
+            The ESP32 sends a PWM signal
+            to control the motor speed.
           </p>
 
         </div>
 
       </div>
 
+      <!-- ========================= -->
+      <!-- ===== PROJECT TEXT ====== -->
+      <!-- ========================= -->
+
       <div class="popup-text">
 
+        <!-- ======================= -->
+        <!-- == PROJECT DESCRIPTION = -->
+        <!-- ======================= -->
+
         <h3>
-          What I Did
+          Project Description
         </h3>
 
         <p>
-          In this DIY project I wanted to test if I could control
-          a DC motor directly with a simple NPN transistor instead
+          In this DIY project I wanted to test
+          if I could control a DC motor directly
+          with a simple NPN transistor instead
           of using a relay module.
         </p>
 
         <p>
-          I got the idea from a tutorial where a similar circuit was
-          used. In that tutorial the NPN transistor controlled a relay,
-          and the relay controlled the motor.
+          I got the idea from a tutorial where
+          a similar circuit was used.
+          In that tutorial the NPN transistor
+          controlled a relay and the relay
+          controlled the motor.
         </p>
 
         <p>
-          I thought that the same switching principle could maybe also
-          be used to control the motor directly through the transistor.
-          So I built a small test circuit with an ESP32, an NPN transistor
-          8050, a resistor, a DC motor and a protection diode.
+          I thought that the same switching
+          principle could maybe also be used
+          to control the motor directly
+          through the transistor itself.
         </p>
 
-        <h3>
-          What I Learned
-        </h3>
+        <p>
+          For the experiment I used:
+        </p>
 
         <ul>
-          <li>How to use a transistor as an electronic switch</li>
-          <li>How PWM can control motor speed</li>
-          <li>Why a flyback diode is important for motor circuits</li>
-          <li>How ESP32 and MicroPython can be used for hardware tests</li>
+
+          <li>
+            ESP32
+          </li>
+
+          <li>
+            NPN transistor 8050
+          </li>
+
+          <li>
+            DC motor
+          </li>
+
+          <li>
+            Flyback diode
+          </li>
+
+          <li>
+            PWM signal
+          </li>
+
         </ul>
+
+        <!-- ======================= -->
+        <!-- ======== SUMMARY ====== -->
+        <!-- ======================= -->
+
+        <h3>
+          Summary
+        </h3>
+
+        <p>
+          This project helped me understand
+          how a transistor can be used as
+          an electronic switch in a real circuit.
+        </p>
+
+        <p>
+          I also learned how PWM can be used
+          to control motor speed and why a
+          flyback diode is important when
+          working with motors and inductive loads.
+        </p>
+
+        <p>
+          The project combined several
+          important topics:
+        </p>
+
+        <ul>
+
+          <li>
+            ESP32 programming
+          </li>
+
+          <li>
+            PWM motor control
+          </li>
+
+          <li>
+            Transistor switching
+          </li>
+
+          <li>
+            Circuit protection
+          </li>
+
+          <li>
+            MicroPython hardware control
+          </li>
+
+        </ul>
+
+        <!-- ======================= -->
+        <!-- ========= TAGS ======== -->
+        <!-- ======================= -->
 
         <div class="tags">
 
           <span class="tag">ESP32</span>
+
           <span class="tag">PWM</span>
+
           <span class="tag">NPN Transistor</span>
+
           <span class="tag">Motor Control</span>
+
           <span class="tag">MicroPython</span>
 
         </div>
 
-        <div class="popup-footer">
+        <!-- ======================= -->
+        <!-- ===== DOWNLOAD BTN ==== -->
+        <!-- ======================= -->
 
-          <a href="Motor Ansteuerung/motor_control.py"
-             download
-             class="download-button">
+        <a href="Motor Ansteuerung/motor_control.py"
+           download
+           class="download-button">
 
-             ↓ Download MicroPython Code
+           ↓ Download MicroPython Code
 
-          </a>
-
-        </div>
+        </a>
 
       </div>
 
@@ -765,35 +1261,65 @@ footer a {
 
 </div>
 
+<!-- ================================= -->
+<!-- ============ FOOTER ============ -->
+<!-- ================================= -->
+
 <footer>
 
   <p>
-    © 2026 <a href="../index.html">Achraf Abdi</a>.
-    All rights reserved.
+
+    © 2026
+    <a href="../index.html">
+
+      Achraf Abdi
+
+    </a>
+
+    . All rights reserved.
+
   </p>
 
 </footer>
 
+<!-- ================================= -->
+<!-- =========== JAVASCRIPT ========== -->
+<!-- ================================= -->
+
 <script>
+
+/* =============================== */
+/* ======== POPUP ELEMENT ======== */
+/* =============================== */
 
 const motorPopup =
       document.getElementById("motorPopup");
+
+/* =============================== */
+/* ========= OPEN POPUP ========== */
+/* =============================== */
 
 function openMotorPopup() {
 
   motorPopup.classList.add("open");
 
   document.body.style.overflow = "hidden";
-
 }
+
+/* =============================== */
+/* ========= CLOSE POPUP ========= */
+/* =============================== */
 
 function closeMotorPopup() {
 
   motorPopup.classList.remove("open");
 
   document.body.style.overflow = "auto";
-
 }
+
+/* =============================== */
+/* ===== CLOSE IF OUTSIDE ======== */
+/* =============================== */
 
 motorPopup.addEventListener("click", (event) => {
 
@@ -804,6 +1330,10 @@ motorPopup.addEventListener("click", (event) => {
   }
 
 });
+
+/* =============================== */
+/* ===== ESCAPE KEY SUPPORT ====== */
+/* =============================== */
 
 document.addEventListener("keydown", (event) => {
 
@@ -819,3 +1349,4 @@ document.addEventListener("keydown", (event) => {
 
 </body>
 </html>
+```
