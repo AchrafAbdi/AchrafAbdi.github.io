@@ -94,6 +94,7 @@ main {
   border: 1px solid #dbeafe;
   box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -114,7 +115,6 @@ main {
   object-fit: contain;
   background: white;
   padding: 18px;
-  cursor: zoom-in;
 }
 
 .featured-badge {
@@ -169,13 +169,11 @@ main {
   border: 1px solid #1e293b;
   background: #020617;
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.2);
-  cursor: zoom-in;
 }
 
 .code-image img {
   width: 100%;
   display: block;
-  cursor: zoom-in;
 }
 
 .download-button {
@@ -226,34 +224,156 @@ main {
   font-size: 1rem;
 }
 
-.lightbox {
+/* =============================== */
+/* ========= CARD POPUP ========== */
+/* =============================== */
+
+.card-popup {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.88);
-  justify-content: center;
-  align-items: center;
   z-index: 9999;
-  padding: 30px;
+  background: rgba(15, 23, 42, 0.88);
+  padding: 34px;
+  overflow-y: auto;
 }
 
-.lightbox-image {
-  max-width: 96%;
-  max-height: 96%;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+.card-popup.open {
+  display: block;
+}
+
+.popup-content {
+  max-width: 1350px;
+  margin: 0 auto;
   background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  animation: popupZoom 0.25s ease;
 }
 
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  font-size: 4rem;
+@keyframes popupZoom {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.popup-header {
+  position: relative;
+  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
   color: white;
+  padding: 44px 34px;
+  text-align: center;
+}
+
+.popup-header h2 {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.popup-header p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #dbeafe;
+  font-size: 1.15rem;
+}
+
+.close-popup {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  color: #0f172a;
+  font-size: 2rem;
   cursor: pointer;
   font-weight: bold;
 }
+
+.popup-body {
+  padding: 38px;
+}
+
+.popup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 34px;
+}
+
+.popup-image-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.popup-image-box img {
+  width: 100%;
+  height: 520px;
+  object-fit: contain;
+  display: block;
+  background: white;
+  border-radius: 16px;
+}
+
+.popup-image-box h3 {
+  margin-top: 16px;
+  color: #0f172a;
+  font-size: 1.25rem;
+}
+
+.popup-image-box p {
+  margin-top: 6px;
+  color: #475569;
+}
+
+.popup-text {
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+  border-radius: 22px;
+  padding: 28px;
+}
+
+.popup-text h3 {
+  color: #0f172a;
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+}
+
+.popup-text p {
+  color: #475569;
+  margin-bottom: 16px;
+  font-size: 1.08rem;
+}
+
+.popup-text ul {
+  padding-left: 22px;
+  color: #475569;
+  margin-top: 10px;
+}
+
+.popup-text li {
+  margin-bottom: 10px;
+}
+
+.popup-footer {
+  margin-top: 28px;
+}
+
+/* =============================== */
+/* ============ FOOTER =========== */
+/* =============================== */
 
 footer {
   text-align: center;
@@ -270,6 +390,14 @@ footer a {
 @media (max-width: 1100px) {
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .popup-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-image-box img {
+    height: 420px;
   }
 }
 
@@ -293,6 +421,22 @@ footer a {
 
   .project-content h2 {
     font-size: 1.5rem;
+  }
+
+  .card-popup {
+    padding: 14px;
+  }
+
+  .popup-header h2 {
+    font-size: 2rem;
+  }
+
+  .popup-body {
+    padding: 20px;
+  }
+
+  .popup-image-box img {
+    height: 300px;
   }
 }
 
@@ -323,7 +467,8 @@ footer a {
 
   <div class="project-grid">
 
-    <div class="project-card">
+    <div class="project-card"
+         onclick="openMotorPopup()">
 
       <div class="project-image">
 
@@ -332,8 +477,7 @@ footer a {
         </div>
 
         <img src="Motor Ansteuerung/schaltung.png"
-             alt="ESP32 Motor Control Circuit"
-             id="circuitImage">
+             alt="ESP32 Motor Control Circuit">
 
       </div>
 
@@ -350,15 +494,7 @@ footer a {
         </p>
 
         <p>
-          I got the idea after watching a tutorial where
-          a similar circuit was used to control a relay
-          that switched the motor.
-        </p>
-
-        <p>
-          I wanted to test if the same principle could
-          be used to control the motor directly through
-          the transistor itself.
+          Click this card to open the full project view.
         </p>
 
         <div class="tags">
@@ -370,22 +506,6 @@ footer a {
           <span class="tag">MicroPython</span>
 
         </div>
-
-        <div class="code-image">
-
-          <img src="Motor Ansteuerung/Motor Code.PNG"
-               alt="Motor Control Code"
-               id="codeImage">
-
-        </div>
-
-        <a href="Motor Ansteuerung/motor_control.py"
-           download
-           class="download-button">
-
-           ↓ Download MicroPython Code
-
-        </a>
 
       </div>
 
@@ -512,18 +632,136 @@ footer a {
 
 </main>
 
-<div class="lightbox"
-     id="lightbox">
+<!-- =============================== -->
+<!-- ========= MOTOR POPUP ========= -->
+<!-- =============================== -->
 
-  <span class="close-btn"
-        id="closeBtn">
+<div class="card-popup"
+     id="motorPopup">
+
+  <div class="popup-content">
+
+    <div class="popup-header">
+
+      <button class="close-popup"
+              onclick="closeMotorPopup()">
 
         &times;
 
-  </span>
+      </button>
 
-  <img class="lightbox-image"
-       id="lightboxImage">
+      <h2>
+        ESP32 Motor Control with PWM
+      </h2>
+
+      <p>
+        Full project view with circuit, code and project explanation.
+      </p>
+
+    </div>
+
+    <div class="popup-body">
+
+      <div class="popup-grid">
+
+        <div class="popup-image-box">
+
+          <img src="Motor Ansteuerung/schaltung.png"
+               alt="ESP32 motor circuit">
+
+          <h3>
+            Circuit Design
+          </h3>
+
+          <p>
+            The circuit uses an ESP32, an NPN transistor 8050,
+            a base resistor, a DC motor and a flyback diode
+            for inductive protection.
+          </p>
+
+        </div>
+
+        <div class="popup-image-box">
+
+          <img src="Motor Ansteuerung/Motor Code.PNG"
+               alt="MicroPython motor code">
+
+          <h3>
+            MicroPython Code
+          </h3>
+
+          <p>
+            The ESP32 sends a PWM signal to control the motor speed.
+            In this test the motor runs at 60 percent and then stops.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="popup-text">
+
+        <h3>
+          What I Did
+        </h3>
+
+        <p>
+          In this DIY project I wanted to test if I could control
+          a DC motor directly with a simple NPN transistor instead
+          of using a relay module.
+        </p>
+
+        <p>
+          I got the idea from a tutorial where a similar circuit was
+          used. In that tutorial the NPN transistor controlled a relay,
+          and the relay controlled the motor.
+        </p>
+
+        <p>
+          I thought that the same switching principle could maybe also
+          be used to control the motor directly through the transistor.
+          So I built a small test circuit with an ESP32, an NPN transistor
+          8050, a resistor, a DC motor and a protection diode.
+        </p>
+
+        <h3>
+          What I Learned
+        </h3>
+
+        <ul>
+          <li>How to use a transistor as an electronic switch</li>
+          <li>How PWM can control motor speed</li>
+          <li>Why a flyback diode is important for motor circuits</li>
+          <li>How ESP32 and MicroPython can be used for hardware tests</li>
+        </ul>
+
+        <div class="tags">
+
+          <span class="tag">ESP32</span>
+          <span class="tag">PWM</span>
+          <span class="tag">NPN Transistor</span>
+          <span class="tag">Motor Control</span>
+          <span class="tag">MicroPython</span>
+
+        </div>
+
+        <div class="popup-footer">
+
+          <a href="Motor Ansteuerung/motor_control.py"
+             download
+             class="download-button">
+
+             ↓ Download MicroPython Code
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
@@ -538,52 +776,40 @@ footer a {
 
 <script>
 
-const codeImage =
-      document.getElementById("codeImage");
+const motorPopup =
+      document.getElementById("motorPopup");
 
-const circuitImage =
-      document.getElementById("circuitImage");
+function openMotorPopup() {
 
-const lightbox =
-      document.getElementById("lightbox");
+  motorPopup.classList.add("open");
 
-const lightboxImage =
-      document.getElementById("lightboxImage");
-
-const closeBtn =
-      document.getElementById("closeBtn");
-
-function openLightbox(imageElement) {
-
-  lightbox.style.display = "flex";
-
-  lightboxImage.src = imageElement.src;
+  document.body.style.overflow = "hidden";
 
 }
 
-codeImage.addEventListener("click", () => {
+function closeMotorPopup() {
 
-  openLightbox(codeImage);
+  motorPopup.classList.remove("open");
+
+  document.body.style.overflow = "auto";
+
+}
+
+motorPopup.addEventListener("click", (event) => {
+
+  if (event.target === motorPopup) {
+
+    closeMotorPopup();
+
+  }
 
 });
 
-circuitImage.addEventListener("click", () => {
+document.addEventListener("keydown", (event) => {
 
-  openLightbox(circuitImage);
+  if (event.key === "Escape") {
 
-});
-
-closeBtn.addEventListener("click", () => {
-
-  lightbox.style.display = "none";
-
-});
-
-lightbox.addEventListener("click", (event) => {
-
-  if (event.target === lightbox) {
-
-    lightbox.style.display = "none";
+    closeMotorPopup();
 
   }
 
