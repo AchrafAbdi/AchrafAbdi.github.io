@@ -8,6 +8,7 @@
 <title>DIY Projects with ESP32 | Achraf Abdi</title>
 
 <style>
+
 * {
   margin: 0;
   padding: 0;
@@ -28,9 +29,13 @@ a {
 header {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
+  background: linear-gradient(135deg,
+              #020617,
+              #0f172a,
+              #1e3a8a);
+
   color: white;
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
@@ -38,9 +43,11 @@ header::before {
   content: "";
   position: absolute;
   inset: 0;
+
   background-image: url("DIY.png");
   background-size: cover;
   background-position: center;
+
   opacity: 0.12;
 }
 
@@ -50,56 +57,72 @@ header > * {
 }
 
 header h1 {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  font-size: 4rem;
+  margin-bottom: 18px;
 }
 
 header p {
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
   color: #dbeafe;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 .back-button {
   display: inline-block;
-  margin-top: 28px;
+  margin-top: 30px;
   background: #2563eb;
   color: white;
-  padding: 13px 24px;
-  border-radius: 12px;
+  padding: 15px 28px;
+  border-radius: 14px;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 main {
-  max-width: 1320px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 70px 24px;
+  padding: 80px 40px;
 }
 
 .project-grid {
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 28px;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(420px, 1fr));
+
+  gap: 36px;
+
+  align-items: start;
 }
 
 .project-card {
   background: white;
-  border-radius: 22px;
+  border-radius: 26px;
   overflow: hidden;
   border: 1px solid #dbeafe;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  transition: 0.25s ease;
+
+  box-shadow:
+    0 12px 34px rgba(15, 23, 42, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.16);
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 22px 50px rgba(37, 99, 235, 0.16);
+
 }
 
 .project-image {
   position: relative;
-  height: 260px;
+  height: 320px;
   background: #f8fafc;
   overflow: hidden;
 }
@@ -109,60 +132,71 @@ main {
   height: 100%;
   object-fit: contain;
   background: white;
-  padding: 16px;
+  padding: 18px;
 }
 
 .featured-badge {
+
   position: absolute;
-  top: 14px;
-  right: 14px;
+
+  top: 18px;
+  right: 18px;
+
   background: #2563eb;
   color: white;
-  padding: 8px 14px;
+
+  padding: 10px 16px;
+
   border-radius: 999px;
-  font-size: 0.75rem;
+
+  font-size: 0.8rem;
   font-weight: bold;
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+
+  box-shadow:
+    0 8px 20px rgba(37,99,235,0.3);
 }
 
 .project-content {
-  padding: 26px;
+  padding: 34px;
 }
 
 .project-content h2 {
   color: #0f172a;
-  margin-bottom: 14px;
-  font-size: 1.45rem;
+  margin-bottom: 18px;
+  font-size: 2rem;
 }
 
 .project-content p {
   color: #475569;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+  font-size: 1.08rem;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0;
+  gap: 10px;
+  margin: 22px 0;
 }
 
 .tag {
   background: #eff6ff;
   color: #1d4ed8;
-  padding: 7px 12px;
+  padding: 8px 14px;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
 .code-image {
-  margin-top: 20px;
-  border-radius: 16px;
+  margin-top: 22px;
+  border-radius: 18px;
   overflow: hidden;
   border: 1px solid #1e293b;
   background: #020617;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.2);
 }
 
 .code-image img {
@@ -171,14 +205,23 @@ main {
 }
 
 .download-button {
+
   display: block;
-  margin-top: 16px;
+
+  margin-top: 20px;
+
   text-align: center;
+
   background: #2563eb;
   color: white;
-  padding: 14px;
-  border-radius: 12px;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
   font-weight: bold;
+
+  font-size: 1rem;
 }
 
 .download-button:hover {
@@ -186,72 +229,115 @@ main {
 }
 
 .placeholder-box {
-  height: 260px;
-  background: linear-gradient(135deg, #f8fafc, #eef4ff);
+  height: 320px;
+
+  background:
+    linear-gradient(135deg,
+    #f8fafc,
+    #eef4ff);
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .chip-icon {
-  width: 120px;
-  height: 120px;
+
+  width: 140px;
+  height: 140px;
+
   border: 4px solid #94a3b8;
-  border-radius: 18px;
+
+  border-radius: 22px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #64748b;
-  font-size: 1.5rem;
+
+  font-size: 2rem;
   font-weight: bold;
+
   position: relative;
 }
 
 .status-box {
-  margin-top: 260px;
-  border: 1px solid #bfdbfe;
-  border-radius: 14px;
-  padding: 18px;
-  color: #1e293b;
-  font-weight: bold;
-  background: #f8fbff;
-}
 
-.status-box.small {
-  margin-top: 22px;
+  margin-top: 24px;
+
+  border: 1px solid #bfdbfe;
+
+  border-radius: 18px;
+
+  padding: 22px;
+
+  color: #1e293b;
+
+  font-weight: bold;
+
+  background: #f8fbff;
+
+  font-size: 1rem;
 }
 
 footer {
+
   text-align: center;
-  padding: 34px 20px;
+
+  padding: 40px 20px;
+
   background: #020617;
+
   color: #cbd5e1;
+
+  margin-top: 80px;
 }
 
 footer a {
   color: #60a5fa;
 }
 
+@media (max-width: 1100px) {
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
 @media (max-width: 700px) {
+
   header h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+  }
+
+  header p {
+    font-size: 1rem;
   }
 
   .project-image,
   .placeholder-box {
-    height: 220px;
+    height: 240px;
   }
 
-  .status-box {
-    margin-top: 40px;
+  .project-content {
+    padding: 24px;
   }
+
+  .project-content h2 {
+    font-size: 1.5rem;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
   <h1>DIY Projects with ESP32</h1>
 
   <p>
@@ -259,64 +345,86 @@ footer a {
     projects using ESP32, ESP32-CAM and MicroPython.
   </p>
 
-  <a class="back-button" href="../index.html">
-    ← Back to Portfolio
+  <a class="back-button"
+     href="../index.html">
+
+     ← Back to Portfolio
+
   </a>
+
 </header>
 
 <main>
 
   <div class="project-grid">
 
+    <!-- ================================= -->
+    <!-- ========= FEATURED CARD ========= -->
+    <!-- ================================= -->
+
     <div class="project-card">
 
       <div class="project-image">
-        <div class="featured-badge">FEATURED</div>
+
+        <div class="featured-badge">
+
+          FEATURED
+
+        </div>
 
         <img src="Motor Ansteuerung/schaltung.png"
              alt="ESP32 Motor Control Circuit">
+
       </div>
 
       <div class="project-content">
 
-        <h2>ESP32 Motor Control with PWM</h2>
+        <h2>
+
+          ESP32 Motor Control with PWM
+
+        </h2>
 
         <p>
-          In this DIY project I experimented with controlling a DC motor
-          directly using an ESP32 and a simple NPN transistor 8050
-          without using a relay module.
+          In this DIY project I experimented with controlling
+          a DC motor directly using an ESP32 and a simple
+          NPN transistor 8050 without using a relay module.
         </p>
 
         <p>
-          I got the idea after watching a tutorial where a similar circuit
-          was used to control a relay that switched the motor.
-          I wanted to test if the same principle could be used to control
-          the motor directly through the transistor itself.
+          I got the idea after watching a tutorial where
+          a similar circuit was used to control a relay
+          that switched the motor.
         </p>
 
         <p>
-          The project uses PWM signals, an NPN transistor, a resistor
-          and a flyback diode for inductive protection.
+          I wanted to test if the same principle could
+          be used to control the motor directly through
+          the transistor itself.
         </p>
 
         <div class="tags">
+
           <span class="tag">ESP32</span>
           <span class="tag">PWM</span>
           <span class="tag">Motor Control</span>
           <span class="tag">Electronics</span>
           <span class="tag">MicroPython</span>
+
         </div>
 
         <div class="code-image">
+
           <img src="Motor Ansteuerung/Motor Code.PNG"
-               alt="MicroPython Motor Code">
+               alt="Motor Control Code">
+
         </div>
 
         <a href="Motor Ansteuerung/motor_control.py"
            download
            class="download-button">
 
-          ↓ Download MicroPython Code
+           ↓ Download MicroPython Code
 
         </a>
 
@@ -324,87 +432,141 @@ footer a {
 
     </div>
 
+    <!-- ================================= -->
+    <!-- =========== PROJECT 1 =========== -->
+    <!-- ================================= -->
+
     <div class="project-card">
 
       <div class="placeholder-box">
-        <div class="chip-icon">ESP32</div>
+
+        <div class="chip-icon">
+
+          ESP32
+
+        </div>
+
       </div>
 
       <div class="project-content">
 
-        <h2>DIY Project 1</h2>
+        <h2>
+
+          DIY Project 1
+
+        </h2>
 
         <p>
-          Additional ESP32 DIY project documentation and technical
-          details will be uploaded soon.
+          Additional ESP32 DIY project documentation
+          and technical details will be uploaded soon.
         </p>
 
         <div class="tags">
+
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">Embedded Systems</span>
+
         </div>
 
         <div class="status-box">
+
           ⏳ Project documentation will be uploaded soon.
+
         </div>
 
       </div>
 
     </div>
 
+    <!-- ================================= -->
+    <!-- =========== PROJECT 2 =========== -->
+    <!-- ================================= -->
+
     <div class="project-card">
 
       <div class="placeholder-box">
-        <div class="chip-icon">ESP32</div>
+
+        <div class="chip-icon">
+
+          ESP32
+
+        </div>
+
       </div>
 
       <div class="project-content">
 
-        <h2>DIY Project 2</h2>
+        <h2>
+
+          DIY Project 2
+
+        </h2>
 
         <p>
-          Additional ESP32 DIY project documentation and technical
-          details will be uploaded soon.
+          Additional ESP32 DIY project documentation
+          and technical details will be uploaded soon.
         </p>
 
         <div class="tags">
+
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">Electronics</span>
+
         </div>
 
         <div class="status-box">
+
           ⏳ Project documentation will be uploaded soon.
+
         </div>
 
       </div>
 
     </div>
 
+    <!-- ================================= -->
+    <!-- =========== PROJECT 3 =========== -->
+    <!-- ================================= -->
+
     <div class="project-card">
 
       <div class="placeholder-box">
-        <div class="chip-icon">ESP32</div>
+
+        <div class="chip-icon">
+
+          ESP32
+
+        </div>
+
       </div>
 
       <div class="project-content">
 
-        <h2>DIY Project 3</h2>
+        <h2>
+
+          DIY Project 3
+
+        </h2>
 
         <p>
-          Additional ESP32 DIY project documentation and technical
-          details will be uploaded soon.
+          Additional ESP32 DIY project documentation
+          and technical details will be uploaded soon.
         </p>
 
         <div class="tags">
+
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">MicroPython</span>
+
         </div>
 
-        <div class="status-box small">
+        <div class="status-box">
+
           ⏳ Project documentation will be uploaded soon.
+
         </div>
 
       </div>
@@ -416,9 +578,14 @@ footer a {
 </main>
 
 <footer>
+
   <p>
-    © 2026 <a href="../index.html">Achraf Abdi</a>. All rights reserved.
+
+    © 2026 <a href="../index.html">Achraf Abdi</a>.
+    All rights reserved.
+
   </p>
+
 </footer>
 
 </body>
