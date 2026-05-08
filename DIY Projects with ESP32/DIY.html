@@ -2,16 +2,12 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DIY Projects with ESP32 | Achraf Abdi</title>
 
 <style>
-
 * {
   margin: 0;
   padding: 0;
@@ -22,128 +18,151 @@
 body {
   background: #f8fafc;
   color: #1e293b;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 a {
   text-decoration: none;
-  color: #2563eb;
 }
 
 header {
-  background: linear-gradient(to bottom,
-              #ffffff,
-              #eef4ff);
-
-  padding: 70px 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
+  color: white;
+  padding: 80px 20px;
   text-align: center;
-  border-bottom: 1px solid #dbeafe;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("DIY.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+}
+
+header > * {
+  position: relative;
+  z-index: 1;
 }
 
 header h1 {
   font-size: 3rem;
   margin-bottom: 16px;
-  color: #0f172a;
 }
 
 header p {
-  max-width: 850px;
+  max-width: 780px;
   margin: 0 auto;
-  color: #475569;
+  color: #dbeafe;
   font-size: 1.1rem;
 }
 
 .back-button {
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 28px;
   background: #2563eb;
   color: white;
-  padding: 12px 22px;
-  border-radius: 10px;
+  padding: 13px 24px;
+  border-radius: 12px;
   font-weight: bold;
 }
 
 main {
-  max-width: 1300px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 70px 24px;
 }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,
-                      minmax(320px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 28px;
 }
 
 .project-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  transition: transform 0.2s ease,
-              box-shadow 0.2s ease;
+  border: 1px solid #dbeafe;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.16);
 }
 
 .project-image {
-  height: 240px;
-  overflow: hidden;
+  position: relative;
+  height: 260px;
   background: #f8fafc;
+  overflow: hidden;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  object-fit: contain;
+  background: white;
+  padding: 16px;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #2563eb;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
 }
 
 .project-content {
-  padding: 24px;
+  padding: 26px;
 }
 
 .project-content h2 {
-  margin-bottom: 14px;
   color: #0f172a;
+  margin-bottom: 14px;
+  font-size: 1.45rem;
 }
 
 .project-content p {
   color: #475569;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin: 16px 0;
 }
 
 .tag {
   background: #eff6ff;
   color: #1d4ed8;
-  padding: 6px 12px;
+  padding: 7px 12px;
   border-radius: 999px;
   font-size: 0.85rem;
-}
-
-.project-status {
-  margin-top: 14px;
-  color: #2563eb;
   font-weight: bold;
 }
 
 .code-image {
-  margin-top: 18px;
-  border-radius: 14px;
+  margin-top: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #1e293b;
+  background: #020617;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
 }
 
 .code-image img {
@@ -151,39 +170,88 @@ main {
   display: block;
 }
 
+.download-button {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  background: #2563eb;
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.download-button:hover {
+  background: #1d4ed8;
+}
+
+.placeholder-box {
+  height: 260px;
+  background: linear-gradient(135deg, #f8fafc, #eef4ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-icon {
+  width: 120px;
+  height: 120px;
+  border: 4px solid #94a3b8;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.status-box {
+  margin-top: 260px;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 18px;
+  color: #1e293b;
+  font-weight: bold;
+  background: #f8fbff;
+}
+
+.status-box.small {
+  margin-top: 22px;
+}
+
 footer {
   text-align: center;
-  padding: 30px 20px;
-  border-top: 1px solid #e2e8f0;
-  color: #64748b;
-  background: white;
-  margin-top: 50px;
+  padding: 34px 20px;
+  background: #020617;
+  color: #cbd5e1;
+}
+
+footer a {
+  color: #60a5fa;
 }
 
 @media (max-width: 700px) {
-
   header h1 {
     font-size: 2.2rem;
   }
 
-  .project-image {
-    height: 200px;
+  .project-image,
+  .placeholder-box {
+    height: 220px;
   }
 
+  .status-box {
+    margin-top: 40px;
+  }
 }
-
 </style>
-
 </head>
 
 <body>
 
-<!-- ====================================== -->
-<!-- =============== HEADER ============== -->
-<!-- ====================================== -->
-
 <header>
-
   <h1>DIY Projects with ESP32</h1>
 
   <p>
@@ -191,202 +259,153 @@ footer {
     projects using ESP32, ESP32-CAM and MicroPython.
   </p>
 
-  <a class="back-button"
-     href="../index.html">
-
-     ← Back to Portfolio
-
+  <a class="back-button" href="../index.html">
+    ← Back to Portfolio
   </a>
-
 </header>
-
-<!-- ====================================== -->
-<!-- ================ MAIN =============== -->
-<!-- ====================================== -->
 
 <main>
 
   <div class="project-grid">
 
-    <!-- ====================================== -->
-    <!-- ========= MOTOR CONTROL ============== -->
-    <!-- ====================================== -->
-
     <div class="project-card">
 
       <div class="project-image">
+        <div class="featured-badge">FEATURED</div>
 
         <img src="Motor Ansteuerung/schaltung.png"
-             alt="ESP32 Motor Control">
-
+             alt="ESP32 Motor Control Circuit">
       </div>
 
       <div class="project-content">
 
-        <h2>
-          ESP32 Motor Control with PWM
-        </h2>
+        <h2>ESP32 Motor Control with PWM</h2>
 
         <p>
-          In this DIY project I experimented with controlling
-          a DC motor directly using an ESP32 and a simple
-          NPN transistor (8050) without using a relay module.
+          In this DIY project I experimented with controlling a DC motor
+          directly using an ESP32 and a simple NPN transistor 8050
+          without using a relay module.
         </p>
 
         <p>
-          I got the idea after watching a tutorial where a similar
-          circuit was used to control a relay that switched the motor.
-          I wanted to test if the same principle could be used to
-          control the motor directly through the transistor itself.
+          I got the idea after watching a tutorial where a similar circuit
+          was used to control a relay that switched the motor.
+          I wanted to test if the same principle could be used to control
+          the motor directly through the transistor itself.
         </p>
 
         <p>
-          The project uses PWM signals, an NPN transistor,
-          a resistor and a flyback diode for inductive protection.
+          The project uses PWM signals, an NPN transistor, a resistor
+          and a flyback diode for inductive protection.
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">PWM</span>
           <span class="tag">Motor Control</span>
           <span class="tag">Electronics</span>
           <span class="tag">MicroPython</span>
-
         </div>
 
         <div class="code-image">
-
           <img src="Motor Ansteuerung/Motor Code.PNG"
-               alt="Motor Control Code">
-
+               alt="MicroPython Motor Code">
         </div>
+
+        <a href="Motor Ansteuerung/motor_control.py"
+           download
+           class="download-button">
+
+          ↓ Download MicroPython Code
+
+        </a>
 
       </div>
 
     </div>
 
-    <!-- ====================================== -->
-    <!-- ============== PROJECT 1 ============= -->
-    <!-- ====================================== -->
-
     <div class="project-card">
 
-      <div class="project-image">
-
-        <img src="../DIY.png"
-             alt="DIY Project 1">
-
+      <div class="placeholder-box">
+        <div class="chip-icon">ESP32</div>
       </div>
 
       <div class="project-content">
 
-        <h2>
-          DIY Project 1
-        </h2>
+        <h2>DIY Project 1</h2>
 
         <p>
-          Additional ESP32 DIY project documentation
-          and technical details will be uploaded soon.
+          Additional ESP32 DIY project documentation and technical
+          details will be uploaded soon.
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">Embedded Systems</span>
-
         </div>
 
-        <p class="project-status">
-
-          Project documentation will be uploaded soon.
-
-        </p>
+        <div class="status-box">
+          ⏳ Project documentation will be uploaded soon.
+        </div>
 
       </div>
 
     </div>
 
-    <!-- ====================================== -->
-    <!-- ============== PROJECT 2 ============= -->
-    <!-- ====================================== -->
-
     <div class="project-card">
 
-      <div class="project-image">
-
-        <img src="../DIY.png"
-             alt="DIY Project 2">
-
+      <div class="placeholder-box">
+        <div class="chip-icon">ESP32</div>
       </div>
 
       <div class="project-content">
 
-        <h2>
-          DIY Project 2
-        </h2>
+        <h2>DIY Project 2</h2>
 
         <p>
-          Additional ESP32 DIY project documentation
-          and technical details will be uploaded soon.
+          Additional ESP32 DIY project documentation and technical
+          details will be uploaded soon.
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">Electronics</span>
-
         </div>
 
-        <p class="project-status">
-
-          Project documentation will be uploaded soon.
-
-        </p>
+        <div class="status-box">
+          ⏳ Project documentation will be uploaded soon.
+        </div>
 
       </div>
 
     </div>
 
-    <!-- ====================================== -->
-    <!-- ============== PROJECT 3 ============= -->
-    <!-- ====================================== -->
-
     <div class="project-card">
 
-      <div class="project-image">
-
-        <img src="../DIY.png"
-             alt="DIY Project 3">
-
+      <div class="placeholder-box">
+        <div class="chip-icon">ESP32</div>
       </div>
 
       <div class="project-content">
 
-        <h2>
-          DIY Project 3
-        </h2>
+        <h2>DIY Project 3</h2>
 
         <p>
-          Additional ESP32 DIY project documentation
-          and technical details will be uploaded soon.
+          Additional ESP32 DIY project documentation and technical
+          details will be uploaded soon.
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">MicroPython</span>
-
         </div>
 
-        <p class="project-status">
-
-          Project documentation will be uploaded soon.
-
-        </p>
+        <div class="status-box small">
+          ⏳ Project documentation will be uploaded soon.
+        </div>
 
       </div>
 
@@ -396,19 +415,10 @@ footer {
 
 </main>
 
-<!-- ====================================== -->
-<!-- =============== FOOTER ============== -->
-<!-- ====================================== -->
-
 <footer>
-
   <p>
-
-    © 2026 Achraf Abdi.
-    All rights reserved.
-
+    © 2026 <a href="../index.html">Achraf Abdi</a>. All rights reserved.
   </p>
-
 </footer>
 
 </body>
