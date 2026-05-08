@@ -146,6 +146,7 @@
     .preview-panel h2 { font-size: 1.9rem; text-align: center; margin-bottom: 18px; color: #0f172a; }
 
     .featured-image-box {
+      position: relative;
       width: 100%;
       min-height: 650px;
       border: 1px solid #e2e8f0;
@@ -156,6 +157,7 @@
       justify-content: center;
       padding: 18px;
       cursor: zoom-in;
+      overflow: hidden;
     }
 
     .featured-image-box img {
@@ -165,6 +167,36 @@
       display: block;
       border-radius: 14px;
       background: white;
+    }
+
+    .image-navigation {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .nav-arrow {
+      pointer-events: auto;
+      width: 54px;
+      height: 54px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      color: #0f172a;
+      font-size: 2rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.15);
+      transition: 0.2s ease;
+      margin: 0 14px;
+    }
+
+    .nav-arrow:hover {
+      background: #2563eb;
+      color: white;
+      transform: scale(1.06);
     }
 
     .featured-caption { margin-top: 16px; text-align: center; color: #475569; font-size: 1rem; }
@@ -239,6 +271,13 @@
       .preview-panel h2, .summary-box h2 { font-size: 1.5rem; }
       .thumb-button img { width: 82px; height: 62px; }
       .featured-image-box { min-height: 320px; padding: 12px; }
+
+      .nav-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 1.7rem;
+        margin: 0 8px;
+      }
     }
   </style>
 </head>
@@ -286,11 +325,27 @@
 
       <section class="preview-panel">
         <h2>Technical Documentation & Gallery</h2>
+
         <div class="featured-image-box" id="featuredBox">
+
           <img id="featuredImage" alt="Project image" />
+
+          <div class="image-navigation">
+
+            <button class="nav-arrow" id="prevButton">
+              ‹
+            </button>
+
+            <button class="nav-arrow" id="nextButton">
+              ›
+            </button>
+
+          </div>
+
         </div>
+
         <p class="featured-caption" id="featuredCaption"></p>
-        <p class="helper-text">Click the big image to open it larger in the center.</p>
+        <p class="helper-text">Use the arrows to switch pictures. Click the big image to open it larger.</p>
       </section>
     </div>
   </main>
@@ -310,181 +365,181 @@
   <script>
     const galleryItems = [
       {
-            "title": "Final prototype, front view",
-            "caption": "The finished custom GameCube controller with integrated display, button layout and 3D-printed housing.",
-            "sources": [
-                  "images/gamecube/GameCube Controlelr final.PNG"
-            ]
+        "title": "Final prototype, front view",
+        "caption": "The finished custom GameCube controller with integrated display, button layout and 3D-printed housing.",
+        "sources": [
+          "images/gamecube/GameCube Controlelr final.PNG"
+        ]
       },
       {
-            "title": "Final prototype, top view",
-            "caption": "Top view of the finished controller. The housing connects the left and right control areas around the central display.",
-            "sources": [
-                  "images/gamecube/GameCube Controlelr final oberseite.PNG"
-            ]
+        "title": "Final prototype, top view",
+        "caption": "Top view of the finished controller. The housing connects the left and right control areas around the central display.",
+        "sources": [
+          "images/gamecube/GameCube Controlelr final oberseite.PNG"
+        ]
       },
       {
-            "title": "Final prototype, rear view",
-            "caption": "Rear view of the final GameCube controller housing. The back cover protects the internal components.",
-            "sources": [
-                  "images/gamecube/GamecubeController final ruekseite.PNG"
-            ]
+        "title": "Final prototype, rear view",
+        "caption": "Rear view of the final GameCube controller housing. The back cover protects the internal components.",
+        "sources": [
+          "images/gamecube/GamecubeController final ruekseite.PNG"
+        ]
       },
       {
-            "title": "Internal electronics integration",
-            "caption": "View of the controller during integration of electronics. The display, controller board, cables and internal components were arranged inside the custom housing.",
-            "sources": [
-                  "images/gamecube/GameCube Controller.PNG"
-            ]
+        "title": "Internal electronics integration",
+        "caption": "View of the controller during integration of electronics. The display, controller board, cables and internal components were arranged inside the custom housing.",
+        "sources": [
+          "images/gamecube/GameCube Controller.PNG"
+        ]
       },
       {
-            "title": "Complete housing visualization",
-            "caption": "Fusion 360 visualization of the full housing assembly. The design was split into several printable parts because the 3D printer could not produce the complete housing as one large piece.",
-            "sources": [
-                  "images/gamecube/Visualisierung der Teile.PNG"
-            ]
+        "title": "Complete housing visualization",
+        "caption": "Fusion 360 visualization of the full housing assembly. The design was split into several printable parts because the 3D printer could not produce the complete housing as one large piece.",
+        "sources": [
+          "images/gamecube/Visualisierung der Teile.PNG"
+        ]
       },
       {
-            "title": "PLA filament",
-            "caption": "PLA filament was selected for the 3D-printed housing because it is easy to print, stable and suitable for ergonomic parts.",
-            "sources": [
-                  "images/gamecube/filament.PNG"
-            ]
+        "title": "PLA filament",
+        "caption": "PLA filament was selected for the 3D-printed housing because it is easy to print, stable and suitable for ergonomic parts.",
+        "sources": [
+          "images/gamecube/filament.PNG"
+        ]
       },
       {
-            "title": "Kapton tape",
-            "caption": "Kapton tape was used for electrical and thermal protection inside the housing.",
-            "sources": [
-                  "images/gamecube/Kapton-Band.PNG"
-            ]
+        "title": "Kapton tape",
+        "caption": "Kapton tape was used for electrical and thermal protection inside the housing.",
+        "sources": [
+          "images/gamecube/Kapton-Band.PNG"
+        ]
       },
       {
-            "title": "7-inch display",
-            "caption": "The 7-inch capacitive display with HDMI compatibility was integrated as the main screen.",
-            "sources": [
-                  "images/gamecube/7-Zoll kapazitives Touch-Display mit HDMI-Kompatibilität.PNG"
-            ]
+        "title": "7-inch display",
+        "caption": "The 7-inch capacitive display with HDMI compatibility was integrated as the main screen.",
+        "sources": [
+          "images/gamecube/7-Zoll kapazitives Touch-Display mit HDMI-Kompatibilität.PNG"
+        ]
       },
       {
-            "title": "Speaker module",
-            "caption": "Compact speaker modules were integrated into the housing for direct audio output.",
-            "sources": [
-                  "images/gamecube/Lautsprecher.PNG"
-            ]
+        "title": "Speaker module",
+        "caption": "Compact speaker modules were integrated into the housing for direct audio output.",
+        "sources": [
+          "images/gamecube/Lautsprecher.PNG"
+        ]
       },
       {
-            "title": "Wireless HDMI transmitter and receiver",
-            "caption": "The wireless HDMI transmitter and receiver were used to send the GameCube video signal wirelessly to the display.",
-            "sources": [
-                  "images/gamecube/HDMI-Wireless-Sender und -Empfänger.PNG"
-            ]
+        "title": "Wireless HDMI transmitter and receiver",
+        "caption": "The wireless HDMI transmitter and receiver were used to send the GameCube video signal wirelessly to the display.",
+        "sources": [
+          "images/gamecube/HDMI-Wireless-Sender und -Empfänger.PNG"
+        ]
       },
       {
-            "title": "Powerbank",
-            "caption": "A portable powerbank was used as the energy source for the display, wireless receiver and additional electronics.",
-            "sources": [
-                  "images/gamecube/Powerbank.PNG"
-            ]
+        "title": "Powerbank",
+        "caption": "A portable powerbank was used as the energy source for the display, wireless receiver and additional electronics.",
+        "sources": [
+          "images/gamecube/Powerbank.PNG"
+        ]
       },
       {
-            "title": "DC-DC step-down converter",
-            "caption": "The DC-DC step-down converter reduces the input voltage from the powerbank to the required voltage level.",
-            "sources": [
-                  "images/gamecube/DC-DC Step-Down Converter.PNG"
-            ]
+        "title": "DC-DC step-down converter",
+        "caption": "The DC-DC step-down converter reduces the input voltage from the powerbank to the required voltage level.",
+        "sources": [
+          "images/gamecube/DC-DC Step-Down Converter.PNG"
+        ]
       },
       {
-            "title": "M1 screws",
-            "caption": "Small M1 screws were used to mount and secure the 3D-printed housing parts and internal components.",
-            "sources": [
-                  "images/gamecube/M1-Schrauben.PNG"
-            ]
+        "title": "M1 screws",
+        "caption": "Small M1 screws were used to mount and secure the 3D-printed housing parts and internal components.",
+        "sources": [
+          "images/gamecube/M1-Schrauben.PNG"
+        ]
       },
       {
-            "title": "Left side, upper part 1",
-            "caption": "Fusion 360 design of the first upper part of the left housing side.",
-            "sources": [
-                  "images/gamecube/Linke Seite, Oberteil 1.PNG"
-            ]
+        "title": "Left side, upper part 1",
+        "caption": "Fusion 360 design of the first upper part of the left housing side.",
+        "sources": [
+          "images/gamecube/Linke Seite, Oberteil 1.PNG"
+        ]
       },
       {
-            "title": "Left side, upper part 2",
-            "caption": "Second view of the left upper housing part with dimensions.",
-            "sources": [
-                  "images/gamecube/Linke Seite, Oberteil 2.PNG"
-            ]
+        "title": "Left side, upper part 2",
+        "caption": "Second view of the left upper housing part with dimensions.",
+        "sources": [
+          "images/gamecube/Linke Seite, Oberteil 2.PNG"
+        ]
       },
       {
-            "title": "Left holder",
-            "caption": "Left-side holder used to fix electronics, wiring or mechanical parts inside the housing.",
-            "sources": [
-                  "images/gamecube/Linke Halterung.PNG"
-            ]
+        "title": "Left holder",
+        "caption": "Left-side holder used to fix electronics, wiring or mechanical parts inside the housing.",
+        "sources": [
+          "images/gamecube/Linke Halterung.PNG"
+        ]
       },
       {
-            "title": "Left lower part, front side",
-            "caption": "Front view of the left lower housing section with openings and support points.",
-            "sources": [
-                  "images/gamecube/Linke Seite, Unterteil voderseite.PNG"
-            ]
+        "title": "Left lower part, front side",
+        "caption": "Front view of the left lower housing section with openings and support points.",
+        "sources": [
+          "images/gamecube/Linke Seite, Unterteil voderseite.PNG"
+        ]
       },
       {
-            "title": "Left lower part, rear side",
-            "caption": "Rear view of the left lower housing section showing internal structure.",
-            "sources": [
-                  "images/gamecube/7.Linke Seite, Unterteil ruekseite.PNG"
-            ]
+        "title": "Left lower part, rear side",
+        "caption": "Rear view of the left lower housing section showing internal structure.",
+        "sources": [
+          "images/gamecube/7.Linke Seite, Unterteil ruekseite.PNG"
+        ]
       },
       {
-            "title": "Right side, upper part 1",
-            "caption": "Fusion 360 design of the first right upper housing section.",
-            "sources": [
-                  "images/gamecube/Rechte Seite, Oberteil 1.PNG"
-            ]
+        "title": "Right side, upper part 1",
+        "caption": "Fusion 360 design of the first right upper housing section.",
+        "sources": [
+          "images/gamecube/Rechte Seite, Oberteil 1.PNG"
+        ]
       },
       {
-            "title": "Right side, upper part 2 front",
-            "caption": "Front view of the second right upper housing part.",
-            "sources": [
-                  "images/gamecube/Rechte Seite, Oberteil 2 vorderseite.PNG"
-            ]
+        "title": "Right side, upper part 2 front",
+        "caption": "Front view of the second right upper housing part.",
+        "sources": [
+          "images/gamecube/Rechte Seite, Oberteil 2 vorderseite.PNG"
+        ]
       },
       {
-            "title": "Right side, upper part 2 rear",
-            "caption": "Rear view of the second right upper housing part.",
-            "sources": [
-                  "images/gamecube/Rechte Seite, Oberteil 2 rueckseite.PNG"
-            ]
+        "title": "Right side, upper part 2 rear",
+        "caption": "Rear view of the second right upper housing part.",
+        "sources": [
+          "images/gamecube/Rechte Seite, Oberteil 2 rueckseite.PNG"
+        ]
       },
       {
-            "title": "Right holder",
-            "caption": "Right-side holder used to support internal components and cable routing.",
-            "sources": [
-                  "images/gamecube/Rechte Halterung.PNG"
-            ]
+        "title": "Right holder",
+        "caption": "Right-side holder used to support internal components and cable routing.",
+        "sources": [
+          "images/gamecube/Rechte Halterung.PNG"
+        ]
       },
       {
-            "title": "Right lower part, front side",
-            "caption": "Front view of the right lower housing section with cutouts and rounded edges.",
-            "sources": [
-                  "images/gamecube/Rechte Seite, Unterteil vorderseite.PNG"
-            ]
+        "title": "Right lower part, front side",
+        "caption": "Front view of the right lower housing section with cutouts and rounded edges.",
+        "sources": [
+          "images/gamecube/Rechte Seite, Unterteil vorderseite.PNG"
+        ]
       },
       {
-            "title": "Right lower part, rear side",
-            "caption": "Rear view of the right lower housing section showing the inner support structure.",
-            "sources": [
-                  "images/gamecube/Rechte Seite, Unterteil  ruekseite.PNG"
-            ]
+        "title": "Right lower part, rear side",
+        "caption": "Rear view of the right lower housing section showing the inner support structure.",
+        "sources": [
+          "images/gamecube/Rechte Seite, Unterteil  ruekseite.PNG"
+        ]
       },
       {
-            "title": "Middle lower cover",
-            "caption": "Middle lower cover that connects both sides of the housing and forms the lower base section.",
-            "sources": [
-                  "images/gamecube/Mittlere untere Abdeckung.PNG"
-            ]
+        "title": "Middle lower cover",
+        "caption": "Middle lower cover that connects both sides of the housing and forms the lower base section.",
+        "sources": [
+          "images/gamecube/Mittlere untere Abdeckung.PNG"
+        ]
       }
-];
+    ];
 
     const thumbList = document.getElementById("thumbList");
     const featuredImage = document.getElementById("featuredImage");
@@ -495,6 +550,9 @@
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxCaption = document.getElementById("lightboxCaption");
     const closeLightbox = document.getElementById("closeLightbox");
+
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
 
     let currentItemIndex = 0;
 
@@ -580,6 +638,26 @@
       updateActiveThumb();
     }
 
+    function nextImage() {
+      let nextIndex = currentItemIndex + 1;
+
+      if (nextIndex >= galleryItems.length) {
+        nextIndex = 0;
+      }
+
+      showItem(nextIndex);
+    }
+
+    function previousImage() {
+      let previousIndex = currentItemIndex - 1;
+
+      if (previousIndex < 0) {
+        previousIndex = galleryItems.length - 1;
+      }
+
+      showItem(previousIndex);
+    }
+
     function openLightboxView() {
       const item = galleryItems[currentItemIndex];
 
@@ -598,6 +676,16 @@
     featuredBox.addEventListener("click", openLightboxView);
     closeLightbox.addEventListener("click", closeLightboxView);
 
+    nextButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      nextImage();
+    });
+
+    prevButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      previousImage();
+    });
+
     lightbox.addEventListener("click", (event) => {
       if (event.target === lightbox) {
         closeLightboxView();
@@ -607,6 +695,14 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         closeLightboxView();
+      }
+
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
+
+      if (event.key === "ArrowLeft") {
+        previousImage();
       }
     });
 
