@@ -3,7 +3,8 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>DIY Projects with ESP32 | Achraf Abdi</title>
 
@@ -29,23 +30,32 @@ a {
 header {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg,
-              #020617,
-              #0f172a,
-              #1e3a8a);
+
+  background:
+    linear-gradient(135deg,
+    #020617,
+    #0f172a,
+    #1e3a8a);
 
   color: white;
+
   padding: 90px 20px;
+
   text-align: center;
 }
 
 header::before {
+
   content: "";
+
   position: absolute;
+
   inset: 0;
 
   background-image: url("DIY.png");
+
   background-size: cover;
+
   background-position: center;
 
   opacity: 0.12;
@@ -57,31 +67,48 @@ header > * {
 }
 
 header h1 {
+
   font-size: 4rem;
+
   margin-bottom: 18px;
 }
 
 header p {
+
   max-width: 900px;
+
   margin: 0 auto;
+
   color: #dbeafe;
+
   font-size: 1.25rem;
 }
 
 .back-button {
+
   display: inline-block;
+
   margin-top: 30px;
+
   background: #2563eb;
+
   color: white;
+
   padding: 15px 28px;
+
   border-radius: 14px;
+
   font-weight: bold;
+
   font-size: 1rem;
 }
 
 main {
+
   max-width: 1800px;
+
   margin: 0 auto;
+
   padding: 80px 40px;
 }
 
@@ -90,7 +117,8 @@ main {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(420px, 1fr));
+    repeat(auto-fit,
+    minmax(420px, 1fr));
 
   gap: 36px;
 
@@ -98,9 +126,13 @@ main {
 }
 
 .project-card {
+
   background: white;
+
   border-radius: 26px;
+
   overflow: hidden;
+
   border: 1px solid #dbeafe;
 
   box-shadow:
@@ -117,21 +149,29 @@ main {
 
   box-shadow:
     0 22px 50px rgba(37, 99, 235, 0.16);
-
 }
 
 .project-image {
+
   position: relative;
+
   height: 320px;
+
   background: #f8fafc;
+
   overflow: hidden;
 }
 
 .project-image img {
+
   width: 100%;
+
   height: 100%;
+
   object-fit: contain;
+
   background: white;
+
   padding: 18px;
 }
 
@@ -140,9 +180,11 @@ main {
   position: absolute;
 
   top: 18px;
+
   right: 18px;
 
   background: #2563eb;
+
   color: white;
 
   padding: 10px 16px;
@@ -150,6 +192,7 @@ main {
   border-radius: 999px;
 
   font-size: 0.8rem;
+
   font-weight: bold;
 
   box-shadow:
@@ -157,50 +200,76 @@ main {
 }
 
 .project-content {
+
   padding: 34px;
 }
 
 .project-content h2 {
+
   color: #0f172a;
+
   margin-bottom: 18px;
+
   font-size: 2rem;
 }
 
 .project-content p {
+
   color: #475569;
+
   margin-bottom: 18px;
+
   font-size: 1.08rem;
 }
 
 .tags {
+
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 10px;
+
   margin: 22px 0;
 }
 
 .tag {
+
   background: #eff6ff;
+
   color: #1d4ed8;
+
   padding: 8px 14px;
+
   border-radius: 999px;
+
   font-size: 0.9rem;
+
   font-weight: bold;
 }
 
 .code-image {
+
   margin-top: 22px;
+
   border-radius: 18px;
+
   overflow: hidden;
+
   border: 1px solid #1e293b;
+
   background: #020617;
 
   box-shadow:
     0 12px 28px rgba(15, 23, 42, 0.2);
+
+  cursor: zoom-in;
 }
 
 .code-image img {
+
   width: 100%;
+
   display: block;
 }
 
@@ -213,6 +282,7 @@ main {
   text-align: center;
 
   background: #2563eb;
+
   color: white;
 
   padding: 16px;
@@ -225,10 +295,12 @@ main {
 }
 
 .download-button:hover {
+
   background: #1d4ed8;
 }
 
 .placeholder-box {
+
   height: 320px;
 
   background:
@@ -237,13 +309,16 @@ main {
     #eef4ff);
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 }
 
 .chip-icon {
 
   width: 140px;
+
   height: 140px;
 
   border: 4px solid #94a3b8;
@@ -251,15 +326,16 @@ main {
   border-radius: 22px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   color: #64748b;
 
   font-size: 2rem;
-  font-weight: bold;
 
-  position: relative;
+  font-weight: bold;
 }
 
 .status-box {
@@ -279,6 +355,58 @@ main {
   background: #f8fbff;
 
   font-size: 1rem;
+}
+
+/* ================================= */
+/* ============ LIGHTBOX =========== */
+/* ================================= */
+
+.lightbox {
+
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.88);
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+
+  padding: 30px;
+}
+
+.lightbox-image {
+
+  max-width: 96%;
+
+  max-height: 96%;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.4);
+}
+
+.close-btn {
+
+  position: absolute;
+
+  top: 20px;
+
+  right: 35px;
+
+  font-size: 4rem;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: bold;
 }
 
 footer {
@@ -413,10 +541,15 @@ footer a {
 
         </div>
 
+        <!-- ============================= -->
+        <!-- ===== CLICKABLE CODE IMG ==== -->
+        <!-- ============================= -->
+
         <div class="code-image">
 
           <img src="Motor Ansteuerung/Motor Code.PNG"
-               alt="Motor Control Code">
+               alt="Motor Control Code"
+               id="codeImage">
 
         </div>
 
@@ -577,6 +710,25 @@ footer a {
 
 </main>
 
+<!-- ================================= -->
+<!-- ============ LIGHTBOX =========== -->
+<!-- ================================= -->
+
+<div class="lightbox"
+     id="lightbox">
+
+  <span class="close-btn"
+        id="closeBtn">
+
+        &times;
+
+  </span>
+
+  <img class="lightbox-image"
+       id="lightboxImage">
+
+</div>
+
 <footer>
 
   <p>
@@ -587,6 +739,46 @@ footer a {
   </p>
 
 </footer>
+
+<script>
+
+const codeImage =
+      document.getElementById("codeImage");
+
+const lightbox =
+      document.getElementById("lightbox");
+
+const lightboxImage =
+      document.getElementById("lightboxImage");
+
+const closeBtn =
+      document.getElementById("closeBtn");
+
+codeImage.addEventListener("click", () => {
+
+  lightbox.style.display = "flex";
+
+  lightboxImage.src = codeImage.src;
+
+});
+
+closeBtn.addEventListener("click", () => {
+
+  lightbox.style.display = "none";
+
+});
+
+lightbox.addEventListener("click", (event) => {
+
+  if(event.target === lightbox){
+
+    lightbox.style.display = "none";
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>
