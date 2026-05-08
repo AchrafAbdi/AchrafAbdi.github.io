@@ -1,183 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>DIY Projects with ESP32 | Achraf Abdi</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: #2563eb;
+}
+
+header {
+  background: linear-gradient(to bottom,
+              #ffffff,
+              #eef4ff);
+
+  padding: 70px 20px;
+  text-align: center;
+  border-bottom: 1px solid #dbeafe;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+header p {
+  max-width: 850px;
+  margin: 0 auto;
+  color: #475569;
+  font-size: 1.1rem;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 24px;
+  background: #2563eb;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+main {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+                      minmax(320px, 1fr));
+
+  gap: 28px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+
+.project-image {
+  height: 240px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-content h2 {
+  margin-bottom: 14px;
+  color: #0f172a;
+}
+
+.project-content p {
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.project-status {
+  margin-top: 14px;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.code-image {
+  margin-top: 18px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.code-image img {
+  width: 100%;
+  display: block;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  background: white;
+  margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
 <!-- ====================================== -->
-<!-- ============ DIY PROJECT GRID ======== -->
+<!-- =============== HEADER ============== -->
 <!-- ====================================== -->
 
-<div class="project-grid">
+<header>
 
-  <!-- ====================================== -->
-  <!-- ========= MOTOR CONTROL ============== -->
-  <!-- ====================================== -->
+  <h1>DIY Projects with ESP32</h1>
 
-  <div class="project-card">
+  <p>
+    A collection of personal DIY electronics and embedded systems
+    projects using ESP32, ESP32-CAM and MicroPython.
+  </p>
 
-    <div class="project-image">
+  <a class="back-button"
+     href="../index.html">
 
-      <img src="Motor Ansteuerung/schaltung.png"
-           alt="ESP32 Motor Control">
+     ← Back to Portfolio
 
-    </div>
+  </a>
 
-    <div class="project-content">
+</header>
 
-      <h2>
-        ESP32 Motor Control with PWM
-      </h2>
+<!-- ====================================== -->
+<!-- ================ MAIN =============== -->
+<!-- ====================================== -->
 
-      <p>
-        A DIY electronics experiment where a DC motor is controlled
-        directly with an ESP32, PWM and an NPN transistor instead
-        of using a relay module.
-      </p>
+<main>
 
-      <div class="tags">
+  <div class="project-grid">
 
-        <span class="tag">ESP32</span>
-        <span class="tag">PWM</span>
-        <span class="tag">Motor Control</span>
-        <span class="tag">MicroPython</span>
+    <!-- ====================================== -->
+    <!-- ========= MOTOR CONTROL ============== -->
+    <!-- ====================================== -->
+
+    <div class="project-card">
+
+      <div class="project-image">
+
+        <img src="Motor Ansteuerung/schaltung.png"
+             alt="ESP32 Motor Control">
 
       </div>
 
-      <a href="#motor-project">
+      <div class="project-content">
 
-        Open Project
+        <h2>
+          ESP32 Motor Control with PWM
+        </h2>
 
-      </a>
+        <p>
+          In this DIY project I experimented with controlling
+          a DC motor directly using an ESP32 and a simple
+          NPN transistor (8050) without using a relay module.
+        </p>
+
+        <p>
+          I got the idea after watching a tutorial where a similar
+          circuit was used to control a relay that switched the motor.
+          I wanted to test if the same principle could be used to
+          control the motor directly through the transistor itself.
+        </p>
+
+        <p>
+          The project uses PWM signals, an NPN transistor,
+          a resistor and a flyback diode for inductive protection.
+        </p>
+
+        <div class="tags">
+
+          <span class="tag">ESP32</span>
+          <span class="tag">PWM</span>
+          <span class="tag">Motor Control</span>
+          <span class="tag">Electronics</span>
+          <span class="tag">MicroPython</span>
+
+        </div>
+
+        <div class="code-image">
+
+          <img src="Motor Ansteuerung/Motor Code.PNG"
+               alt="Motor Control Code">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- ============== PROJECT 1 ============= -->
+    <!-- ====================================== -->
+
+    <div class="project-card">
+
+      <div class="project-image">
+
+        <img src="../DIY.png"
+             alt="DIY Project 1">
+
+      </div>
+
+      <div class="project-content">
+
+        <h2>
+          DIY Project 1
+        </h2>
+
+        <p>
+          Additional ESP32 DIY project documentation
+          and technical details will be uploaded soon.
+        </p>
+
+        <div class="tags">
+
+          <span class="tag">ESP32</span>
+          <span class="tag">DIY</span>
+          <span class="tag">Embedded Systems</span>
+
+        </div>
+
+        <p class="project-status">
+
+          Project documentation will be uploaded soon.
+
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- ============== PROJECT 2 ============= -->
+    <!-- ====================================== -->
+
+    <div class="project-card">
+
+      <div class="project-image">
+
+        <img src="../DIY.png"
+             alt="DIY Project 2">
+
+      </div>
+
+      <div class="project-content">
+
+        <h2>
+          DIY Project 2
+        </h2>
+
+        <p>
+          Additional ESP32 DIY project documentation
+          and technical details will be uploaded soon.
+        </p>
+
+        <div class="tags">
+
+          <span class="tag">ESP32</span>
+          <span class="tag">DIY</span>
+          <span class="tag">Electronics</span>
+
+        </div>
+
+        <p class="project-status">
+
+          Project documentation will be uploaded soon.
+
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ====================================== -->
+    <!-- ============== PROJECT 3 ============= -->
+    <!-- ====================================== -->
+
+    <div class="project-card">
+
+      <div class="project-image">
+
+        <img src="../DIY.png"
+             alt="DIY Project 3">
+
+      </div>
+
+      <div class="project-content">
+
+        <h2>
+          DIY Project 3
+        </h2>
+
+        <p>
+          Additional ESP32 DIY project documentation
+          and technical details will be uploaded soon.
+        </p>
+
+        <div class="tags">
+
+          <span class="tag">ESP32</span>
+          <span class="tag">DIY</span>
+          <span class="tag">MicroPython</span>
+
+        </div>
+
+        <p class="project-status">
+
+          Project documentation will be uploaded soon.
+
+        </p>
+
+      </div>
 
     </div>
 
   </div>
 
-  <!-- ====================================== -->
-  <!-- ============== PROJECT 1 ============= -->
-  <!-- ====================================== -->
+</main>
 
-  <div class="project-card">
+<!-- ====================================== -->
+<!-- =============== FOOTER ============== -->
+<!-- ====================================== -->
 
-    <div class="project-image">
+<footer>
 
-      <img src="../DIY.png"
-           alt="DIY Project 1">
+  <p>
 
-    </div>
+    © 2026 Achraf Abdi.
+    All rights reserved.
 
-    <div class="project-content">
+  </p>
 
-      <h2>
-        DIY Project 1
-      </h2>
+</footer>
 
-      <p>
-        Additional ESP32 DIY project documentation
-        and technical details will be uploaded soon.
-      </p>
-
-      <div class="tags">
-
-        <span class="tag">ESP32</span>
-        <span class="tag">DIY</span>
-        <span class="tag">Embedded Systems</span>
-
-      </div>
-
-      <p style="margin-top: 12px;
-                color: #2563eb;
-                font-weight: bold;">
-
-        Project documentation will be uploaded soon.
-
-      </p>
-
-    </div>
-
-  </div>
-
-  <!-- ====================================== -->
-  <!-- ============== PROJECT 2 ============= -->
-  <!-- ====================================== -->
-
-  <div class="project-card">
-
-    <div class="project-image">
-
-      <img src="../DIY.png"
-           alt="DIY Project 2">
-
-    </div>
-
-    <div class="project-content">
-
-      <h2>
-        DIY Project 2
-      </h2>
-
-      <p>
-        Additional ESP32 DIY project documentation
-        and technical details will be uploaded soon.
-      </p>
-
-      <div class="tags">
-
-        <span class="tag">ESP32</span>
-        <span class="tag">DIY</span>
-        <span class="tag">Electronics</span>
-
-      </div>
-
-      <p style="margin-top: 12px;
-                color: #2563eb;
-                font-weight: bold;">
-
-        Project documentation will be uploaded soon.
-
-      </p>
-
-    </div>
-
-  </div>
-
-  <!-- ====================================== -->
-  <!-- ============== PROJECT 3 ============= -->
-  <!-- ====================================== -->
-
-  <div class="project-card">
-
-    <div class="project-image">
-
-      <img src="../DIY.png"
-           alt="DIY Project 3">
-
-    </div>
-
-    <div class="project-content">
-
-      <h2>
-        DIY Project 3
-      </h2>
-
-      <p>
-        Additional ESP32 DIY project documentation
-        and technical details will be uploaded soon.
-      </p>
-
-      <div class="tags">
-
-        <span class="tag">ESP32</span>
-        <span class="tag">DIY</span>
-        <span class="tag">MicroPython</span>
-
-      </div>
-
-      <p style="margin-top: 12px;
-                color: #2563eb;
-                font-weight: bold;">
-
-        Project documentation will be uploaded soon.
-
-      </p>
-
-    </div>
-
-  </div>
-
-</div>
+</body>
+</html>
