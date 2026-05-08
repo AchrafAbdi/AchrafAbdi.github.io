@@ -1,326 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ====================================== -->
+<!-- ============ DIY PROJECT GRID ======== -->
+<!-- ====================================== -->
 
-<head>
+<div class="project-grid">
 
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+  <!-- ====================================== -->
+  <!-- ========= MOTOR CONTROL ============== -->
+  <!-- ====================================== -->
 
-<title>ESP32 Motor Control | Achraf Abdi</title>
+  <div class="project-card">
 
-<style>
+    <div class="project-image">
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
+      <img src="Motor Ansteuerung/schaltung.png"
+           alt="ESP32 Motor Control">
 
-body {
-  background: #f8fafc;
-  color: #1e293b;
-  line-height: 1.7;
-}
+    </div>
 
-header {
-  background: linear-gradient(to bottom, #ffffff, #eef4ff);
-  padding: 70px 20px;
-  text-align: center;
-  border-bottom: 1px solid #dbeafe;
-}
+    <div class="project-content">
 
-header h1 {
-  font-size: 3rem;
-  color: #0f172a;
-  margin-bottom: 16px;
-}
+      <h2>
+        ESP32 Motor Control with PWM
+      </h2>
 
-header p {
-  max-width: 850px;
-  margin: 0 auto;
-  color: #475569;
-  font-size: 1.1rem;
-}
+      <p>
+        A DIY electronics experiment where a DC motor is controlled
+        directly with an ESP32, PWM and an NPN transistor instead
+        of using a relay module.
+      </p>
 
-.back-button {
-  display: inline-block;
-  margin-top: 24px;
-  background: #2563eb;
-  color: white;
-  padding: 12px 22px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
+      <div class="tags">
 
-main {
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
+        <span class="tag">ESP32</span>
+        <span class="tag">PWM</span>
+        <span class="tag">Motor Control</span>
+        <span class="tag">MicroPython</span>
 
-.card {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 32px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
-}
+      </div>
 
-.card h2 {
-  color: #0f172a;
-  margin-bottom: 16px;
-  font-size: 1.8rem;
-}
+      <a href="#motor-project">
 
-.card p {
-  color: #475569;
-  margin-bottom: 14px;
-  font-size: 1.05rem;
-}
+        Open Project
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 26px;
-  margin-top: 25px;
-}
-
-.image-box {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-}
-
-.image-box img {
-  width: 100%;
-  height: 320px;
-  object-fit: contain;
-  background: white;
-  display: block;
-  padding: 12px;
-}
-
-.image-box h3 {
-  padding: 18px 18px 6px;
-  color: #0f172a;
-}
-
-.image-box p {
-  padding: 0 18px 18px;
-  color: #475569;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.tag {
-  background: #eff6ff;
-  color: #1d4ed8;
-  padding: 7px 12px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-}
-
-.steps {
-  margin-top: 18px;
-  padding-left: 20px;
-  color: #475569;
-}
-
-.steps li {
-  margin-bottom: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  background: white;
-  color: #64748b;
-  border-top: 1px solid #e2e8f0;
-}
-
-@media (max-width: 700px) {
-
-  header h1 {
-    font-size: 2.2rem;
-  }
-
-  .image-box img {
-    height: 240px;
-  }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-  <h1>ESP32 Motor Control with NPN Transistor</h1>
-
-  <p>
-    A small DIY electronics experiment where I tested if a DC motor
-    can be controlled directly with an ESP32 and a simple NPN transistor,
-    instead of using a relay.
-  </p>
-
-  <a class="back-button"
-     href="../index.html">
-
-     ← Back to Portfolio
-
-  </a>
-
-</header>
-
-<main>
-
-  <div class="card">
-
-    <h2>Project Idea</h2>
-
-    <p>
-      The idea for this project came from a tutorial where a similar
-      circuit was used to control a relay. In that tutorial, the NPN
-      transistor switched the relay, and the relay controlled the motor.
-    </p>
-
-    <p>
-      I wanted to test whether I could use the same switching principle
-      to control the motor directly through the transistor, without using
-      the relay in between.
-    </p>
-
-    <p>
-      For this experiment I used an ESP32, an NPN transistor 8050,
-      a base resistor, a DC motor and a flyback diode to protect the
-      circuit from voltage spikes caused by the motor.
-    </p>
-
-    <div class="tags">
-
-      <span class="tag">ESP32</span>
-      <span class="tag">NPN Transistor</span>
-      <span class="tag">PWM</span>
-      <span class="tag">DC Motor</span>
-      <span class="tag">MicroPython</span>
+      </a>
 
     </div>
 
   </div>
 
-  <div class="card">
+  <!-- ====================================== -->
+  <!-- ============== PROJECT 1 ============= -->
+  <!-- ====================================== -->
 
-    <h2>How the Project Works</h2>
+  <div class="project-card">
 
-    <ol class="steps">
+    <div class="project-image">
 
-      <li>
-        The ESP32 sends a PWM signal from GPIO 18.
-      </li>
+      <img src="../DIY.png"
+           alt="DIY Project 1">
 
-      <li>
-        The PWM signal goes through a 1 kΩ resistor to the base
-        of the NPN transistor.
-      </li>
+    </div>
 
-      <li>
-        The transistor works like an electronic switch and controls
-        the current flow through the motor.
-      </li>
+    <div class="project-content">
 
-      <li>
-        The flyback diode protects the circuit when the motor is switched off.
-      </li>
+      <h2>
+        DIY Project 1
+      </h2>
 
-      <li>
-        With MicroPython, the motor runs for a few seconds and then stops again.
-      </li>
+      <p>
+        Additional ESP32 DIY project documentation
+        and technical details will be uploaded soon.
+      </p>
 
-    </ol>
+      <div class="tags">
 
-  </div>
-
-  <div class="card">
-
-    <h2>Project Documentation</h2>
-
-    <div class="image-grid">
-
-      <div class="image-box">
-
-        <img src="Motor Ansteuerung/schaltung.png"
-             alt="ESP32 motor control circuit">
-
-        <h3>Circuit Design</h3>
-
-        <p>
-          This circuit shows the ESP32 connected to the NPN transistor,
-          the base resistor, the flyback diode and the DC motor.
-        </p>
+        <span class="tag">ESP32</span>
+        <span class="tag">DIY</span>
+        <span class="tag">Embedded Systems</span>
 
       </div>
 
-      <div class="image-box">
+      <p style="margin-top: 12px;
+                color: #2563eb;
+                font-weight: bold;">
 
-        <img src="Motor Ansteuerung/Motor Code.PNG"
-             alt="MicroPython motor control code">
+        Project documentation will be uploaded soon.
 
-        <h3>MicroPython Code</h3>
-
-        <p>
-          The code uses PWM to control the motor speed.
-          In the test, the motor runs at 60 percent and then stops.
-        </p>
-
-      </div>
+      </p>
 
     </div>
 
   </div>
 
-  <div class="card">
+  <!-- ====================================== -->
+  <!-- ============== PROJECT 2 ============= -->
+  <!-- ====================================== -->
 
-    <h2>What I Learned</h2>
+  <div class="project-card">
 
-    <p>
-      This project helped me understand how a transistor can be used
-      as a switch in a real circuit. I also learned why protection
-      components like a flyback diode are important when working with
-      motors and other inductive loads.
-    </p>
+    <div class="project-image">
 
-    <p>
-      It was a simple experiment, but it connected several important
-      topics together: ESP32 programming, PWM control, transistor switching,
-      motor control and basic circuit protection.
-    </p>
+      <img src="../DIY.png"
+           alt="DIY Project 2">
+
+    </div>
+
+    <div class="project-content">
+
+      <h2>
+        DIY Project 2
+      </h2>
+
+      <p>
+        Additional ESP32 DIY project documentation
+        and technical details will be uploaded soon.
+      </p>
+
+      <div class="tags">
+
+        <span class="tag">ESP32</span>
+        <span class="tag">DIY</span>
+        <span class="tag">Electronics</span>
+
+      </div>
+
+      <p style="margin-top: 12px;
+                color: #2563eb;
+                font-weight: bold;">
+
+        Project documentation will be uploaded soon.
+
+      </p>
+
+    </div>
 
   </div>
 
-</main>
+  <!-- ====================================== -->
+  <!-- ============== PROJECT 3 ============= -->
+  <!-- ====================================== -->
 
-<footer>
+  <div class="project-card">
 
-  <p>
-    © 2026 Achraf Abdi.
-    All rights reserved.
-  </p>
+    <div class="project-image">
 
-</footer>
+      <img src="../DIY.png"
+           alt="DIY Project 3">
 
-</body>
-</html>
+    </div>
+
+    <div class="project-content">
+
+      <h2>
+        DIY Project 3
+      </h2>
+
+      <p>
+        Additional ESP32 DIY project documentation
+        and technical details will be uploaded soon.
+      </p>
+
+      <div class="tags">
+
+        <span class="tag">ESP32</span>
+        <span class="tag">DIY</span>
+        <span class="tag">MicroPython</span>
+
+      </div>
+
+      <p style="margin-top: 12px;
+                color: #2563eb;
+                font-weight: bold;">
+
+        Project documentation will be uploaded soon.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
