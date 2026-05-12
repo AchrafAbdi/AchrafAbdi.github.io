@@ -22,20 +22,12 @@
 
 <style>
 
-/* ================================= */
-/* ========= GLOBAL RESET ========== */
-/* ================================= */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* ================================= */
-/* ============= BODY ============== */
-/* ================================= */
 
 body {
   background: #f8fafc;
@@ -47,10 +39,6 @@ a {
   text-decoration: none;
 }
 
-/* ================================= */
-/* ============ HEADER ============= */
-/* ================================= */
-
 header {
   position: relative;
   overflow: hidden;
@@ -59,10 +47,6 @@ header {
   padding: 90px 20px;
   text-align: center;
 }
-
-/* ================================= */
-/* ===== HEADER BACKGROUND IMG ===== */
-/* ================================= */
 
 header::before {
   content: "";
@@ -74,27 +58,15 @@ header::before {
   opacity: 0.12;
 }
 
-/* ================================= */
-/* ===== HEADER CONTENT LAYER ====== */
-/* ================================= */
-
 header > * {
   position: relative;
   z-index: 1;
 }
 
-/* ================================= */
-/* ========== HEADER TITLE ========= */
-/* ================================= */
-
 header h1 {
   font-size: 4rem;
   margin-bottom: 18px;
 }
-
-/* ================================= */
-/* ===== HEADER DESCRIPTION ======== */
-/* ================================= */
 
 header p {
   max-width: 900px;
@@ -102,10 +74,6 @@ header p {
   color: #dbeafe;
   font-size: 1.25rem;
 }
-
-/* ================================= */
-/* ========= BACK BUTTON =========== */
-/* ================================= */
 
 .back-button {
   display: inline-block;
@@ -118,19 +86,11 @@ header p {
   font-size: 1rem;
 }
 
-/* ================================= */
-/* ============ MAIN AREA ========== */
-/* ================================= */
-
 main {
   max-width: 1800px;
   margin: 0 auto;
   padding: 80px 40px;
 }
-
-/* ================================= */
-/* ========== PROJECT GRID ========= */
-/* ================================= */
 
 .project-grid {
   display: grid;
@@ -138,10 +98,6 @@ main {
   gap: 36px;
   align-items: start;
 }
-
-/* ================================= */
-/* ========== PROJECT CARD ========= */
-/* ================================= */
 
 .project-card {
   background: white;
@@ -153,18 +109,10 @@ main {
   cursor: pointer;
 }
 
-/* ================================= */
-/* ===== PROJECT CARD HOVER ======= */
-/* ================================= */
-
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 22px 50px rgba(37, 99, 235, 0.16);
 }
-
-/* ================================= */
-/* ========= CARD IMAGE AREA ======= */
-/* ================================= */
 
 .project-image {
   position: relative;
@@ -173,10 +121,6 @@ main {
   overflow: hidden;
 }
 
-/* ================================= */
-/* =========== CARD IMAGE ========== */
-/* ================================= */
-
 .project-image img {
   width: 100%;
   height: 100%;
@@ -184,10 +128,6 @@ main {
   background: white;
   padding: 18px;
 }
-
-/* ================================= */
-/* ========= FEATURED BADGE ======== */
-/* ================================= */
 
 .featured-badge {
   position: absolute;
@@ -202,17 +142,9 @@ main {
   box-shadow: 0 8px 20px rgba(37,99,235,0.3);
 }
 
-/* ================================= */
-/* ======== CARD TEXT AREA ========= */
-/* ================================= */
-
 .project-content {
   padding: 34px;
 }
-
-/* ================================= */
-/* ========== CARD TITLE =========== */
-/* ================================= */
 
 .project-content h2 {
   color: #0f172a;
@@ -220,19 +152,11 @@ main {
   font-size: 2rem;
 }
 
-/* ================================= */
-/* ======== CARD PARAGRAPH ========= */
-/* ================================= */
-
 .project-content p {
   color: #475569;
   margin-bottom: 18px;
   font-size: 1.08rem;
 }
-
-/* ================================= */
-/* ============ TAG AREA =========== */
-/* ================================= */
 
 .tags {
   display: flex;
@@ -240,10 +164,6 @@ main {
   gap: 10px;
   margin: 22px 0;
 }
-
-/* ================================= */
-/* ============== TAG ============== */
-/* ================================= */
 
 .tag {
   background: #eff6ff;
@@ -254,25 +174,6 @@ main {
   font-weight: bold;
 }
 
-/* ================================= */
-/* ======== STATUS MESSAGE ========= */
-/* ================================= */
-
-.status-box {
-  margin-top: 24px;
-  border: 1px solid #bfdbfe;
-  border-radius: 18px;
-  padding: 22px;
-  color: #1e293b;
-  font-weight: bold;
-  background: #f8fbff;
-  font-size: 1rem;
-}
-
-/* ================================= */
-/* ===== PLACEHOLDER PROJECT ======= */
-/* ================================= */
-
 .placeholder-box {
   height: 320px;
   background: linear-gradient(135deg, #f8fafc, #eef4ff);
@@ -280,10 +181,6 @@ main {
   align-items: center;
   justify-content: center;
 }
-
-/* ================================= */
-/* ===== PLACEHOLDER ESP32 BOX ===== */
-/* ================================= */
 
 .chip-icon {
   width: 140px;
@@ -298,10 +195,6 @@ main {
   font-weight: bold;
 }
 
-/* ================================= */
-/* ============ POPUP ============== */
-/* ================================= */
-
 .card-popup {
   display: none;
   position: fixed;
@@ -312,17 +205,9 @@ main {
   overflow-y: auto;
 }
 
-/* ================================= */
-/* ========= OPEN POPUP ============ */
-/* ================================= */
-
 .card-popup.open {
   display: block;
 }
-
-/* ================================= */
-/* ======== POPUP CONTAINER ======== */
-/* ================================= */
 
 .popup-content {
   max-width: 1500px;
@@ -333,10 +218,6 @@ main {
   box-shadow: 0 30px 80px rgba(0,0,0,0.35);
 }
 
-/* ================================= */
-/* ========= POPUP HEADER ========== */
-/* ================================= */
-
 .popup-header {
   position: relative;
   background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
@@ -345,18 +226,10 @@ main {
   text-align: center;
 }
 
-/* ================================= */
-/* ======== POPUP TITLE ============ */
-/* ================================= */
-
 .popup-header h2 {
   font-size: 3rem;
   margin-bottom: 14px;
 }
-
-/* ================================= */
-/* ===== POPUP DESCRIPTION ========= */
-/* ================================= */
 
 .popup-header p {
   max-width: 900px;
@@ -364,10 +237,6 @@ main {
   color: #dbeafe;
   font-size: 1.15rem;
 }
-
-/* ================================= */
-/* ========= CLOSE BUTTON ========== */
-/* ================================= */
 
 .close-popup {
   position: absolute;
@@ -384,17 +253,9 @@ main {
   font-weight: bold;
 }
 
-/* ================================= */
-/* =========== POPUP BODY ========== */
-/* ================================= */
-
 .popup-body {
   padding: 38px;
 }
-
-/* ================================= */
-/* ======== POPUP IMAGE GRID ======= */
-/* ================================= */
 
 .popup-grid {
   display: grid;
@@ -404,10 +265,6 @@ main {
   align-items: start;
 }
 
-/* ================================= */
-/* ========= IMAGE BOX ============= */
-/* ================================= */
-
 .popup-image-box {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -415,10 +272,6 @@ main {
   overflow: hidden;
   padding: 16px;
 }
-
-/* ================================= */
-/* ======== POPUP IMAGES =========== */
-/* ================================= */
 
 .popup-image-box img {
   width: 100%;
@@ -428,12 +281,7 @@ main {
   background: white;
   border-radius: 16px;
   padding: 10px;
-  cursor: zoom-in;
 }
-
-/* ================================= */
-/* ===== IMAGE SECTION TITLE ======= */
-/* ================================= */
 
 .popup-image-box h3 {
   margin-top: 16px;
@@ -441,18 +289,10 @@ main {
   font-size: 1.25rem;
 }
 
-/* ================================= */
-/* ===== IMAGE DESCRIPTION ========= */
-/* ================================= */
-
 .popup-image-box p {
   margin-top: 6px;
   color: #475569;
 }
-
-/* ================================= */
-/* ======== PROJECT DETAILS ======== */
-/* ================================= */
 
 .popup-text {
   background: #f8fbff;
@@ -461,29 +301,17 @@ main {
   padding: 28px;
 }
 
-/* ================================= */
-/* ======== DETAIL TITLES ========== */
-/* ================================= */
-
 .popup-text h3 {
   color: #0f172a;
   font-size: 1.7rem;
   margin-bottom: 16px;
 }
 
-/* ================================= */
-/* ======== DETAIL TEXT ============ */
-/* ================================= */
-
 .popup-text p {
   color: #475569;
   margin-bottom: 16px;
   font-size: 1.08rem;
 }
-
-/* ================================= */
-/* ========= DETAIL LIST =========== */
-/* ================================= */
 
 .popup-text ul {
   padding-left: 22px;
@@ -494,10 +322,6 @@ main {
 .popup-text li {
   margin-bottom: 10px;
 }
-
-/* ================================= */
-/* ========= DOWNLOAD BTN ========== */
-/* ================================= */
 
 .download-button {
   display: block;
@@ -511,9 +335,13 @@ main {
   font-size: 1rem;
 }
 
-/* ================================= */
-/* ============= FOOTER ============ */
-/* ================================= */
+.pdf-frame {
+  width: 100%;
+  height: 850px;
+  margin-top: 30px;
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+}
 
 footer {
   text-align: center;
@@ -526,10 +354,6 @@ footer {
 footer a {
   color: #60a5fa;
 }
-
-/* ================================= */
-/* ======== RESPONSIVE MODE ======== */
-/* ================================= */
 
 @media (max-width: 1100px) {
   .project-grid {
@@ -578,6 +402,10 @@ footer a {
   .popup-image-box img {
     height: 420px;
   }
+
+  .pdf-frame {
+    height: 500px;
+  }
 }
 
 </style>
@@ -585,10 +413,6 @@ footer a {
 </head>
 
 <body>
-
-<!-- ================================= -->
-<!-- ============ HEADER ============ -->
-<!-- ================================= -->
 
 <header>
 
@@ -603,27 +427,17 @@ footer a {
 
   <a class="back-button"
      href="../index.html">
-
      ← Back to Portfolio
-
   </a>
 
 </header>
 
-<!-- ================================= -->
-<!-- ============= MAIN ============= -->
-<!-- ================================= -->
-
 <main>
-
-  <!-- ============================= -->
-  <!-- ========= CARD GRID ========= -->
-  <!-- ============================= -->
 
   <div class="project-grid">
 
     <!-- =========================== -->
-    <!-- ===== FEATURED PROJECT ==== -->
+    <!-- ===== PROJECT 1 MOTOR ===== -->
     <!-- =========================== -->
 
     <div class="project-card"
@@ -657,13 +471,11 @@ footer a {
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">PWM</span>
           <span class="tag">Motor Control</span>
           <span class="tag">Electronics</span>
           <span class="tag">MicroPython</span>
-
         </div>
 
       </div>
@@ -671,15 +483,16 @@ footer a {
     </div>
 
     <!-- =========================== -->
-    <!-- ========= PROJECT 1 ======= -->
+    <!-- ===== PROJECT 2 I2C ======= -->
     <!-- =========================== -->
 
-    <div class="project-card">
+    <div class="project-card"
+         onclick="openI2cPopup()">
 
       <div class="placeholder-box">
 
         <div class="chip-icon">
-          ESP32
+          I²C
         </div>
 
       </div>
@@ -687,26 +500,27 @@ footer a {
       <div class="project-content">
 
         <h2>
-          DIY Project 1
+          ESP32 I²C Communication
         </h2>
 
         <p>
-          Additional ESP32 DIY project documentation
-          and technical details will be uploaded soon.
+          Built an I²C communication setup using three ESP32 boards.
+          Two ESP32 devices were programmed as slaves in C++ using
+          the Arduino IDE, while one ESP32 worked as master and was
+          programmed in Python using Thonny.
+        </p>
+
+        <p>
+          Click this card to view the PDF documentation.
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
-          <span class="tag">DIY</span>
-          <span class="tag">Embedded Systems</span>
-
-        </div>
-
-        <div class="status-box">
-
-          ⏳ Project documentation will be uploaded soon.
-
+          <span class="tag">I²C</span>
+          <span class="tag">C++</span>
+          <span class="tag">Arduino IDE</span>
+          <span class="tag">Python</span>
+          <span class="tag">Thonny</span>
         </div>
 
       </div>
@@ -714,7 +528,7 @@ footer a {
     </div>
 
     <!-- =========================== -->
-    <!-- ========= PROJECT 2 ======= -->
+    <!-- ===== EMPTY PROJECT 3 ===== -->
     <!-- =========================== -->
 
     <div class="project-card">
@@ -739,17 +553,9 @@ footer a {
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">Electronics</span>
-
-        </div>
-
-        <div class="status-box">
-
-          ⏳ Project documentation will be uploaded soon.
-
         </div>
 
       </div>
@@ -757,7 +563,7 @@ footer a {
     </div>
 
     <!-- =========================== -->
-    <!-- ========= PROJECT 3 ======= -->
+    <!-- ===== EMPTY PROJECT 4 ===== -->
     <!-- =========================== -->
 
     <div class="project-card">
@@ -782,17 +588,9 @@ footer a {
         </p>
 
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">DIY</span>
           <span class="tag">MicroPython</span>
-
-        </div>
-
-        <div class="status-box">
-
-          ⏳ Project documentation will be uploaded soon.
-
         </div>
 
       </div>
@@ -812,17 +610,11 @@ footer a {
 
   <div class="popup-content">
 
-    <!-- =========================== -->
-    <!-- ======== POPUP TOP ======== -->
-    <!-- =========================== -->
-
     <div class="popup-header">
 
       <button class="close-popup"
               onclick="closeMotorPopup()">
-
         &times;
-
       </button>
 
       <h2>
@@ -836,21 +628,9 @@ footer a {
 
     </div>
 
-    <!-- =========================== -->
-    <!-- ======== POPUP BODY ======= -->
-    <!-- =========================== -->
-
     <div class="popup-body">
 
-      <!-- ========================= -->
-      <!-- ===== IMAGE SECTION ===== -->
-      <!-- ========================= -->
-
       <div class="popup-grid">
-
-        <!-- ======================= -->
-        <!-- ===== CIRCUIT IMG ===== -->
-        <!-- ======================= -->
 
         <div class="popup-image-box">
 
@@ -871,10 +651,6 @@ footer a {
 
         </div>
 
-        <!-- ======================= -->
-        <!-- ======= CODE IMG ====== -->
-        <!-- ======================= -->
-
         <div class="popup-image-box">
 
           <img src="Motor Ansteuerung/Motor Code.PNG"
@@ -893,15 +669,7 @@ footer a {
 
       </div>
 
-      <!-- ========================= -->
-      <!-- ===== PROJECT TEXT ====== -->
-      <!-- ========================= -->
-
       <div class="popup-text">
-
-        <!-- ======================= -->
-        <!-- == PROJECT DESCRIPTION = -->
-        <!-- ======================= -->
 
         <h3>
           Project Description
@@ -934,18 +702,12 @@ footer a {
         </p>
 
         <ul>
-
           <li>ESP32</li>
           <li>NPN transistor 8050</li>
           <li>DC motor</li>
           <li>Flyback diode</li>
           <li>PWM signal</li>
-
         </ul>
-
-        <!-- ======================= -->
-        <!-- ======== SUMMARY ====== -->
-        <!-- ======================= -->
 
         <h3>
           Summary
@@ -964,45 +726,18 @@ footer a {
           working with motors and inductive loads.
         </p>
 
-        <p>
-          The project combined several
-          important topics:
-        </p>
-
-        <ul>
-
-          <li>ESP32 programming</li>
-          <li>PWM motor control</li>
-          <li>Transistor switching</li>
-          <li>Circuit protection</li>
-          <li>MicroPython hardware control</li>
-
-        </ul>
-
-        <!-- ======================= -->
-        <!-- ========= TAGS ======== -->
-        <!-- ======================= -->
-
         <div class="tags">
-
           <span class="tag">ESP32</span>
           <span class="tag">PWM</span>
           <span class="tag">NPN Transistor</span>
           <span class="tag">Motor Control</span>
           <span class="tag">MicroPython</span>
-
         </div>
-
-        <!-- ======================= -->
-        <!-- ===== DOWNLOAD BTN ==== -->
-        <!-- ======================= -->
 
         <a href="Motor Ansteuerung/motor_control.py"
            download
            class="download-button">
-
            ↓ Download MicroPython Code
-
         </a>
 
       </div>
@@ -1014,8 +749,104 @@ footer a {
 </div>
 
 <!-- ================================= -->
-<!-- ============ FOOTER ============ -->
+<!-- =========== I2C POPUP =========== -->
 <!-- ================================= -->
+
+<div class="card-popup"
+     id="i2cPopup">
+
+  <div class="popup-content">
+
+    <div class="popup-header">
+
+      <button class="close-popup"
+              onclick="closeI2cPopup()">
+        &times;
+      </button>
+
+      <h2>
+        ESP32 I²C Communication
+      </h2>
+
+      <p>
+        PDF documentation of the I²C communication
+        between three ESP32 boards.
+      </p>
+
+    </div>
+
+    <div class="popup-body">
+
+      <div class="popup-text">
+
+        <h3>
+          Project Description
+        </h3>
+
+        <p>
+          In this DIY project, three ESP32 boards were connected using the I²C bus.
+          Two ESP32 boards were configured as slaves with the addresses 0x08 and 0x09.
+          These two slave boards were programmed in C++ using the Arduino IDE.
+        </p>
+
+        <p>
+          The third ESP32 was used as the master and was programmed in Python using Thonny.
+          The master used the MicroPython machine.I2C library with GPIO21 as SDA
+          and GPIO22 as SCL.
+        </p>
+
+        <p>
+          After scanning the I²C bus, the master successfully detected both slave devices.
+          The output showed the addresses 8 and 9, which confirmed that the I²C connection
+          between the three ESP32 boards was working correctly.
+        </p>
+
+        <h3>
+          Summary
+        </h3>
+
+        <p>
+          This project helped me understand the basic structure of I²C communication
+          with one master and multiple slaves. It also helped me practice using different
+          programming environments in one small embedded system project.
+        </p>
+
+        <ul>
+          <li>ESP32 master programmed with Python in Thonny</li>
+          <li>ESP32 slaves programmed with C++ in Arduino IDE</li>
+          <li>I²C bus communication</li>
+          <li>Slave addresses 0x08 and 0x09</li>
+          <li>GPIO21 used as SDA</li>
+          <li>GPIO22 used as SCL</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">ESP32</span>
+          <span class="tag">I²C</span>
+          <span class="tag">Arduino IDE</span>
+          <span class="tag">C++</span>
+          <span class="tag">Python</span>
+          <span class="tag">Thonny</span>
+          <span class="tag">MicroPython</span>
+        </div>
+
+        <a href="I2C esp32.pdf"
+           target="_blank"
+           class="download-button">
+           Show PDF
+        </a>
+
+      </div>
+
+      <iframe src="I2C esp32.pdf"
+              class="pdf-frame">
+      </iframe>
+
+    </div>
+
+  </div>
+
+</div>
 
 <footer>
 
@@ -1027,67 +858,51 @@ footer a {
 
 </footer>
 
-<!-- ================================= -->
-<!-- =========== JAVASCRIPT ========== -->
-<!-- ================================= -->
-
 <script>
-
-/* =============================== */
-/* ======== POPUP ELEMENT ======== */
-/* =============================== */
 
 const motorPopup =
       document.getElementById("motorPopup");
 
-/* =============================== */
-/* ========= OPEN POPUP ========== */
-/* =============================== */
+const i2cPopup =
+      document.getElementById("i2cPopup");
 
 function openMotorPopup() {
-
   motorPopup.classList.add("open");
-
   document.body.style.overflow = "hidden";
 }
 
-/* =============================== */
-/* ========= CLOSE POPUP ========= */
-/* =============================== */
-
 function closeMotorPopup() {
-
   motorPopup.classList.remove("open");
-
   document.body.style.overflow = "auto";
 }
 
-/* =============================== */
-/* ===== CLOSE IF OUTSIDE ======== */
-/* =============================== */
+function openI2cPopup() {
+  i2cPopup.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeI2cPopup() {
+  i2cPopup.classList.remove("open");
+  document.body.style.overflow = "auto";
+}
 
 motorPopup.addEventListener("click", (event) => {
-
   if (event.target === motorPopup) {
-
     closeMotorPopup();
-
   }
-
 });
 
-/* =============================== */
-/* ===== ESCAPE KEY SUPPORT ====== */
-/* =============================== */
+i2cPopup.addEventListener("click", (event) => {
+  if (event.target === i2cPopup) {
+    closeI2cPopup();
+  }
+});
 
 document.addEventListener("keydown", (event) => {
-
   if (event.key === "Escape") {
-
     closeMotorPopup();
-
+    closeI2cPopup();
   }
-
 });
 
 </script>
