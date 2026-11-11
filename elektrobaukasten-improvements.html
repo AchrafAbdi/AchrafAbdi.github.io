@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Further Improvements | Modularer Elektrobaukasten</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    body { background: #f8fafc; color: #1e293b; line-height: 1.65; }
+    a { text-decoration: none; color: #2563eb; }
+    a:hover { text-decoration: underline; }
+    header { text-align: center; padding: 65px 20px 48px; background: linear-gradient(to bottom, #fff, #eef4ff); border-bottom: 1px solid #e2e8f0; }
+    header h1 { font-size: clamp(2rem, 4vw, 2.7rem); color: #0f172a; margin: 12px 0; }
+    header p { max-width: 780px; margin: 0 auto; color: #475569; font-size: 1.06rem; }
+    .eyebrow { display: inline-block; background: #dbeafe; color: #1d4ed8; border-radius: 999px; padding: 5px 14px; font-size: .78rem; font-weight: 700; letter-spacing: .07em; }
+    .back-link { display: inline-block; margin-top: 22px; padding: 10px 18px; border-radius: 10px; background: #2563eb; color: #fff; font-weight: bold; }
+    .back-link:hover { background: #1d4ed8; color: #fff; text-decoration: none; }
+    main { max-width: 1180px; padding: 42px 20px 75px; margin: auto; }
+    .panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; box-shadow: 0 8px 24px rgba(15,23,42,.06); padding: 30px; margin-bottom: 26px; }
+    h2 { font-size: 1.75rem; color: #0f172a; margin-bottom: 12px; }
+    h3 { font-size: 1.15rem; color: #0f172a; margin-bottom: 10px; }
+    p { color: #475569; }
+    .intro { max-width: 900px; }
+    .video-area { margin-top: 24px; border-radius: 16px; overflow: hidden; background: #0f172a; }
+    video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: contain; background: #0f172a; }
+    .video-note { margin-top: 12px; font-size: .92rem; color: #64748b; }
+    .tagline { margin-top: 15px; padding: 13px 17px; border-radius: 12px; background: #eff6ff; border-left: 4px solid #2563eb; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .grid .panel { margin-bottom: 0; }
+    .number { display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 10px; background: #dbeafe; color: #1d4ed8; font-weight: 700; margin-bottom: 14px; }
+    .wide { grid-column: 1 / -1; }
+    .technical-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin: 17px 0 12px; }
+    .technical-flow span { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; padding: 8px 12px; border-radius: 9px; font-size: .91rem; font-weight: 600; }
+    .technical-flow b { color: #64748b; }
+    .photo { display: block; width: 100%; max-height: 440px; object-fit: contain; border-radius: 14px; background: #f8fafc; margin-top: 20px; }
+    .photo-caption { font-size: .9rem; margin-top: 8px; text-align: center; color: #64748b; }
+    footer { text-align: center; padding: 30px 20px; color: #64748b; }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } .wide { grid-column: auto; } .panel { padding: 22px; } main { padding-top: 25px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="eyebrow">PROJECT UPDATE · SOFTWARE OPTIMIZATION</span>
+    <h1>Modularer Elektrobaukasten</h1>
+    <p>Further development, improved communication, and automatic recovery for a more responsive and reliable system.</p>
+    <a class="back-link" href="elektrobaukasten.html">← Back to Project Overview</a>
+  </header>
+  <main>
+    <section class="panel">
+      <h2>Final System Demonstration</h2>
+      <p class="intro">The modular electrical kit was extended with LEDs and a horn to simulate vehicle functions. The demonstration shows the operation of basic and comfort functions using both physical push buttons and buttons on the web interface.</p>
+      <div class="video-area">
+        <!-- Demonstration video hosted in the GitHub Pages repository. -->
+        <video controls preload="metadata" poster="elektrobaukasten-demo.jpg" aria-label="Demonstration of the improved modular electrical kit">
+          <source src="videos_elektrobaukasten/Modularerelektrobaukasten_final.mp4" type="video/mp4">
+          Your browser does not support HTML video.
+        </video>
+      </div>
+      <p class="video-note">Video: final demonstration of the optimized system.</p>
+    </section>
+    <section class="grid" aria-label="Implemented improvements">
+      <article class="panel">
+        <div class="number">01</div>
+        <h2>Vehicle Function Simulation</h2>
+        <p>LEDs and a horn were integrated to simulate the electrical functions of a vehicle. Both physical push buttons and web-interface buttons allow the user to control the system's basic and comfort functions, making it possible to test the behavior directly on the prototype.</p>
+        <img class="photo" src="elektrobaukasten-demo.jpg" alt="Prototype with Arduino Mega, LEDs, push buttons and wiring">
+        <p class="photo-caption">Prototype used for the vehicle function demonstration</p>
+      </article>
+      <article class="panel">
+        <div class="number">02</div>
+        <h2>Optimized Data Transmission</h2>
+        <p>Previously, the Raspberry Pi transmitted data arrays to the Arduino Mega boards every 0.5 seconds, often sending unchanged information. These repeated transmissions interrupted the Arduino boards' processing and reduced the time available for other tasks.</p>
+        <p style="margin-top:12px">The communication logic was improved so that the relevant data arrays are sent when a button is pressed on the web interface, instead of being transmitted continuously. This reduces unnecessary communication and allows the Arduino boards to spend more time processing the required functions.</p>
+        <div class="technical-flow" aria-label="Optimized data path"><span>Web button press</span><b>→</b><span>Raspberry Pi</span><b>→</b><span>Arduino Mega</span></div>
+      </article>
+      <article class="panel wide">
+        <div class="number">03</div>
+        <h2>Automatic Recovery with a Watchdog</h2>
+        <p>During operation, the Arduino Mega boards occasionally became unresponsive, particularly when processing tasks were repeatedly interrupted by cyclic communication with the Raspberry Pi. Previously, this could require a manual restart.</p>
+        <p style="margin-top:12px">A watchdog mechanism was introduced to improve reliability. If an Arduino stops responding for approximately two seconds, the watchdog automatically resets the board. This enables the system to recover without requiring the user to press the reset button manually.</p>
+        <div class="tagline"><strong>Result:</strong> Faster response to control inputs, less unnecessary data traffic, and improved recovery from software lockups.</div>
+      </article>
+    </section>
+  </main>
+  <footer>© 2026 Achraf Abdi. All rights reserved.</footer>
+</body>
+</html>
